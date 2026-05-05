@@ -42,8 +42,8 @@ export default function Footer() {
         <div>
           <h4 className="text-white text-lg font-extrabold mb-6">{t('nav.contact')}</h4>
           <p className="text-[15px] mb-4 flex items-start gap-3 text-slate-400">📍 {t('contact.address')}</p>
-          <p className="text-[15px] mb-4 flex items-start gap-3 text-slate-400">📞 +91 98765 43210</p>
-          <p className="text-[15px] mb-4 flex items-start gap-3 text-slate-400">✉️ janseva@example.com</p>
+          <a href="tel:+917233060698" className="text-[15px] mb-4 flex items-start gap-3 text-slate-400">📞 +91 7233060698</a>
+          <a href='mailto:janseva@example.com' className="text-[15px] mb-4 flex items-start gap-3 text-slate-400">✉️ janseva@example.com</a>
         </div>
       </div>
 
