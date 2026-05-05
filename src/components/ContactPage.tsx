@@ -10,22 +10,39 @@ export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  // Replace this URL with your Google Apps Script Web App URL or SheetDB URL
+  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzec2hhA5c5nUf5hlTEz9sDjR679qG8SIiDwyM3naG_KlR7RM3BL4OsPj0MjTwWIXgJgg/exec';
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate network request
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    
+    // Automatically set the status to Pending
+    formData.append('Status', 'Pending');
 
-    setIsSubmitting(false);
-    setSubmitted(true);
+    try {
+      // Send data to Google Apps Script
+      await fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', // Important for Google Apps Script
+        body: formData,
+      });
 
-    // Reset success message after 5 seconds
-    setTimeout(() => setSubmitted(false), 5000);
+      console.log('Form data submitted to Excel successfully.');
 
-    // Reset form
-    const form = e.target as HTMLFormElement;
-    form.reset();
+      setSubmitted(true);
+      // Reset success message after 5 seconds
+      setTimeout(() => setSubmitted(false), 5000);
+      form.reset();
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('There was an error submitting your form. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -87,12 +104,13 @@ export default function ContactPage() {
 
               <div className="flex flex-col gap-2">
                 <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">{t('apply.name')}</label>
-                <input type="text" required className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)]" placeholder={t('apply.name.placeholder')} />
+                <input name="Name" type="text" required className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)]" placeholder={t('apply.name.placeholder')} />
               </div>
 
               <div className="flex flex-col gap-2">
                 <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">{t('apply.mobile')}</label>
                 <input
+                  name="Mobile"
                   type="tel"
                   required
                   pattern="[0-9]{10}"
@@ -105,7 +123,7 @@ export default function ContactPage() {
 
               <div className="flex flex-col gap-2">
                 <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">{t('apply.service')}</label>
-                <select required className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 appearance-none focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)] bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer">
+                <select name="Service" required className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 appearance-none focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)] bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer">
                   <option value="">{t('apply.service.placeholder')}</option>
                   <option value="aadhaar">{t('services.aadhaar')}</option>
                   <option value="pan">{t('services.pan')}</option>
@@ -118,6 +136,7 @@ export default function ContactPage() {
               <div className="flex flex-col gap-2">
                 <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">{t('apply.message')}</label>
                 <textarea
+                  name="Message"
                   className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)] min-h-[120px] resize-y"
                   placeholder={t('apply.message.placeholder')}
                 />
