@@ -25,11 +25,11 @@ export default function HomePage() {
 
   return (
     <PageTransition>
-      <SEO 
-        title={t('nav.home')} 
-        description={t('services.subtitle')} 
+      <SEO
+        title={t('nav.home')}
+        description={t('services.subtitle')}
       />
-      
+
       {/* Hero Banner */}
       <section className="w-full aspect-video max-h-[100vh] overflow-hidden relative bg-slate-50" id="hero-section">
         <img src="/images/hero-banner.jpeg" alt="Jan Seva Kendra Banner" className="w-full h-full object-cover block" />
@@ -73,7 +73,7 @@ export default function HomePage() {
       </section>
 
       {/* Government Schemes Badge Strip */}
-      <div className="bg-white py-12 px-4">
+      <div className="bg-white py-12 px-4 border-b border-slate-100">
         <h3 className="text-center text-sm text-slate-500 font-bold mb-8 uppercase tracking-widest">{t('schemes.title')}</h3>
         <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
           {schemes.map((s, i) => (
@@ -83,6 +83,84 @@ export default function HomePage() {
           ))}
         </div>
       </div>
+
+      {/* Why Choose Us */}
+      <section className="py-16 px-4 bg-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-orange-500/5 rounded-full blur-3xl -z-10" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl -z-10" />
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-3">{t('home.why.title')}</h2>
+            <div className="w-16 h-1 bg-orange-500 rounded-full mx-auto" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              { icon: '⚡', title: t('home.why.1.title'), desc: t('home.why.1.desc') },
+              { icon: '👨‍💼', title: t('home.why.2.title'), desc: t('home.why.2.desc') },
+              { icon: '🔒', title: t('home.why.3.title'), desc: t('home.why.3.desc') }
+            ].map((feature, i) => (
+              <div key={i} className="bg-white border border-slate-100 p-8 rounded-2xl text-center hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-xl">
+                <div className="w-16 h-16 bg-slate-50 rounded-2xl shadow-inner flex items-center justify-center text-3xl mx-auto mb-6">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+                <p className="text-slate-600">{feature.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How It Works */}
+      <section className="py-20 px-4 bg-slate-900 text-white relative overflow-hidden">
+        {/* Abstract Background Shapes */}
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-5xl mx-auto relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">{t('home.process.title')}</h2>
+            <div className="w-16 h-1 bg-orange-500 rounded-full mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 relative">
+            <div className="hidden md:block absolute top-10 left-[15%] right-[15%] h-0.5 bg-slate-800 -translate-y-1/2 z-0" />
+
+            {[
+              { step: '1', text: t('home.process.1'), icon: '📱' },
+              { step: '2', text: t('home.process.2'), icon: '📂' },
+              { step: '3', text: t('home.process.3'), icon: '✅' },
+            ].map((process, i) => (
+              <div key={i} className="relative z-10 flex flex-col items-center text-center group">
+                <div className="w-20 h-20 bg-slate-800 border-4 border-slate-900 rounded-full flex items-center justify-center text-3xl shadow-xl mb-6 relative group-hover:scale-110 group-hover:border-orange-500 transition-all duration-300">
+                  {process.icon}
+                  <span className="absolute -top-2 -right-2 w-8 h-8 bg-orange-500 text-white text-sm font-bold rounded-full flex items-center justify-center border-4 border-slate-900 shadow-md">
+                    {process.step}
+                  </span>
+                </div>
+                <p className="text-lg font-medium text-slate-300 max-w-[200px]">{process.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 px-4 relative overflow-hidden bg-slate-50">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <h2 className="text-slate-900 text-3xl md:text-5xl font-extrabold mb-6 leading-tight drop-shadow-sm">
+            {t('apply.title')}
+          </h2>
+          <p className="text-slate-900 text-lg md:text-xl text-orange-50 mb-10 max-w-2xl mx-auto font-medium">
+            {t('apply.subtitle')}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onClick={() => navigate('/contact')} className="px-8 py-4 bg-orange-600 text-white font-bold rounded-xl hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 active:translate-y-0 cursor-pointer">
+              {t('nav.contact')}
+            </button>
+          </div>
+        </div>
+      </section>
     </PageTransition>
   );
 }

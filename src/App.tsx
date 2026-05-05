@@ -17,10 +17,11 @@ function ScrollToTop() {
 }
 
 import { AnimatePresence } from 'framer-motion';
+import ServiceDetailPage from './components/ServiceDetailPage';
 
 function AppContent() {
   const location = useLocation();
-  
+
   return (
     <>
       <ScrollToTop />
@@ -30,6 +31,7 @@ function AppContent() {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<HomePage />} />
             <Route path="/services" element={<ServicesPage />} />
+            <Route path="/service/:id" element={<ServiceDetailPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<HomePage />} />
@@ -41,7 +43,7 @@ function AppContent() {
       {/* Floating WhatsApp Button */}
       <a
         className="fixed bottom-8 right-8 z-[999] w-16 h-16 rounded-[20px] bg-emerald-500 text-white border-none cursor-pointer flex items-center justify-center shadow-[0_10px_32px_rgba(16,185,129,0.4)] transition-all duration-300 animate-fab hover:scale-110 hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(16,185,129,0.5)] hover:rounded-3xl"
-        href="https://wa.me/919876543210?text=Hello%20Jan%20Seva%20Kendra"
+        href="https://wa.me/917233060698?text=Hello%20Jan%20Seva%20Kendra"
         target="_blank"
         rel="noopener noreferrer"
         id="whatsapp-fab"

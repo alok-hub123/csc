@@ -31,8 +31,8 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isTransparent
-        ? 'bg-transparent'
-        : 'bg-white/80 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(15,23,42,0.08)]'
+      ? 'backdrop-blur-xl backdrop-blur-xl'
+      : 'bg-white/80 backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(15,23,42,0.08)]'
       }`}>
 
       {/* Announcement Ticker */}
@@ -47,7 +47,7 @@ export default function Navbar() {
 
       {/* Main Navbar */}
       <div className="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto">
-        <Link 
+        <Link
           to="/"
           className="flex items-center gap-3 cursor-pointer"
           onClick={() => setMobileMenuOpen(false)}
@@ -72,8 +72,8 @@ export default function Navbar() {
               key={link.id}
               to={link.id === 'home' ? '/' : `/${link.id}`}
               className={`cursor-pointer px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 ${currentPage === link.id
-                  ? (isTransparent ? 'bg-white/20 text-white' : 'bg-orange-500/10 text-orange-600')
-                  : (isTransparent ? 'text-white hover:bg-white/10 hover:text-white' : 'text-slate-600 hover:bg-orange-500/10 hover:text-orange-600')
+                ? (isTransparent ? 'bg-white/20 text-white' : 'bg-orange-500/10 text-orange-600')
+                : (isTransparent ? 'text-white hover:bg-white/10 hover:text-white' : 'text-slate-600 hover:bg-orange-500/10 hover:text-orange-600')
                 }`}
             >
               {link.label}
@@ -86,8 +86,8 @@ export default function Navbar() {
           <button
             onClick={toggleLang}
             className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-bold shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md ${isTransparent
-                ? 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
-                : 'bg-white border border-white/60 text-slate-900 hover:text-orange-500'
+              ? 'bg-white/20 text-white border border-white/30 hover:bg-white/30'
+              : 'bg-white border border-white/60 text-slate-900 hover:text-orange-500'
               }`}
           >
             {lang === 'en' ? 'हिंदी' : 'English'}
@@ -113,8 +113,8 @@ export default function Navbar() {
               to={link.id === 'home' ? '/' : `/${link.id}`}
               onClick={() => setMobileMenuOpen(false)}
               className={`cursor-pointer text-left px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${currentPage === link.id
-                  ? 'bg-orange-500/10 text-orange-600'
-                  : 'text-slate-600 hover:bg-orange-500/10 hover:text-orange-600'
+                ? 'bg-orange-500/10 text-orange-600'
+                : 'text-slate-600 hover:bg-orange-500/10 hover:text-orange-600'
                 }`}
             >
               {link.label}

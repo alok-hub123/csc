@@ -13,7 +13,6 @@ const translations: Record<string, Record<Language, string>> = {
   'nav.home': { en: 'Home', hi: 'होम' },
   'nav.services': { en: 'Services', hi: 'सेवाएं' },
   'nav.about': { en: 'About', hi: 'हमारे बारे में' },
-  'nav.apply': { en: 'Apply Online', hi: 'ऑनलाइन आवेदन' },
   'nav.contact': { en: 'Contact', hi: 'संपर्क' },
 
   // Hero
@@ -38,6 +37,11 @@ const translations: Record<string, Record<Language, string>> = {
   'services.utility': { en: 'Utility Services', hi: 'यूटिलिटी सेवाएं' },
   'services.health': { en: 'Health Services', hi: 'स्वास्थ्य सेवाएं' },
   'services.contact': { en: 'Contact for this service', hi: 'इस सेवा के लिए संपर्क करें' },
+  'services.search.placeholder': { en: 'Search services...', hi: 'सेवाएं खोजें...' },
+  'services.viewDetail': { en: 'View Detail', hi: 'विवरण देखें' },
+  'services.docsRequired': { en: 'Documents Required', hi: 'आवश्यक दस्तावेज़' },
+  'services.quickShare': { en: 'Quick Share', hi: 'शेयर करें' },
+  'services.notFound': { en: 'Service not found', hi: 'सेवा नहीं मिली' },
 
   // Government Services
   'services.aadhaar': { en: 'Aadhaar Services', hi: 'आधार सेवाएं' },
@@ -95,7 +99,7 @@ const translations: Record<string, Record<Language, string>> = {
   'about.mission.point4': { en: 'Ensure last-mile delivery of government schemes', hi: 'सरकारी योजनाओं की अंतिम-मील डिलीवरी सुनिश्चित करना' },
 
   // Apply page
-  'apply.title': { en: 'Apply Online', hi: 'ऑनलाइन आवेदन' },
+  'apply.title': { en: 'Request for Service', hi: 'सेवा के लिए अनुरोध' },
   'apply.subtitle': { en: 'Submit your service request from the comfort of your home', hi: 'अपने घर बैठे अपना सेवा अनुरोध जमा करें' },
   'apply.name': { en: 'Full Name', hi: 'पूरा नाम' },
   'apply.name.placeholder': { en: 'Enter your full name', hi: 'अपना पूरा नाम दर्ज करें' },
@@ -116,7 +120,7 @@ const translations: Record<string, Record<Language, string>> = {
   'contact.address.title': { en: 'Address', hi: 'पता' },
   'contact.address': { en: 'Digital Gramin Service Centre\nNauwa Gaon, Uttar Pradesh\nIndia', hi: 'डिजिटल ग्रामीण सेवा केंद्र\nनौवा गांव, उत्तर प्रदेश\nभारत' },
   'contact.phone.title': { en: 'Phone', hi: 'फ़ोन' },
-  'contact.phone': { en: '+91 98765 43210', hi: '+91 98765 43210' },
+  'contact.phone': { en: '+91 7233060698', hi: '+91 7233060698' },
   'contact.whatsapp.title': { en: 'WhatsApp', hi: 'व्हाट्सएप' },
   'contact.hours.title': { en: 'Working Hours', hi: 'कार्य समय' },
   'contact.hours': { en: 'Mon - Sat: 9:00 AM - 6:00 PM\nSunday: Closed', hi: 'सोम - शनि: सुबह 9:00 - शाम 6:00\nरविवार: बंद' },
@@ -149,6 +153,19 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Quick services
   'quick.title': { en: 'Popular Services', hi: 'लोकप्रिय सेवाएं' },
+
+  // Home - Additional Sections
+  'home.why.title': { en: 'Why Choose Us', hi: 'हमें क्यों चुनें' },
+  'home.why.1.title': { en: 'Fast Processing', hi: 'तेज़ प्रोसेसिंग' },
+  'home.why.1.desc': { en: 'Quick and hassle-free service delivery', hi: 'त्वरित और परेशानी मुक्त सेवा वितरण' },
+  'home.why.2.title': { en: 'Expert Staff', hi: 'विशेषज्ञ कर्मचारी' },
+  'home.why.2.desc': { en: 'Experienced professionals to guide you', hi: 'आपका मार्गदर्शन करने के लिए अनुभवी पेशेवर' },
+  'home.why.3.title': { en: 'Secure & Reliable', hi: 'सुरक्षित और विश्वसनीय' },
+  'home.why.3.desc': { en: '100% data privacy and secure processing', hi: '100% डेटा गोपनीयता और सुरक्षित प्रोसेसिंग' },
+  'home.process.title': { en: 'How It Works', hi: 'यह कैसे काम करता है' },
+  'home.process.1': { en: 'Visit our centre or enquiry online', hi: 'हमारे केंद्र पर आए या ऑनलाइन पूछताछ करें' },
+  'home.process.2': { en: 'Submit required documents', hi: 'आवश्यक दस्तावेज़ जमा करें' },
+  'home.process.3': { en: 'Track status and receive service', hi: 'स्थिति ट्रैक करें और सेवा प्राप्त करें' },
 };
 
 const LanguageContext = createContext<LanguageContextType | null>(null);

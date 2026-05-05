@@ -62,14 +62,14 @@ export default function ContactPage() {
               <div className="glass-panel p-6 rounded-[24px] text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex-1 flex flex-col items-center justify-center">
                 <div className="w-16 h-16 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center text-2xl mx-auto mb-6 shadow-inner transition-colors group-hover:bg-orange-500 group-hover:text-white">📞</div>
                 <h4 className="text-xs font-extrabold text-slate-500 uppercase tracking-widest mb-3">{t('contact.phone.title')}</h4>
-                <a href="tel:+919876543210" className="cursor-pointer text-lg text-slate-900 font-bold leading-relaxed whitespace-pre-line hover:text-orange-500">{t('contact.phone')}</a>
+                <a href="tel:+917233060698" className="cursor-pointer text-lg text-slate-900 font-bold leading-relaxed whitespace-pre-line hover:text-orange-500">{t('contact.phone')}</a>
               </div>
 
               <div className="glass-panel p-6 rounded-[24px] text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex-1 flex flex-col items-center justify-center">
                 <div className="w-16 h-16 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center text-2xl mx-auto mb-6 shadow-inner transition-colors group-hover:bg-emerald-500 group-hover:text-white">💬</div>
                 <h4 className="text-xs font-extrabold text-slate-500 uppercase tracking-widest mb-3">{t('contact.whatsapp.title')}</h4>
                 <a
-                  href="https://wa.me/919876543210"
+                  href="https://wa.me/917233060698"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="cursor-pointer inline-flex items-center gap-2 px-6 py-3 bg-emerald-50 text-emerald-600 font-bold rounded-xl transition-all duration-300 hover:bg-emerald-500 hover:text-white"
