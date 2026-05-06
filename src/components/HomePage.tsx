@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useLang } from '../context/LanguageContext';
 import AnimatedCounter from './AnimatedCounter';
 import PageTransition from './PageTransition';
@@ -31,12 +31,67 @@ export default function HomePage() {
       />
 
       {/* Hero Banner */}
-      <section className="w-full aspect-video max-h-[100vh] overflow-hidden relative bg-slate-50" id="hero-section">
-        <img src="/images/hero-banner.jpeg" alt="KIOSK Banner" className="w-full h-full object-cover block" />
+      <section className="w-full relative min-h-[85vh] flex items-center justify-center bg-slate-900 overflow-hidden pt-10 d" id="hero-section">
+        {/* Background Image with Dark Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img src="/images/hero-banner.jpeg" alt="KIOSK Banner" className="w-full h-full object-cover object-center opacity-30 mix-blend-overlay" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 via-slate-900/80 to-slate-900"></div>
+
+          {/* Decorative Orbs */}
+          <div className="absolute top-1/4 -left-32 w-96 h-96 bg-orange-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+          <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full max-w-4xl mx-auto px-6 pt-20 pb-16 text-center flex flex-col items-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/10 backdrop-blur-md mb-8">
+            <span className="text-orange-400">{t('hero.badge').split(' ')[0]}</span>
+            <span className="text-xs sm:text-sm font-bold text-white tracking-wider uppercase">{t('hero.badge').split(' ').slice(1).join(' ')}</span>
+          </div>
+
+          <h1 className="text-2xl sm:text-6xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 leading-tight mb-6 tracking-tight">
+            {t('hero.title')}
+          </h1>
+
+          <p className="text-md md:text-2xl text-slate-300 max-w-2xl font-medium mb-10 leading-relaxed">
+            {t('hero.tagline')}
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-5">
+            <Link to="/services" className="px-6 py-3 rounded-xl bg-gradient-to-r from-orange-500 to-orange-600 text-white font-bold text-lg hover:shadow-[0_8px_25px_rgba(249,115,22,0.4)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3">
+              <span>{t('hero.cta1')}</span>
+              <span className="text-xl">➔</span>
+            </Link>
+            <Link to="/contact" className="px-6 py-3 rounded-xl bg-white/10 text-white border border-white/20 font-bold text-lg backdrop-blur-md hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-3">
+              <span>{t('hero.cta2')}</span>
+              <span className="text-xl">📝</span>
+            </Link>
+          </div>
+
+          {/* Feature Highlights */}
+          <div className="mt-12 pt-10 border-t border-white/10 w-full max-w-3xl grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="flex flex-col items-center gap-3">
+              <span className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-2xl">🏛️</span>
+              <span className="text-sm text-slate-300 font-medium">{t('services.govt')}</span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <span className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-2xl">🏦</span>
+              <span className="text-sm text-slate-300 font-medium">{t('services.financial')}</span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <span className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-2xl">💡</span>
+              <span className="text-sm text-slate-300 font-medium">{t('services.utility')}</span>
+            </div>
+            <div className="flex flex-col items-center gap-3">
+              <span className="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-2xl">🏥</span>
+              <span className="text-sm text-slate-300 font-medium">{t('services.health')}</span>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 px-4 py-8 max-w-7xl mx-auto relative z-10" id="stats-section">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 px-4 py-10 max-w-7xl mx-auto relative z-20" id="stats-section">
         {[
           { end: 15000, suffix: '+', label: t('stats.citizens') },
           { end: 50, suffix: '+', label: t('stats.services') },

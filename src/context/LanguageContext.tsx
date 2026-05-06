@@ -17,8 +17,7 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Hero
   'hero.badge': { en: '🏛️ Government Authorized Centre', hi: '🏛️ सरकारी अधिकृत केंद्र' },
-  'hero.title': { en: 'KIOSK', hi: 'जन सेवा केंद्र' },
-  'hero.subtitle': { en: 'Common Service Centre (CSC)', hi: 'कॉमन सर्विस सेंटर (CSC)' },
+  'hero.title': { en: 'KIOSK- Digital Gramin Service Center', hi: 'कियोस्क- डिजिटल ग्रामीण सेवा केंद्र' },
   'hero.tagline': { en: 'Bringing Digital India to Your Doorstep', hi: 'डिजिटल इंडिया आपके दरवाज़े पर' },
   'hero.cta1': { en: 'Our Services', hi: 'हमारी सेवाएं' },
   'hero.cta2': { en: 'Apply Now', hi: 'अभी आवेदन करें' },
@@ -31,17 +30,18 @@ const translations: Record<string, Record<Language, string>> = {
 
   // Services page
   'services.title': { en: 'Our Services', hi: 'हमारी सेवाएं' },
-  'services.subtitle': { en: 'Comprehensive digital services for every citizen', hi: 'हर नागरिक के लिए व्यापक डिजिटल सेवाएं' },
+  'services.subtitle': { en: 'Comprehensive digital services for all your needs', hi: 'आपकी सभी जरूरतों के लिए व्यापक डिजिटल सेवाएं' },
   'services.govt': { en: 'Government Services', hi: 'सरकारी सेवाएं' },
   'services.financial': { en: 'Financial Services', hi: 'वित्तीय सेवाएं' },
   'services.utility': { en: 'Utility Services', hi: 'यूटिलिटी सेवाएं' },
   'services.health': { en: 'Health Services', hi: 'स्वास्थ्य सेवाएं' },
-  'services.contact': { en: 'Contact for this service', hi: 'इस सेवा के लिए संपर्क करें' },
-  'services.search.placeholder': { en: 'Search services...', hi: 'सेवाएं खोजें...' },
-  'services.viewDetail': { en: 'View Detail', hi: 'विवरण देखें' },
-  'services.docsRequired': { en: 'Documents Required', hi: 'आवश्यक दस्तावेज़' },
-  'services.quickShare': { en: 'Quick Share', hi: 'शेयर करें' },
-  'services.notFound': { en: 'Service not found', hi: 'सेवा नहीं मिली' },
+  'services.contact': { en: 'Contact for this Service', hi: 'इस सेवा के लिए संपर्क करें' },
+  'services.search.placeholder': { en: 'Search for a service...', hi: 'कोई सेवा खोजें...' },
+  'services.viewDetail': { en: 'View Details', hi: 'विवरण देखें' },
+  'services.docsRequired': { en: 'Documents Required', hi: 'आवश्यक दस्तावेज' },
+  'services.quickShare': { en: 'Share Service', hi: 'सेवा साझा करें' },
+  'services.notFound': { en: 'Service Not Found', hi: 'सेवा नहीं मिली' },
+  'services.all': { en: 'All Services', hi: 'सभी सेवाएं' },
 
   // Government Services
   'services.aadhaar': { en: 'Aadhaar Services', hi: 'आधार सेवाएं' },

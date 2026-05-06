@@ -8,6 +8,7 @@ export default function ServicesPage() {
   const { t, lang } = useLang();
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeTab, setActiveTab] = useState('All');
 
   const categories = [
     {
@@ -61,13 +62,18 @@ export default function ServicesPage() {
     },
   ];
 
-  const filteredCategories = categories.map(cat => ({
-    ...cat,
-    items: cat.items.filter(item =>
-      item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.desc.toLowerCase().includes(searchQuery.toLowerCase())
-    )
-  })).filter(cat => cat.items.length > 0);
+  // Always ensure 'All' defaults to t('services.all') on first render or language change
+  const currentTab = activeTab === 'All' ? t('services.all') : activeTab;
+  const tabs = [t('services.all'), ...categories.map(c => c.title)];
+
+  const displayedCategories = currentTab === t('services.all')
+    ? categories
+    : categories.filter(c => c.title === currentTab);
+
+  const filteredItems = displayedCategories.flatMap(cat => cat.items).filter(item =>
+    item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    item.desc.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <PageTransition className="mt-[116px]">
@@ -94,39 +100,46 @@ export default function ServicesPage() {
           </div>
         </div>
 
-        {filteredCategories.length === 0 ? (
+        {/* Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+          {tabs.map((tab, idx) => (
+            <button
+              key={idx}
+              onClick={() => setActiveTab(tab)}
+              className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer ${currentTab === tab ? 'bg-orange-500 text-white shadow-[0_4px_12px_rgba(249,115,22,0.25)] border border-orange-500' : 'bg-white text-slate-600 hover:bg-orange-50 border border-slate-200 hover:border-orange-200 hover:text-orange-600'}`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+
+        {filteredItems.length === 0 ? (
           <div className="text-center py-12 text-slate-500 text-lg font-medium">
             {lang === 'hi' ? 'कोई सेवा नहीं मिली' : `No services found matching "${searchQuery}"`}
           </div>
         ) : (
-          filteredCategories.map((cat, ci) => (
-            <div className="mb-16" key={ci}>
-              <h3 className="text-2xl font-extrabold text-slate-900 mb-6 flex items-center gap-3 before:content-[''] before:block before:w-1.5 before:h-6 before:bg-orange-500 before:rounded">
-                {cat.title}
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-                {cat.items.map((item, ii) => (
-                  <div
-                    className="glass-panel glass-panel-hover rounded-[24px] p-8 md:p-10 transition-all duration-300 relative overflow-hidden group cursor-pointer"
-                    key={ii}
-                    onClick={() => navigate(`/service/${item.id}`)}
-                  >
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-transparent rounded-bl-full pointer-events-none" />
-                    <div className="w-16 h-16 rounded-2xl bg-white/50 border border-white/60 shadow-[0_4px_12px_rgba(15,23,42,0.05)] flex items-center justify-center text-3xl mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h4 className="text-xl font-extrabold text-slate-900 mb-3">{item.name}</h4>
-                      <p className="text-[15px] text-slate-600 font-medium leading-relaxed mb-6">{item.desc}</p>
-                      <button className="cursor-pointer text-orange-500 font-extrabold text-[13.5px] uppercase tracking-wide flex items-center gap-2 transition-all opacity-80 group-hover:opacity-100">
-                        👁️ {t('services.viewDetail')}
-                      </button>
-                    </div>
-                  </div>
-                ))}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {filteredItems.map((item, ii) => (
+              <div
+                className="glass-panel glass-panel-hover rounded-[24px] p-8 md:p-10 transition-all duration-300 relative overflow-hidden group cursor-pointer"
+                key={item.id}
+                onClick={() => navigate(`/service/${item.id}`)}
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-transparent rounded-bl-full pointer-events-none" />
+                <div className="w-16 h-16 rounded-2xl bg-white/50 border border-white/60 shadow-[0_4px_12px_rgba(15,23,42,0.05)] flex items-center justify-center text-3xl mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                  {item.icon}
+                </div>
+                <div>
+                  <h4 className="text-xl font-extrabold text-slate-900 mb-3">{item.name}</h4>
+                  <p className="text-[15px] text-slate-600 font-medium leading-relaxed mb-6">{item.desc}</p>
+                  <button className="cursor-pointer text-orange-500 font-extrabold text-[13.5px] uppercase tracking-wide flex items-center gap-2 transition-all opacity-80 group-hover:opacity-100">
+                    👁️ {t('services.viewDetail')}
+                  </button>
+                </div>
               </div>
-            </div>
-          )))}
+            ))}
+          </div>
+        )}
       </section>
     </PageTransition>
   );
