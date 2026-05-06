@@ -113,6 +113,13 @@ const translations: Record<string, Record<Language, string>> = {
   'apply.document.hint': { en: 'Upload ID proof or relevant documents (PDF, JPG, PNG — Max 5MB)', hi: 'पहचान पत्र या संबंधित दस्तावेज़ अपलोड करें (PDF, JPG, PNG — अधिकतम 5MB)' },
   'apply.submit': { en: 'Submit Application', hi: 'आवेदन जमा करें' },
   'apply.success': { en: '✅ Your application has been submitted successfully! We will contact you shortly.', hi: '✅ आपका आवेदन सफलतापूर्वक जमा हो गया है! हम जल्द ही आपसे संपर्क करेंगे।' },
+  'apply.otherService': { en: 'Other Service', hi: 'अन्य सेवा' },
+  'apply.otherService.placeholder': { en: 'Please specify the service', hi: 'कृपया सेवा निर्दिष्ट करें' },
+  'apply.requestType': { en: 'Request Type', hi: 'अनुरोध प्रकार' },
+  'apply.requestType.query': { en: 'Query', hi: 'पूछताछ' },
+  'apply.requestType.feedback': { en: 'Feedback', hi: 'प्रतिक्रिया' },
+  'apply.requestType.complaint': { en: 'Complaint', hi: 'शिकायत' },
+  'apply.requiredNote': { en: 'Indicates required field', hi: 'अनिवार्य फ़ील्ड को दर्शाता है' },
 
   // Contact page
   'contact.title': { en: 'Contact Us', hi: 'संपर्क करें' },
@@ -166,6 +173,14 @@ const translations: Record<string, Record<Language, string>> = {
   'home.process.1': { en: 'Visit our centre or enquiry online', hi: 'हमारे केंद्र पर आए या ऑनलाइन पूछताछ करें' },
   'home.process.2': { en: 'Submit required documents', hi: 'आवश्यक दस्तावेज़ जमा करें' },
   'home.process.3': { en: 'Track status and receive service', hi: 'स्थिति ट्रैक करें और सेवा प्राप्त करें' },
+
+  // Employees section
+  'home.employees.title': { en: 'Our Team', hi: 'हमारी टीम' },
+  'home.employees.subtitle': { en: 'Dedicated professionals at your service', hi: 'आपकी सेवा में समर्पित पेशेवर' },
+
+  // Testimonial section
+  'home.testimonials.title': { en: 'What Our Citizens Say', hi: 'हमारे नागरिक क्या कहते हैं' },
+  'home.testimonials.subtitle': { en: 'Feedback from our valuable visitors', hi: 'हमारे मूल्यवान आगंतुकों की प्रतिक्रिया' },
 };
 
 const LanguageContext = createContext<LanguageContextType | null>(null);

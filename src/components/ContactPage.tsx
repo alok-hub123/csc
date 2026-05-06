@@ -9,6 +9,7 @@ export default function ContactPage() {
   // Form State
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [selectedService, setSelectedService] = useState('');
 
   // Replace this URL with your Google Apps Script Web App URL or SheetDB URL
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzec2hhA5c5nUf5hlTEz9sDjR679qG8SIiDwyM3naG_KlR7RM3BL4OsPj0MjTwWIXgJgg/exec';
@@ -19,7 +20,16 @@ export default function ContactPage() {
 
     const form = e.currentTarget;
     const formData = new FormData(form);
-    
+
+    // Map 'other' service to the custom input value
+    if (formData.get('Service') === 'other') {
+      const otherService = formData.get('OtherService');
+      if (otherService) {
+        formData.set('Service', otherService as string);
+      }
+      formData.delete('OtherService');
+    }
+
     // Automatically set the status to Pending
     formData.append('Status', 'Pending');
 
@@ -101,14 +111,19 @@ export default function ContactPage() {
           <div className="w-full">
             <h3 className="text-2xl font-extrabold text-slate-900 mb-6 leading-tight text-center lg:text-left">{t('apply.title')}</h3>
             <form className="glass-panel p-8 md:p-10 rounded-[32px] space-y-6" onSubmit={handleSubmit} id="apply-form">
+              <p className="text-sm text-right font-semibold text-slate-500 mb-2"><span className="text-red-500">* </span> {t('apply.requiredNote')}</p>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">{t('apply.name')}</label>
+                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">
+                  {t('apply.name')} <span className="text-red-500">*</span>
+                </label>
                 <input name="Name" type="text" required className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)]" placeholder={t('apply.name.placeholder')} />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">{t('apply.mobile')}</label>
+                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">
+                  {t('apply.mobile')} <span className="text-red-500">*</span>
+                </label>
                 <input
                   name="Mobile"
                   type="tel"
@@ -122,14 +137,42 @@ export default function ContactPage() {
 
 
               <div className="flex flex-col gap-2">
-                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">{t('apply.service')}</label>
-                <select name="Service" required className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 appearance-none focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)] bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer">
-                  <option value="">{t('apply.service.placeholder')}</option>
+                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">
+                  {t('apply.service')} <span className="text-red-500">*</span>
+                </label>
+                <select name="Service" value={selectedService} onChange={(e) => setSelectedService(e.target.value)} required className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 appearance-none focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)] bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer">
+                  <option value="" disabled>{t('apply.service.placeholder')}</option>
                   <option value="aadhaar">{t('services.aadhaar')}</option>
                   <option value="pan">{t('services.pan')}</option>
                   <option value="banking">{t('services.banking')}</option>
                   <option value="certificates">{t('services.certificates')}</option>
-                  <option value="other">Other</option>
+                  <option value="other">{t('apply.otherService')}</option>
+                </select>
+              </div>
+
+              {selectedService === 'other' && (
+                <div className="flex flex-col gap-2">
+                  <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">
+                    {t('apply.otherService')} <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    name="OtherService"
+                    type="text"
+                    required
+                    className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)]"
+                    placeholder={t('apply.otherService.placeholder')}
+                  />
+                </div>
+              )}
+
+              <div className="flex flex-col gap-2">
+                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">
+                  {t('apply.requestType')} <span className="text-red-500">*</span>
+                </label>
+                <select name="RequestType" required defaultValue="query" className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 appearance-none focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)] bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer">
+                  <option value="query">{t('apply.requestType.query')}</option>
+                  <option value="feedback">{t('apply.requestType.feedback')}</option>
+                  <option value="complaint">{t('apply.requestType.complaint')}</option>
                 </select>
               </div>
 
