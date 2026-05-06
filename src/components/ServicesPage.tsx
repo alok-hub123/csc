@@ -102,12 +102,12 @@ export default function ServicesPage() {
         </div>
 
         {/* Tabs — Pill Style */}
-        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 p-2 bg-white rounded-full max-w-max mx-auto border border-slate-100">
+        <div className="flex overflow-x-auto items-center md:justify-center gap-2 mb-12 p-2 bg-white rounded-full max-w-max mx-auto border border-slate-100">
           {tabs.map((tab, idx) => (
             <button
               key={idx}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer ${currentTab === tab ? 'bg-orange-500 text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)]' : 'text-slate-500 hover:text-[#111] hover:bg-white'}`}
+              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer whitespace-nowrap ${currentTab === tab ? 'bg-orange-500 text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)]' : 'text-slate-500 hover:text-[#111] hover:bg-white'}`}
             >
               {tab}
             </button>
@@ -120,7 +120,7 @@ export default function ServicesPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-            {filteredItems.map((item, ii) => (
+            {filteredItems.map((item) => (
               <div
                 className="bg-white border border-slate-100 rounded-[24px] p-8 md:p-9 transition-all duration-400 relative overflow-hidden group cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_16px_48px_rgba(0,0,0,0.06)] hover:border-orange-100"
                 key={item.id}

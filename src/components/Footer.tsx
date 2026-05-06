@@ -46,7 +46,14 @@ export default function Footer() {
 
         <div>
           <h4 className="text-white text-sm font-extrabold mb-7 uppercase tracking-widest">{t('nav.contact')}</h4>
-          <p className="text-[15px] mb-5 flex items-start gap-3 text-white/40">📍 {t('contact.address')}</p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=Digital+Gramin+Service+Centre+Nauwa+Gaon"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[15px] mb-5 flex items-start gap-3 text-white/40 hover:text-orange-500 transition-colors"
+          >
+            {t('contact.address')}
+          </a>
           <a href="tel:+917233060698" className="text-[15px] mb-5 flex items-start gap-3 text-white/40 hover:text-orange-500 transition-colors">📞 +91 7233060698</a>
           <a href='mailto:digigraonline@gmail.com' className="text-[15px] mb-5 flex items-start gap-3 text-white/40 hover:text-orange-500 transition-colors">✉️ digigraonline@gmail.com</a>
         </div>

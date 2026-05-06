@@ -44,11 +44,11 @@ export default function HomePage() {
         <div className="absolute top-1/2 right-[20%] w-3 h-3 rounded-full bg-orange-500/40 pointer-events-none animate-float" style={{ animationDelay: '1s' }} />
 
         {/* Content */}
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pt-24 pb-20 text-center flex flex-col items-center">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pt-12 sm:pt-24 pb-20 text-center flex flex-col items-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/[0.08] border border-white/[0.08] backdrop-blur-sm mb-10">
             <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-            <span className="text-xs sm:text-sm font-bold text-white/90 tracking-wider uppercase">{t('hero.badge')}</span>
+            <span className="text-[10px] sm:text-sm font-bold text-white/90 tracking-wider uppercase">{t('hero.badge')}</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.08] mb-7 tracking-tight">
