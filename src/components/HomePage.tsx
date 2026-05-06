@@ -54,8 +54,8 @@ export default function HomePage() {
       />
 
       {/* Hero Carousel Section */}
-      <section className="w-full relative h-[95vh] pt-[136px] px-4 md:px-8" id="hero-carousel">
-        <div className="relative w-full h-full rounded-[20px] overflow-hidden">
+      <section className="w-full relative pt-[136px] px-4 md:px-8" id="hero-carousel">
+        <div className="relative w-full rounded-[20px] overflow-hidden" style={{ aspectRatio: '16/6' }}>
           {/* Slides */}
           {carouselImages.map((img, idx) => (
             <div
