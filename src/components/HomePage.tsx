@@ -32,7 +32,7 @@ export default function HomePage() {
 
       {/* Hero Banner */}
       <section className="w-full aspect-video max-h-[100vh] overflow-hidden relative bg-slate-50" id="hero-section">
-        <img src="/images/hero-banner.jpeg" alt="Jan Seva Kendra Banner" className="w-full h-full object-cover block" />
+        <img src="/images/hero-banner.jpeg" alt="KIOSK Banner" className="w-full h-full object-cover block" />
       </section>
 
       {/* Stats */}
@@ -153,10 +153,10 @@ export default function HomePage() {
             <p className="text-slate-600 font-medium mb-5">{t('home.employees.subtitle')}</p>
             <div className="w-16 h-1 bg-orange-500 rounded-full mx-auto" />
           </div>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { name: 'Ramesh Kumar Verma', role: 'VLE & Centre Head', image: '👨‍💼' },
+              { name: 'Avesh Kumar', role: 'VLE & Centre Head', image: '👨‍💼' },
               { name: 'Sita Devi', role: 'Aadhaar Operator', image: '👩‍💻' },
               { name: 'Rahul Singh', role: 'Banking Correspondent', image: '👨‍💼' },
               { name: 'Pooja Sharma', role: 'Customer Support', image: '👩‍💼' }
@@ -181,7 +181,7 @@ export default function HomePage() {
             <p className="text-slate-600 font-medium mb-5">{t('home.testimonials.subtitle')}</p>
             <div className="w-16 h-1 bg-orange-500 rounded-full mx-auto" />
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
               { name: 'Amit Patel', text: 'Excellent service! Got my PAN card corrected within a week without any hassle. The staff is very helpful.', rating: 5 },

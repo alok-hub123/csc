@@ -8,10 +8,10 @@ interface SEOProps {
 
 export default function SEO({ title, description }: SEOProps) {
   const { lang } = useLang();
-  
+
   return (
     <Helmet>
-      <title>{title} | Jan Seva Kendra</title>
+      <title>{title} | KIOSK</title>
       <meta name="description" content={description} />
       <html lang={lang} />
     </Helmet>

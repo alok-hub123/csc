@@ -12,9 +12,9 @@ export default function AboutPage() {
 
   return (
     <PageTransition className="mt-[116px]">
-      <SEO 
-        title={t('nav.about')} 
-        description={t('about.subtitle')} 
+      <SEO
+        title={t('nav.about')}
+        description={t('about.subtitle')}
       />
       <section className="py-20 lg:py-24 px-4 max-w-7xl mx-auto" id="about-page">
         <div className="text-center mb-14">
@@ -30,7 +30,7 @@ export default function AboutPage() {
             <h3 className="text-3xl font-extrabold mb-1 text-white">{t('about.vle.name')}</h3>
             <div className="text-orange-400 text-[13px] font-bold mb-4 uppercase tracking-widest">Village Level Entrepreneur (VLE)</div>
             <p className="text-slate-300 text-[15px] leading-loose">{t('about.vle.desc')}</p>
-            <div className="inline-flex mt-6 bg-white/10 px-5 py-2.5 rounded-full text-sm text-white font-bold font-mono tracking-widest border border-white/20">CSC ID: UP123456789</div>
+            <div className="inline-flex mt-6 bg-white/10 px-5 py-2.5 rounded-full text-sm text-white font-bold font-mono tracking-widest border border-white/20">CSC ID: 232747440016</div>
           </div>
 
           <div className="glass-panel rounded-[32px] p-10" id="mission-card">

@@ -97,7 +97,7 @@ export default function ServiceDetailPage() {
 
               <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-slate-100">
                 <button
-                  onClick={() => navigate('/contact', { state: { service: t(service.nameKey) } })}
+                  onClick={() => navigate('/contact', { state: { serviceId: service.id } })}
                   className="flex-1 py-4 px-6 bg-orange-500 text-white font-bold rounded-xl hover:shadow-[0_8px_20px_rgba(249,115,22,0.25)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   📞 {t('services.contact')}

@@ -57,10 +57,10 @@ export default function Navbar() {
           </div>
           <div>
             <h1 className={`text-lg font-extrabold leading-tight tracking-tight transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-slate-900'}`}>
-              Jan Seva Kendra
+              KIOSK
             </h1>
-            <span className={`text-[11px] font-semibold uppercase tracking-widest transition-colors duration-300 ${isTransparent ? 'text-white/80' : 'text-slate-500'}`}>
-              COMMON SERVICE CENTRE
+            <span className={`text-[11px] font-semibold uppercase tracking-widest transition-colors duration-300 hidden sm:block ${isTransparent ? 'text-white/80' : 'text-slate-500'}`}>
+              Digital Gramin Service Center
             </span>
           </div>
         </Link>

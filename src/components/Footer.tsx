@@ -13,7 +13,12 @@ export default function Footer() {
               CSC
             </div>
             <div>
-              <h1 className="text-lg font-extrabold text-white leading-tight tracking-tight">Jan Seva Kendra</h1>
+              <h1 className="text-lg font-extrabold leading-tight tracking-tight transition-colors duration-300">
+                KIOSK
+              </h1>
+              <span className="text-[11px] font-semibold uppercase tracking-widest transition-colors duration-300">
+                Digital Gramin Service Center
+              </span>
             </div>
           </div>
           <p className="text-[15px] leading-loose text-slate-400 mt-3">{t('footer.desc')}</p>
@@ -30,12 +35,12 @@ export default function Footer() {
         </div>
 
         <div>
-          <h4 className="text-white text-lg font-extrabold mb-6">{t('footer.services')}</h4>
+          <h4 className="text-white text-lg font-extrabold mb-6">{t('footer.categories')}</h4>
           <ul className="list-none">
-            <li className="mb-4"><Link to="/services" className="cursor-pointer text-slate-400 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.aadhaar')}</Link></li>
-            <li className="mb-4"><Link to="/services" className="cursor-pointer text-slate-400 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.pan')}</Link></li>
-            <li className="mb-4"><Link to="/services" className="cursor-pointer text-slate-400 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.banking')}</Link></li>
-            <li className="mb-4"><Link to="/services" className="cursor-pointer text-slate-400 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.ayushman')}</Link></li>
+            <li className="mb-4"><Link to="/services" className="cursor-pointer text-slate-400 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.govt')}</Link></li>
+            <li className="mb-4"><Link to="/services" className="cursor-pointer text-slate-400 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.financial')}</Link></li>
+            <li className="mb-4"><Link to="/services" className="cursor-pointer text-slate-400 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.utility')}</Link></li>
+            <li className="mb-4"><Link to="/services" className="cursor-pointer text-slate-400 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.health')}</Link></li>
           </ul>
         </div>
 
@@ -43,14 +48,14 @@ export default function Footer() {
           <h4 className="text-white text-lg font-extrabold mb-6">{t('nav.contact')}</h4>
           <p className="text-[15px] mb-4 flex items-start gap-3 text-slate-400">📍 {t('contact.address')}</p>
           <a href="tel:+917233060698" className="text-[15px] mb-4 flex items-start gap-3 text-slate-400">📞 +91 7233060698</a>
-          <a href='mailto:janseva@example.com' className="text-[15px] mb-4 flex items-start gap-3 text-slate-400">✉️ janseva@example.com</a>
+          <a href='mailto:digigraonline@gmail.com' className="text-[15px] mb-4 flex items-start gap-3 text-slate-400">✉️ digigraonline@gmail.com</a>
         </div>
       </div>
 
       <div className="border-t border-white/10 py-8 px-4 text-center max-w-7xl mx-auto">
         <p className="text-sm mb-2 text-slate-500">{t('footer.copyright')}</p>
         <p className="text-sm mb-2 text-slate-500">
-          Operated by: Ramesh Kumar Verma | <span className="text-orange-500 font-extrabold font-mono tracking-widest">CSC ID: UP123456789</span>
+          Operated by: Avesh Kumar | <span className="text-orange-500 font-extrabold font-mono tracking-widest">CSC ID: 232747440016</span>
         </p>
       </div>
     </footer>
