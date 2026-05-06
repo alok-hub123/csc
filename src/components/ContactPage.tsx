@@ -58,7 +58,7 @@ export default function ContactPage() {
     }
   };
 
-  const inputClass = "w-full bg-[#F7F7F7] border-2 border-slate-100 p-4 rounded-xl text-[15px] font-semibold text-[#111] outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_16px_rgba(249,115,22,0.1)]";
+  const inputClass = "w-full bg-[#F7F7F7] border-2 border-slate-100 p-4 rounded-xl text-[15px] font-semibold text-[#0A0A0F] outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_16px_rgba(249,115,22,0.1)]";
 
   return (
     <PageTransition className="mt-[116px]">
@@ -75,7 +75,7 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           {/* Left Column: Contact Info Cards */}
           <div className="flex flex-col h-full">
-            <h3 className="text-2xl font-extrabold text-[#111] mb-6 leading-tight">{t('contact.subtitle')}</h3>
+            <h3 className="text-2xl font-extrabold text-[#0A0A0F] mb-6 leading-tight">{t('contact.subtitle')}</h3>
 
             <div className="flex flex-col gap-5 flex-1">
               <div className="bg-white border border-slate-100 p-7 rounded-[24px] text-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] group flex-1 flex flex-col items-center justify-center">
@@ -85,7 +85,7 @@ export default function ContactPage() {
                   href="https://www.google.com/maps/search/?api=1&query=Digital+Gramin+Service+Centre+Nauwa+Gaon"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-pointer block text-lg text-[#111] font-bold leading-relaxed whitespace-pre-line hover:text-orange-500 transition-colors"
+                  className="cursor-pointer block text-lg text-[#0A0A0F] font-bold leading-relaxed whitespace-pre-line hover:text-orange-500 transition-colors"
                 >
                   {t('contact.address')}
                 </a>
@@ -94,7 +94,7 @@ export default function ContactPage() {
               <div className="bg-white border border-slate-100 p-7 rounded-[24px] text-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] group flex-1 flex flex-col items-center justify-center">
                 <div className="w-14 h-14 rounded-2xl bg-[#F7F7F7] text-orange-500 flex items-center justify-center text-2xl mx-auto mb-5 border border-slate-100 transition-all group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 group-hover:shadow-[0_8px_24px_rgba(249,115,22,0.3)]">📞</div>
                 <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3">{t('contact.phone.title')}</h4>
-                <a href="tel:+917233060698" className="cursor-pointer text-lg text-[#111] font-bold leading-relaxed whitespace-pre-line hover:text-orange-500 transition-colors">{t('contact.phone')}</a>
+                <a href="tel:+917233060698" className="cursor-pointer text-lg text-[#0A0A0F] font-bold leading-relaxed whitespace-pre-line hover:text-orange-500 transition-colors">{t('contact.phone')}</a>
               </div>
 
               <div className="bg-white border border-slate-100 p-7 rounded-[24px] text-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] group flex-1 flex flex-col items-center justify-center">
@@ -114,7 +114,7 @@ export default function ContactPage() {
 
           {/* Right Column: Apply Form */}
           <div className="w-full">
-            <h3 className="text-2xl font-extrabold text-[#111] mb-6 leading-tight text-center lg:text-left">{t('apply.title')}</h3>
+            <h3 className="text-2xl font-extrabold text-[#0A0A0F] mb-6 leading-tight text-center lg:text-left">{t('apply.title')}</h3>
             <form className="bg-white border border-slate-100 p-8 md:p-10 rounded-[24px] space-y-5 shadow-[0_4px_24px_rgba(0,0,0,0.04)]" onSubmit={handleSubmit} id="apply-form">
               <p className="text-sm text-right font-semibold text-slate-400 mb-2"><span className="text-red-500">* </span> {t('apply.requiredNote')}</p>
 
@@ -195,7 +195,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="cursor-pointer w-full p-4 bg-[#111] text-white border-none rounded-xl text-base font-extrabold transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:bg-orange-500 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(249,115,22,0.3)] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:bg-[#111] flex items-center justify-center gap-3"
+                  className="cursor-pointer w-full p-4 bg-[#0A0A0F] text-white border-none rounded-xl text-base font-extrabold transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:bg-orange-500 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(249,115,22,0.3)] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:bg-[#0A0A0F] flex items-center justify-center gap-3"
                   id="submit-btn"
                 >
                   {isSubmitting ? (
@@ -221,7 +221,7 @@ export default function ContactPage() {
         <div className="mt-20">
           <div className="text-center mb-10">
             <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold uppercase tracking-widest mb-5">Location</span>
-            <h3 className="text-3xl font-extrabold text-[#111] mb-3">{t('contact.map.title')}</h3>
+            <h3 className="text-3xl font-extrabold text-[#0A0A0F] mb-3">{t('contact.map.title')}</h3>
             <p className="text-slate-400 font-medium">{t('contact.address')}</p>
           </div>
           <div className="h-[500px] w-full bg-slate-100 rounded-[24px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.04)] relative border border-slate-100 group">

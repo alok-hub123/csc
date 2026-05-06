@@ -27,7 +27,7 @@ export default function Navbar() {
   ];
 
   const isHome = currentPage === 'home';
-  const isTransparent = isHome && !scrolled;
+  const isTransparent = false; // Carousel hero is below navbar, no dark bg behind it
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isTransparent
@@ -56,7 +56,7 @@ export default function Navbar() {
             CSC
           </div>
           <div>
-            <h1 className={`text-lg font-extrabold leading-tight tracking-tight transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-[#111]'}`}>
+            <h1 className={`text-lg font-extrabold leading-tight tracking-tight transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-[#0A0A0F]'}`}>
               KIOSK
             </h1>
             <span className={`text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 hidden sm:block ${isTransparent ? 'text-white/60' : 'text-slate-400'}`}>
@@ -72,8 +72,8 @@ export default function Navbar() {
               key={link.id}
               to={link.id === 'home' ? '/' : `/${link.id}`}
               className={`cursor-pointer px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${currentPage === link.id
-                ? (isTransparent ? 'bg-white text-[#111] shadow-sm' : 'bg-white text-[#111] shadow-sm')
-                : (isTransparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-500 hover:text-[#111] hover:bg-white')
+                ? (isTransparent ? 'bg-white text-[#0A0A0F] shadow-sm' : 'bg-white text-[#0A0A0F] shadow-sm')
+                : (isTransparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-500 hover:text-[#0A0A0F] hover:bg-white')
                 }`}
             >
               {link.label}
@@ -87,7 +87,7 @@ export default function Navbar() {
             onClick={toggleLang}
             className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-300 hover:-translate-y-0.5 ${isTransparent
               ? 'bg-white/[0.08] text-white border border-white/[0.1] hover:bg-white/[0.15]'
-              : 'bg-[#F7F7F7] border border-slate-100 text-[#111] hover:text-orange-500 hover:border-orange-200'
+              : 'bg-[#F7F7F7] border border-slate-100 text-[#0A0A0F] hover:text-orange-500 hover:border-orange-200'
               }`}
           >
             {lang === 'en' ? 'हिंदी' : 'English'}
@@ -97,9 +97,9 @@ export default function Navbar() {
             className="cursor-pointer flex lg:hidden flex-col gap-1.5 p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-white' : 'bg-[#111]'} ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-white' : 'bg-[#111]'} ${mobileMenuOpen ? 'opacity-0' : ''}`} />
-            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-white' : 'bg-[#111]'} ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-white' : 'bg-[#0A0A0F]'} ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-white' : 'bg-[#0A0A0F]'} ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-white' : 'bg-[#0A0A0F]'} ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
       </div>
@@ -114,7 +114,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className={`cursor-pointer text-left px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${currentPage === link.id
                 ? 'bg-orange-50 text-orange-500'
-                : 'text-slate-600 hover:bg-[#F7F7F7] hover:text-[#111]'
+                : 'text-slate-600 hover:bg-[#F7F7F7] hover:text-[#0A0A0F]'
                 }`}
             >
               {link.label}

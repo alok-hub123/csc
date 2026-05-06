@@ -5,7 +5,7 @@ export default function Footer() {
   const { t } = useLang();
 
   return (
-    <footer className="bg-[#111] text-white pt-20 px-4">
+    <footer className="bg-[#0A0A0F] text-white pt-20 px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-12 max-w-7xl mx-auto pb-16">
         <div className="footer-brand">
           <div className="flex items-center gap-3 mb-5">

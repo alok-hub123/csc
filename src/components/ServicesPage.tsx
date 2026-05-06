@@ -107,7 +107,7 @@ export default function ServicesPage() {
             <button
               key={idx}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer whitespace-nowrap ${currentTab === tab ? 'bg-orange-500 text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)]' : 'text-slate-500 hover:text-[#111] hover:bg-white'}`}
+              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer whitespace-nowrap ${currentTab === tab ? 'bg-orange-500 text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)]' : 'text-slate-500 hover:text-[#0A0A0F] hover:bg-white'}`}
             >
               {tab}
             </button>
@@ -131,7 +131,7 @@ export default function ServicesPage() {
                   {item.icon}
                 </div>
                 <div>
-                  <h4 className="text-lg font-extrabold text-[#111] mb-2">{item.name}</h4>
+                  <h4 className="text-lg font-extrabold text-[#0A0A0F] mb-2">{item.name}</h4>
                   <p className="text-[14px] text-slate-500 font-medium leading-relaxed mb-5">{item.desc}</p>
                   <button className="cursor-pointer text-orange-500 font-extrabold text-[13px] uppercase tracking-wide flex items-center gap-2 transition-all opacity-70 group-hover:opacity-100 group-hover:gap-3">
                     {t('services.viewDetail')}

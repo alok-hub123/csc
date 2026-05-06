@@ -1,3 +1,4 @@
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useLang } from '../context/LanguageContext';
 import AnimatedCounter from './AnimatedCounter';
@@ -7,6 +8,28 @@ import SEO from './SEO';
 export default function HomePage() {
   const { t } = useLang();
   const navigate = useNavigate();
+
+  // Carousel state
+  const carouselImages = [
+    '/images/carousel-1.jpeg',
+    '/images/carousel-2.jpeg',
+    '/images/carousel-3.jpeg',
+  ];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide(prev => (prev + 1) % carouselImages.length);
+  }, [carouselImages.length]);
+
+  const prevSlide = useCallback(() => {
+    setCurrentSlide(prev => (prev - 1 + carouselImages.length) % carouselImages.length);
+  }, [carouselImages.length]);
+
+  // Auto-play
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 4000);
+    return () => clearInterval(timer);
+  }, [nextSlide]);
 
   const quickServices = [
     { icon: '🆔', label: t('services.aadhaar') },
@@ -30,50 +53,64 @@ export default function HomePage() {
         description={t('services.subtitle')}
       />
 
-      {/* Hero Section — Minimalist Modern */}
-      <section className="w-full relative min-h-[100vh] flex items-center justify-center bg-[#111] overflow-hidden pt-14" id="hero-section">
-        {/* Subtle gradient overlay */}
-        <div className="absolute inset-0 z-0">
-          <img src="/images/hero-banner.jpeg" alt="KIOSK Banner" className="w-full h-full object-cover object-center opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#111]/60 via-[#111]/85 to-[#111]"></div>
+      {/* Hero Carousel Section */}
+      <section className="w-full relative h-[95vh] pt-[136px] px-4 md:px-8" id="hero-carousel">
+        <div className="relative w-full h-full rounded-[20px] overflow-hidden">
+          {/* Slides */}
+          {carouselImages.map((img, idx) => (
+            <div
+              key={idx}
+              className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+              style={{ opacity: currentSlide === idx ? 1 : 0 }}
+            >
+              <img
+                src={img}
+                alt={`KIOSK Banner ${idx + 1}`}
+                className="w-full h-full object-cover"
+                draggable={false}
+              />
+            </div>
+          ))}
+
+          {/* Left Arrow */}
+          <button
+            onClick={prevSlide}
+            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/40 transition-all duration-300 cursor-pointer group"
+            aria-label="Previous slide"
+          >
+            <svg className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+
+          {/* Right Arrow */}
+          <button
+            onClick={nextSlide}
+            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-12 md:h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/40 transition-all duration-300 cursor-pointer group"
+            aria-label="Next slide"
+          >
+            <svg className="w-5 h-5 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+
+
         </div>
 
-        {/* Floating decorative shapes */}
-        <div className="absolute top-20 right-[10%] w-72 h-72 rounded-full border border-white/[0.06] pointer-events-none" />
-        <div className="absolute bottom-20 left-[5%] w-48 h-48 rounded-full border border-orange-500/10 pointer-events-none animate-float" />
-        <div className="absolute top-1/2 right-[20%] w-3 h-3 rounded-full bg-orange-500/40 pointer-events-none animate-float" style={{ animationDelay: '1s' }} />
-
-        {/* Content */}
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 pt-12 sm:pt-24 pb-20 text-center flex flex-col items-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full bg-white/[0.08] border border-white/[0.08] backdrop-blur-sm mb-10">
-            <span className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
-            <span className="text-[10px] sm:text-sm font-bold text-white/90 tracking-wider uppercase">{t('hero.badge')}</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white leading-[1.08] mb-7 tracking-tight">
-            {t('hero.title').split('-')[0]}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-500">
-              {t('hero.title').includes('-') ? '-' + t('hero.title').split('-').slice(1).join('-') : ''}
-            </span>
-          </h1>
-
-          <p className="text-lg md:text-xl text-white/60 max-w-2xl font-medium mb-12 leading-relaxed">
-            {t('hero.tagline')}
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Link to="/services" className="px-9 py-4 rounded-full bg-orange-500 text-white font-bold text-base flex items-center justify-center gap-3 shadow-[0_8px_30px_rgba(249,115,22,0.3)] hover:bg-orange-600 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(249,115,22,0.4)] transition-all duration-300">
-              <span>{t('hero.cta1')}</span>
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-            </Link>
-            <Link to="/contact" className="px-9 py-4 rounded-full bg-transparent text-white font-bold text-base border-2 border-white/20 flex items-center justify-center gap-3 hover:bg-white hover:text-[#111] hover:border-white hover:-translate-y-0.5 transition-all duration-300">
-              <span>{t('hero.cta2')}</span>
-              <span className="text-lg">📝</span>
-            </Link>
-          </div>
+        {/* Indicator Dots — below banner */}
+        <div className="flex items-center justify-center gap-2.5 mt-4">
+          {carouselImages.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`rounded-full transition-all duration-300 cursor-pointer ${currentSlide === idx
+                ? 'w-8 h-2.5 bg-orange-500 shadow-[0_2px_8px_rgba(249,115,22,0.5)]'
+                : 'w-2.5 h-2.5 bg-slate-300 hover:bg-slate-400'
+                }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
         </div>
-
       </section>
 
       {/* Stats — overlaps hero with negative margin */}
@@ -88,7 +125,7 @@ export default function HomePage() {
             ].map((stat, i) => (
               <div key={i} className="bg-white rounded-2xl p-5 md:p-7 text-center shadow-[0_8px_32px_rgba(0,0,0,0.06)] border border-slate-100 hover:-translate-y-1 transition-all duration-300">
                 <span className="text-2xl mb-2 block">{stat.icon}</span>
-                <span className="text-2xl md:text-3xl font-extrabold text-[#111] block leading-tight mb-1">
+                <span className="text-2xl md:text-3xl font-extrabold text-[#0A0A0F] block leading-tight mb-1">
                   <AnimatedCounter end={stat.end} suffix={stat.suffix} duration={2500} />
                 </span>
                 <span className="text-[11px] text-slate-500 font-bold uppercase tracking-widest">{stat.label}</span>
@@ -111,7 +148,7 @@ export default function HomePage() {
               <div key={i} onClick={() => navigate('/services')} className="bg-white rounded-2xl p-7 text-center cursor-pointer relative overflow-hidden group border border-slate-100 hover:border-orange-200 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] transition-all duration-400">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 <span className="text-4xl mb-4 inline-block transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">{s.icon}</span>
-                <span className="block text-sm font-bold text-[#111] relative z-10">{s.label}</span>
+                <span className="block text-sm font-bold text-[#0A0A0F] relative z-10">{s.label}</span>
               </div>
             ))}
           </div>
@@ -126,9 +163,9 @@ export default function HomePage() {
       </section>
 
       {/* Marquee Schemes Strip */}
-      <div className="bg-[#111] py-5 overflow-hidden relative">
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#111] to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#111] to-transparent z-10" />
+      <div className="bg-[#0A0A0F] py-5 overflow-hidden relative">
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0A0A0F] to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0A0A0F] to-transparent z-10" />
         <div className="flex whitespace-nowrap" style={{ animation: 'marquee 25s linear infinite' }}>
           {[...schemes, ...schemes, ...schemes].map((s, i) => (
             <span key={i} className="mx-8 text-white/60 text-sm font-bold uppercase tracking-widest flex items-center gap-3 shrink-0">
@@ -156,7 +193,7 @@ export default function HomePage() {
                 <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} shadow-lg flex items-center justify-center text-3xl mx-auto mb-7 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-extrabold text-[#111] mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-extrabold text-[#0A0A0F] mb-3">{feature.title}</h3>
                 <p className="text-slate-500 leading-relaxed text-[15px]">{feature.desc}</p>
               </div>
             ))}
@@ -165,7 +202,7 @@ export default function HomePage() {
       </section>
 
       {/* How It Works — Timeline */}
-      <section className="py-20 px-4 bg-[#111] text-white relative overflow-hidden">
+      <section className="py-20 px-4 bg-[#0A0A0F] text-white relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/[0.03] pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-white/[0.04] pointer-events-none" />
@@ -207,7 +244,7 @@ export default function HomePage() {
           </div>
           <div className="flex flex-wrap justify-center gap-3">
             {schemes.map((s, i) => (
-              <div key={i} className="bg-white border border-slate-100 px-5 py-2.5 rounded-full text-sm font-semibold text-[#111] whitespace-nowrap transition-all duration-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(249,115,22,0.2)] cursor-default">
+              <div key={i} className="bg-white border border-slate-100 px-5 py-2.5 rounded-full text-sm font-semibold text-[#0A0A0F] whitespace-nowrap transition-all duration-300 hover:bg-orange-500 hover:text-white hover:border-orange-500 hover:-translate-y-0.5 hover:shadow-[0_8px_20px_rgba(249,115,22,0.2)] cursor-default">
                 🏛️ {s}
               </div>
             ))}
@@ -235,10 +272,32 @@ export default function HomePage() {
                 <div className="w-24 h-24 mx-auto bg-white rounded-2xl flex items-center justify-center text-5xl mb-5 shadow-sm border border-slate-100 group-hover:border-orange-300 group-hover:shadow-[0_0_0_4px_rgba(249,115,22,0.1)] transition-all duration-300">
                   {emp.image}
                 </div>
-                <h3 className="text-lg font-extrabold text-[#111] mb-1">{emp.name}</h3>
+                <h3 className="text-lg font-extrabold text-[#0A0A0F] mb-1">{emp.name}</h3>
                 <p className="text-orange-500 font-semibold text-sm">{emp.role}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action — Dark CTA Block */}
+      <section className="py-20 px-4 relative overflow-hidden bg-[#0A0A0F]">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-orange-500/5 blur-[80px] pointer-events-none" />
+        <div className="max-w-3xl mx-auto text-center relative z-10">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.06] text-orange-400 text-xs font-bold uppercase tracking-widest mb-7">Get Started</span>
+          <h2 className="text-white text-3xl md:text-5xl font-extrabold mb-6 leading-tight tracking-tight">
+            {t('apply.title')}
+          </h2>
+          <p className="text-white/50 text-lg md:text-xl mb-10 max-w-xl mx-auto font-medium leading-relaxed">
+            {t('apply.subtitle')}
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button onClick={() => navigate('/contact')} className="pill-btn-primary text-base px-10 py-4 shadow-[0_8px_30px_rgba(249,115,22,0.3)] cursor-pointer">
+              {t('nav.contact')}
+            </button>
+            <Link to="/services" className="pill-btn text-base px-10 py-4 bg-transparent text-white border-2 border-white/15 hover:bg-white hover:text-[#0A0A0F] cursor-pointer inline-flex items-center justify-center">
+              {t('hero.cta1')}
+            </Link>
           </div>
         </div>
       </section>
@@ -270,7 +329,7 @@ export default function HomePage() {
                     {feedback.name.charAt(0)}
                   </div>
                   <div>
-                    <h4 className="text-[#111] font-bold text-sm">{feedback.name}</h4>
+                    <h4 className="text-[#0A0A0F] font-bold text-sm">{feedback.name}</h4>
                     <span className="text-slate-400 text-xs font-medium">Local Resident</span>
                   </div>
                 </div>
@@ -280,27 +339,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Call to Action — Dark CTA Block */}
-      <section className="py-20 px-4 relative overflow-hidden bg-[#111]">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-orange-500/5 blur-[80px] pointer-events-none" />
-        <div className="max-w-3xl mx-auto text-center relative z-10">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/[0.06] text-orange-400 text-xs font-bold uppercase tracking-widest mb-7">Get Started</span>
-          <h2 className="text-white text-3xl md:text-5xl font-extrabold mb-6 leading-tight tracking-tight">
-            {t('apply.title')}
-          </h2>
-          <p className="text-white/50 text-lg md:text-xl mb-10 max-w-xl mx-auto font-medium leading-relaxed">
-            {t('apply.subtitle')}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => navigate('/contact')} className="pill-btn-primary text-base px-10 py-4 shadow-[0_8px_30px_rgba(249,115,22,0.3)] cursor-pointer">
-              {t('nav.contact')}
-            </button>
-            <Link to="/services" className="pill-btn text-base px-10 py-4 bg-transparent text-white border-2 border-white/15 hover:bg-white hover:text-[#111] cursor-pointer inline-flex items-center justify-center">
-              {t('hero.cta1')}
-            </Link>
-          </div>
-        </div>
-      </section>
     </PageTransition>
   );
 }

@@ -20,7 +20,7 @@ export default function ServiceDetailPage() {
     return (
       <PageTransition className="mt-[116px]">
         <div className="py-20 text-center min-h-[50vh] flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-bold text-[#111] mb-4">{t('services.notFound')}</h2>
+          <h2 className="text-3xl font-bold text-[#0A0A0F] mb-4">{t('services.notFound')}</h2>
           <button onClick={() => navigate('/services')} className="pill-btn-primary cursor-pointer">
             Go Back
           </button>
@@ -66,7 +66,7 @@ export default function ServiceDetailPage() {
         </button>
 
         {/* Hero Header Card */}
-        <div className="bg-[#111] rounded-[24px] p-8 md:p-12 relative overflow-hidden mb-6">
+        <div className="bg-[#0A0A0F] rounded-[24px] p-8 md:p-12 relative overflow-hidden mb-6">
           <div className="absolute top-0 right-0 w-80 h-80 bg-gradient-to-br from-orange-500/10 to-transparent rounded-bl-full pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-48 h-48 border border-white/[0.04] rounded-full -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
@@ -87,7 +87,7 @@ export default function ServiceDetailPage() {
           <div className="space-y-6">
             {/* Brief Description */}
             <div className="bg-white border border-slate-100 rounded-[24px] p-8 md:p-10">
-              <h2 className="text-lg font-extrabold text-[#111] mb-4 flex items-center gap-3">
+              <h2 className="text-lg font-extrabold text-[#0A0A0F] mb-4 flex items-center gap-3">
                 <span className="w-1.5 h-5 bg-orange-500 rounded block" />
                 {lang === 'hi' ? 'विवरण' : 'About this Service'}
               </h2>
@@ -96,7 +96,7 @@ export default function ServiceDetailPage() {
 
             {/* Sub Services */}
             <div className="bg-white border border-slate-100 rounded-[24px] p-8 md:p-10">
-              <h2 className="text-lg font-extrabold text-[#111] mb-6 flex items-center gap-3">
+              <h2 className="text-lg font-extrabold text-[#0A0A0F] mb-6 flex items-center gap-3">
                 <span className="w-1.5 h-5 bg-orange-500 rounded block" />
                 {lang === 'hi' ? 'शामिल सेवाएं' : 'Services Included'}
               </h2>
@@ -114,7 +114,7 @@ export default function ServiceDetailPage() {
 
             {/* Documents Required */}
             <div className="bg-white border border-slate-100 rounded-[24px] p-8 md:p-10">
-              <h2 className="text-lg font-extrabold text-[#111] mb-6 flex items-center gap-3">
+              <h2 className="text-lg font-extrabold text-[#0A0A0F] mb-6 flex items-center gap-3">
                 <span className="w-1.5 h-5 bg-orange-500 rounded block" />
                 {t('services.docsRequired')}
               </h2>
@@ -133,7 +133,7 @@ export default function ServiceDetailPage() {
           <div className="space-y-6">
             {/* CTA Card */}
             <div className="bg-white border border-slate-100 rounded-[24px] p-8 sticky top-[140px]">
-              <h3 className="text-base font-extrabold text-[#111] mb-2">
+              <h3 className="text-base font-extrabold text-[#0A0A0F] mb-2">
                 {lang === 'hi' ? 'इस सेवा के लिए आवेदन करें' : 'Apply for this Service'}
               </h3>
               <p className="text-[13px] text-slate-400 mb-6 leading-relaxed">
