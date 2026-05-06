@@ -20,10 +20,10 @@ export default function ServiceDetailPage() {
     return (
       <PageTransition className="mt-[116px]">
         <div className="py-20 text-center min-h-[50vh] flex flex-col items-center justify-center">
-          <h2 className="text-3xl font-bold text-slate-900 mb-4">{t('services.notFound')}</h2>
+          <h2 className="text-3xl font-bold text-[#111] mb-4">{t('services.notFound')}</h2>
           <button
             onClick={() => navigate('/services')}
-            className="px-6 py-3 bg-orange-500 text-white font-bold rounded-xl hover:bg-orange-600 transition-colors"
+            className="pill-btn-primary cursor-pointer"
           >
             Go Back
           </button>
@@ -61,50 +61,50 @@ export default function ServiceDetailPage() {
       <section className="py-12 lg:py-20 px-4 max-w-4xl mx-auto min-h-[70vh]">
         <button
           onClick={() => navigate('/services')}
-          className="mb-8 inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-200 text-slate-600 font-bold rounded-full hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition-all shadow-sm hover:shadow-md cursor-pointer group"
+          className="mb-8 inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-100 text-slate-500 font-bold rounded-full hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 transition-all shadow-sm hover:shadow-md cursor-pointer group"
         >
-          <span className="transition-transform group-hover:-translate-x-1">←</span> 
+          <span className="transition-transform group-hover:-translate-x-1">←</span>
           {lang === 'hi' ? 'वापस जाएं' : 'Back to Services'}
         </button>
 
-        <div className="bg-white rounded-[32px] p-8 md:p-12 shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-slate-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange-500/5 to-transparent rounded-bl-full pointer-events-none" />
+        <div className="bg-white rounded-[24px] p-8 md:p-12 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-slate-100 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-orange-50 to-transparent rounded-bl-full pointer-events-none" />
 
           <div className="flex flex-col md:flex-row gap-8 items-start relative z-10">
-            <div className="w-24 h-24 shrink-0 bg-orange-50 border border-orange-100 rounded-3xl flex items-center justify-center text-5xl shadow-inner">
+            <div className="w-20 h-20 shrink-0 bg-[#F7F7F7] border border-slate-100 rounded-2xl flex items-center justify-center text-5xl">
               {service.icon}
             </div>
 
             <div className="flex-1">
-              <h1 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-4">{t(service.nameKey)}</h1>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
+              <h1 className="text-3xl md:text-4xl font-extrabold text-[#111] mb-4">{t(service.nameKey)}</h1>
+              <p className="text-lg text-slate-500 mb-8 leading-relaxed">
                 {t(service.descKey)}
               </p>
 
               <div className="mb-10">
-                <h3 className="text-xl font-bold text-slate-900 mb-5 flex items-center gap-3 before:content-[''] before:block before:w-1.5 before:h-5 before:bg-orange-500 before:rounded">
+                <h3 className="text-lg font-extrabold text-[#111] mb-5 flex items-center gap-3 before:content-[''] before:block before:w-1.5 before:h-5 before:bg-orange-500 before:rounded">
                   {t('services.docsRequired')}
                 </h3>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {docs.map((doc, idx) => (
-                    <li key={idx} className="flex items-start gap-3 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                    <li key={idx} className="flex items-start gap-3 bg-[#F7F7F7] p-4 rounded-xl border border-slate-100">
                       <span className="text-orange-500 mt-0.5">📄</span>
-                      <span className="text-slate-700 font-medium">{doc}</span>
+                      <span className="text-slate-600 font-medium text-[15px]">{doc}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4 pt-4 border-t border-slate-100">
+              <div className="flex flex-col sm:flex-row gap-3 pt-6 border-t border-slate-100">
                 <button
                   onClick={() => navigate('/contact', { state: { serviceId: service.id } })}
-                  className="flex-1 py-4 px-6 bg-orange-500 text-white font-bold rounded-xl hover:shadow-[0_8px_20px_rgba(249,115,22,0.25)] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
+                  className="flex-1 py-4 px-6 bg-orange-500 text-white font-bold rounded-xl hover:shadow-[0_8px_24px_rgba(249,115,22,0.3)] hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   📞 {t('services.contact')}
                 </button>
                 <button
                   onClick={handleShare}
-                  className="sm:flex-none py-4 px-8 bg-slate-100 text-slate-700 font-bold rounded-xl hover:bg-slate-200 transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="sm:flex-none py-4 px-8 bg-[#F7F7F7] text-slate-600 font-bold rounded-xl border border-slate-100 hover:bg-slate-100 transition-colors flex items-center justify-center gap-2 cursor-pointer"
                 >
                   🔗 {t('services.quickShare')}
                 </button>

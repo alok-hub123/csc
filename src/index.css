@@ -5,65 +5,136 @@
   --color-saffron-600: #ea580c;
   --color-navy-900: #0f172a;
   --color-navy-800: #1e293b;
+  --color-accent: #F04E3C;
+  --color-accent-light: #FFF0ED;
+  --color-surface: #F7F7F7;
+  --color-surface-alt: #FFFFFF;
+  --color-dark: #111111;
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
   }
+
   body {
-    @apply bg-slate-50 text-slate-900 antialiased overflow-x-hidden relative;
-    background-image: radial-gradient(circle at top left, #e0eaf5, #f0f4f8);
-    background-attachment: fixed;
+    @apply bg-[#F7F7F7] text-slate-900 antialiased overflow-x-hidden relative;
     font-family: 'Inter', 'Noto Sans Devanagari', system-ui, sans-serif;
   }
-
-  /* Liquid Glass Animated Ambient Orbs */
-  body::before, body::after {
-    content: '';
-    @apply fixed rounded-full -z-10 opacity-50 blur-[100px];
-    animation: floatOrb 20s infinite alternate ease-in-out;
-  }
-
-  body::before {
-    @apply -top-[10%] -left-[10%] w-[50vw] h-[50vw];
-    background: rgba(249, 115, 22, 0.15); /* Soft Saffron Orb */
-  }
-
-  body::after {
-    @apply -bottom-[10%] -right-[10%] w-[60vw] h-[60vw];
-    background: rgba(14, 165, 233, 0.15); /* Soft Blue Orb */
-    animation-delay: -10s;
-  }
-}
-
-@keyframes floatOrb {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(10%, 10%) scale(1.1); }
 }
 
 @keyframes ticker {
-  0% { transform: translateX(100vw); }
-  100% { transform: translateX(-100%); }
+  0% {
+    transform: translateX(100vw);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 @keyframes fabPulse {
-  0%, 100% { box-shadow: 0 8px 32px rgba(16, 185, 129, 0.35); }
-  50% { box-shadow: 0 8px 40px rgba(16, 185, 129, 0.5), 0 0 0 12px rgba(16, 185, 129, 0.1); }
+
+  0%,
+  100% {
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.35);
+  }
+
+  50% {
+    box-shadow: 0 8px 40px rgba(16, 185, 129, 0.5), 0 0 0 12px rgba(16, 185, 129, 0.1);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Base utility layer components for highly reused complex glass elements */
 @layer components {
   .glass-panel {
-    @apply bg-white/65 backdrop-blur-xl border border-white/60 shadow-[0_10px_40px_-10px_rgba(15,23,42,0.08)];
+    @apply bg-white border border-slate-100;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
   }
+
   .glass-panel-hover {
-    @apply hover:-translate-y-1 hover:bg-white/85 hover:border-white/90 hover:shadow-[0_20px_40px_-10px_rgba(15,23,42,0.12)] transition-all duration-300;
+    @apply hover:-translate-y-1.5 transition-all duration-300;
   }
+  .glass-panel-hover:hover {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  }
+
   .animate-ticker {
     animation: ticker 40s linear infinite;
   }
+
   .animate-fab {
     animation: fabPulse 2s infinite;
+  }
+
+  .animate-marquee {
+    animation: marquee 30s linear infinite;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out both;
+  }
+
+  /* Pill button base */
+  .pill-btn {
+    @apply px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300;
+  }
+
+  .pill-btn-primary {
+    @apply px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300 bg-orange-500 text-white hover:bg-orange-600 hover:-translate-y-0.5;
+  }
+  .pill-btn-primary:hover {
+    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
+  }
+
+  .pill-btn-outline {
+    @apply px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300 bg-white text-[#111] border-2 border-slate-200 hover:border-orange-500 hover:text-orange-500 hover:-translate-y-0.5;
+  }
+
+  /* Section heading */
+  .section-heading {
+    @apply text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#111] tracking-tight leading-tight;
+  }
+
+  .section-subheading {
+    @apply text-base text-slate-500 font-medium mt-3 max-w-xl mx-auto;
   }
 }

@@ -83,8 +83,9 @@ export default function ServicesPage() {
       />
       <section className="py-20 lg:py-24 px-4 max-w-7xl mx-auto" id="services-page">
         <div className="text-center mb-14">
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-3 tracking-tight">{t('services.title')}</h2>
-          <div className="w-16 h-1 bg-orange-500 rounded-full mx-auto mb-8" />
+          <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold uppercase tracking-widest mb-5">Services</span>
+          <h2 className="section-heading">{t('services.title')}</h2>
+          <div className="w-16 h-1 bg-orange-500 rounded-full mx-auto mt-5 mb-8" />
 
           <div className="max-w-xl mx-auto relative">
             <input
@@ -92,21 +93,21 @@ export default function ServicesPage() {
               placeholder={t('services.search.placeholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-6 py-4 rounded-full border-2 border-slate-200 focus:border-orange-500 focus:outline-none shadow-sm text-lg transition-colors"
+              className="w-full px-6 py-4 rounded-full border-2 border-slate-100 bg-white focus:border-orange-500 focus:outline-none shadow-sm text-lg transition-colors font-medium"
             />
-            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-2xl text-slate-400">
+            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-2xl text-slate-300">
               🔍
             </span>
           </div>
         </div>
 
-        {/* Tabs */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+        {/* Tabs — Pill Style */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-12 p-2 bg-white rounded-full max-w-max mx-auto border border-slate-100">
           {tabs.map((tab, idx) => (
             <button
               key={idx}
               onClick={() => setActiveTab(tab)}
-              className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer ${currentTab === tab ? 'bg-orange-500 text-white shadow-[0_4px_12px_rgba(249,115,22,0.25)] border border-orange-500' : 'bg-white text-slate-600 hover:bg-orange-50 border border-slate-200 hover:border-orange-200 hover:text-orange-600'}`}
+              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer ${currentTab === tab ? 'bg-orange-500 text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)]' : 'text-slate-500 hover:text-[#111] hover:bg-white'}`}
             >
               {tab}
             </button>
@@ -114,26 +115,27 @@ export default function ServicesPage() {
         </div>
 
         {filteredItems.length === 0 ? (
-          <div className="text-center py-12 text-slate-500 text-lg font-medium">
+          <div className="text-center py-12 text-slate-400 text-lg font-medium">
             {lang === 'hi' ? 'कोई सेवा नहीं मिली' : `No services found matching "${searchQuery}"`}
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
             {filteredItems.map((item, ii) => (
               <div
-                className="glass-panel glass-panel-hover rounded-[24px] p-8 md:p-10 transition-all duration-300 relative overflow-hidden group cursor-pointer"
+                className="bg-white border border-slate-100 rounded-[24px] p-8 md:p-9 transition-all duration-400 relative overflow-hidden group cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_16px_48px_rgba(0,0,0,0.06)] hover:border-orange-100"
                 key={item.id}
                 onClick={() => navigate(`/service/${item.id}`)}
               >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-500/10 to-transparent rounded-bl-full pointer-events-none" />
-                <div className="w-16 h-16 rounded-2xl bg-white/50 border border-white/60 shadow-[0_4px_12px_rgba(15,23,42,0.05)] flex items-center justify-center text-3xl mb-6 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+                <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br from-orange-50 to-transparent rounded-bl-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="w-14 h-14 rounded-2xl bg-[#F7F7F7] border border-slate-100 flex items-center justify-center text-3xl mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-orange-50 group-hover:border-orange-200">
                   {item.icon}
                 </div>
                 <div>
-                  <h4 className="text-xl font-extrabold text-slate-900 mb-3">{item.name}</h4>
-                  <p className="text-[15px] text-slate-600 font-medium leading-relaxed mb-6">{item.desc}</p>
-                  <button className="cursor-pointer text-orange-500 font-extrabold text-[13.5px] uppercase tracking-wide flex items-center gap-2 transition-all opacity-80 group-hover:opacity-100">
-                    👁️ {t('services.viewDetail')}
+                  <h4 className="text-lg font-extrabold text-[#111] mb-2">{item.name}</h4>
+                  <p className="text-[14px] text-slate-500 font-medium leading-relaxed mb-5">{item.desc}</p>
+                  <button className="cursor-pointer text-orange-500 font-extrabold text-[13px] uppercase tracking-wide flex items-center gap-2 transition-all opacity-70 group-hover:opacity-100 group-hover:gap-3">
+                    {t('services.viewDetail')}
+                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
                   </button>
                 </div>
               </div>

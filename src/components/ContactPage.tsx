@@ -58,6 +58,8 @@ export default function ContactPage() {
     }
   };
 
+  const inputClass = "w-full bg-[#F7F7F7] border-2 border-slate-100 p-4 rounded-xl text-[15px] font-semibold text-[#111] outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_16px_rgba(249,115,22,0.1)]";
+
   return (
     <PageTransition className="mt-[116px]">
       <SEO
@@ -66,43 +68,43 @@ export default function ContactPage() {
       />
       <section className="py-20 lg:py-24 px-4 max-w-7xl mx-auto" id="contact-page">
         <div className="text-center mb-14">
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-slate-900 mb-3 tracking-tight">{t('contact.title')}</h2>
-          <div className="w-16 h-1 bg-orange-500 rounded-full mx-auto" />
+          <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold uppercase tracking-widest mb-5">Contact</span>
+          <h2 className="section-heading">{t('contact.title')}</h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
           {/* Left Column: Contact Info Cards */}
           <div className="flex flex-col h-full">
-            <h3 className="text-2xl font-extrabold text-slate-900 mb-6 leading-tight">{t('contact.subtitle')}</h3>
+            <h3 className="text-2xl font-extrabold text-[#111] mb-6 leading-tight">{t('contact.subtitle')}</h3>
 
-            <div className="flex flex-col gap-6 flex-1">
-              <div className="glass-panel p-6 rounded-[24px] text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex-1 flex flex-col items-center justify-center">
-                <div className="w-16 h-16 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center text-2xl mx-auto mb-6 shadow-inner transition-colors group-hover:bg-blue-500 group-hover:text-white">📍</div>
-                <h4 className="text-xs font-extrabold text-slate-500 uppercase tracking-widest mb-3">{t('contact.address.title')}</h4>
+            <div className="flex flex-col gap-5 flex-1">
+              <div className="bg-white border border-slate-100 p-7 rounded-[24px] text-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] group flex-1 flex flex-col items-center justify-center">
+                <div className="w-14 h-14 rounded-2xl bg-[#F7F7F7] text-orange-500 flex items-center justify-center text-2xl mx-auto mb-5 border border-slate-100 transition-all group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 group-hover:shadow-[0_8px_24px_rgba(249,115,22,0.3)]">📍</div>
+                <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3">{t('contact.address.title')}</h4>
                 <a
                   href="https://www.google.com/maps/search/?api=1&query=Digital+Gramin+Service+Centre+Nauwa+Gaon"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-pointer block text-lg text-slate-900 font-bold leading-relaxed whitespace-pre-line hover:text-orange-500 transition-colors"
+                  className="cursor-pointer block text-lg text-[#111] font-bold leading-relaxed whitespace-pre-line hover:text-orange-500 transition-colors"
                 >
                   {t('contact.address')}
                 </a>
               </div>
 
-              <div className="glass-panel p-6 rounded-[24px] text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex-1 flex flex-col items-center justify-center">
-                <div className="w-16 h-16 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center text-2xl mx-auto mb-6 shadow-inner transition-colors group-hover:bg-orange-500 group-hover:text-white">📞</div>
-                <h4 className="text-xs font-extrabold text-slate-500 uppercase tracking-widest mb-3">{t('contact.phone.title')}</h4>
-                <a href="tel:+917233060698" className="cursor-pointer text-lg text-slate-900 font-bold leading-relaxed whitespace-pre-line hover:text-orange-500">{t('contact.phone')}</a>
+              <div className="bg-white border border-slate-100 p-7 rounded-[24px] text-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] group flex-1 flex flex-col items-center justify-center">
+                <div className="w-14 h-14 rounded-2xl bg-[#F7F7F7] text-orange-500 flex items-center justify-center text-2xl mx-auto mb-5 border border-slate-100 transition-all group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 group-hover:shadow-[0_8px_24px_rgba(249,115,22,0.3)]">📞</div>
+                <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3">{t('contact.phone.title')}</h4>
+                <a href="tel:+917233060698" className="cursor-pointer text-lg text-[#111] font-bold leading-relaxed whitespace-pre-line hover:text-orange-500 transition-colors">{t('contact.phone')}</a>
               </div>
 
-              <div className="glass-panel p-6 rounded-[24px] text-center transition-all duration-300 hover:-translate-y-1 hover:shadow-xl group flex-1 flex flex-col items-center justify-center">
-                <div className="w-16 h-16 rounded-2xl bg-orange-50 text-orange-500 flex items-center justify-center text-2xl mx-auto mb-6 shadow-inner transition-colors group-hover:bg-emerald-500 group-hover:text-white">💬</div>
-                <h4 className="text-xs font-extrabold text-slate-500 uppercase tracking-widest mb-3">{t('contact.whatsapp.title')}</h4>
+              <div className="bg-white border border-slate-100 p-7 rounded-[24px] text-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] group flex-1 flex flex-col items-center justify-center">
+                <div className="w-14 h-14 rounded-2xl bg-[#F7F7F7] text-emerald-500 flex items-center justify-center text-2xl mx-auto mb-5 border border-slate-100 transition-all group-hover:bg-emerald-500 group-hover:text-white group-hover:border-emerald-500 group-hover:shadow-[0_8px_24px_rgba(16,185,129,0.3)]">💬</div>
+                <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3">{t('contact.whatsapp.title')}</h4>
                 <a
                   href="https://wa.me/917233060698"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-pointer inline-flex items-center gap-2 px-6 py-3 bg-emerald-50 text-emerald-600 font-bold rounded-xl transition-all duration-300 hover:bg-emerald-500 hover:text-white"
+                  className="cursor-pointer inline-flex items-center gap-2 px-6 py-3 bg-emerald-50 text-emerald-600 font-bold rounded-full transition-all duration-300 hover:bg-emerald-500 hover:text-white hover:shadow-[0_8px_24px_rgba(16,185,129,0.3)]"
                 >
                   Chat on WhatsApp
                 </a>
@@ -112,19 +114,19 @@ export default function ContactPage() {
 
           {/* Right Column: Apply Form */}
           <div className="w-full">
-            <h3 className="text-2xl font-extrabold text-slate-900 mb-6 leading-tight text-center lg:text-left">{t('apply.title')}</h3>
-            <form className="glass-panel p-8 md:p-10 rounded-[32px] space-y-6" onSubmit={handleSubmit} id="apply-form">
-              <p className="text-sm text-right font-semibold text-slate-500 mb-2"><span className="text-red-500">* </span> {t('apply.requiredNote')}</p>
+            <h3 className="text-2xl font-extrabold text-[#111] mb-6 leading-tight text-center lg:text-left">{t('apply.title')}</h3>
+            <form className="bg-white border border-slate-100 p-8 md:p-10 rounded-[24px] space-y-5 shadow-[0_4px_24px_rgba(0,0,0,0.04)]" onSubmit={handleSubmit} id="apply-form">
+              <p className="text-sm text-right font-semibold text-slate-400 mb-2"><span className="text-red-500">* </span> {t('apply.requiredNote')}</p>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">
+                <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">
                   {t('apply.name')} <span className="text-red-500">*</span>
                 </label>
-                <input name="Name" type="text" required className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)]" placeholder={t('apply.name.placeholder')} />
+                <input name="Name" type="text" required className={inputClass} placeholder={t('apply.name.placeholder')} />
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">
+                <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">
                   {t('apply.mobile')} <span className="text-red-500">*</span>
                 </label>
                 <input
@@ -133,17 +135,17 @@ export default function ContactPage() {
                   required
                   pattern="[0-9]{10}"
                   title="Please enter a valid 10-digit mobile number"
-                  className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)] invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
+                  className={`${inputClass} invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500`}
                   placeholder={t('apply.mobile.placeholder')}
                 />
               </div>
 
 
               <div className="flex flex-col gap-2">
-                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">
+                <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">
                   {t('apply.service')} <span className="text-red-500">*</span>
                 </label>
-                <select name="Service" value={selectedService} onChange={(e) => setSelectedService(e.target.value)} required className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 appearance-none focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)] bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer">
+                <select name="Service" value={selectedService} onChange={(e) => setSelectedService(e.target.value)} required className={`${inputClass} appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer`}>
                   <option value="" disabled>{t('apply.service.placeholder')}</option>
                   {Object.values(servicesData).map(service => (
                     <option key={service.id} value={service.id}>{t(service.nameKey)}</option>
@@ -154,24 +156,24 @@ export default function ContactPage() {
 
               {selectedService === 'other' && (
                 <div className="flex flex-col gap-2">
-                  <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">
+                  <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">
                     {t('apply.otherService')} <span className="text-red-500">*</span>
                   </label>
                   <input
                     name="OtherService"
                     type="text"
                     required
-                    className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)]"
+                    className={inputClass}
                     placeholder={t('apply.otherService.placeholder')}
                   />
                 </div>
               )}
 
               <div className="flex flex-col gap-2">
-                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">
+                <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">
                   {t('apply.requestType')} <span className="text-red-500">*</span>
                 </label>
-                <select name="RequestType" required defaultValue="query" className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 appearance-none focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)] bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer">
+                <select name="RequestType" required defaultValue="query" className={`${inputClass} appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer`}>
                   <option value="query">{t('apply.requestType.query')}</option>
                   <option value="feedback">{t('apply.requestType.feedback')}</option>
                   <option value="complaint">{t('apply.requestType.complaint')}</option>
@@ -179,10 +181,10 @@ export default function ContactPage() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label className="text-[13px] font-extrabold text-slate-500 uppercase tracking-widest ml-1">{t('apply.message')}</label>
+                <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">{t('apply.message')}</label>
                 <textarea
                   name="Message"
-                  className="bg-white/80 border-2 border-white/60 p-4 rounded-xl text-[15px] font-semibold text-slate-900 outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_12px_rgba(249,115,22,0.15)] min-h-[120px] resize-y"
+                  className={`${inputClass} min-h-[120px] resize-y`}
                   placeholder={t('apply.message.placeholder')}
                 />
               </div>
@@ -193,7 +195,7 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="cursor-pointer w-full p-4 bg-slate-900 text-white border-none rounded-xl text-base font-extrabold transition-all duration-300 shadow-[0_8px_24px_rgba(15,23,42,0.2)] hover:bg-orange-500 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(249,115,22,0.3)] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:bg-slate-900 flex items-center justify-center gap-3"
+                  className="cursor-pointer w-full p-4 bg-[#111] text-white border-none rounded-xl text-base font-extrabold transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:bg-orange-500 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(249,115,22,0.3)] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:bg-[#111] flex items-center justify-center gap-3"
                   id="submit-btn"
                 >
                   {isSubmitting ? (
@@ -218,10 +220,11 @@ export default function ContactPage() {
         {/* Full Width Map Section */}
         <div className="mt-20">
           <div className="text-center mb-10">
-            <h3 className="text-3xl font-extrabold text-slate-900 mb-3">{t('contact.map.title')}</h3>
-            <p className="text-slate-500 font-medium">{t('contact.address')}</p>
+            <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold uppercase tracking-widest mb-5">Location</span>
+            <h3 className="text-3xl font-extrabold text-[#111] mb-3">{t('contact.map.title')}</h3>
+            <p className="text-slate-400 font-medium">{t('contact.address')}</p>
           </div>
-          <div className="h-[500px] w-full bg-slate-200 rounded-[32px] overflow-hidden shadow-[0_10px_40px_-10px_rgba(15,23,42,0.1)] relative border-4 border-white group">
+          <div className="h-[500px] w-full bg-slate-100 rounded-[24px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.04)] relative border border-slate-100 group">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d289.55085484681547!2d82.90393093501596!3d26.839053270700855!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3990d700e68b619d%3A0xe64ab105a9eaf876!2sDigital%20Gramin%20Service%20Centre%20Nauwa%20Gaon!5e0!3m2!1sen!2sin!4v1777957754927!5m2!1sen!2sin"
               className="w-full h-full grayscale-[20%] transition-all duration-500 group-hover:grayscale-0"
