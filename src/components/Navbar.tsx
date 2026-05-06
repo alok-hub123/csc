@@ -1,23 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../context/LanguageContext';
 
 export default function Navbar() {
   const { lang, toggleLang, t } = useLang();
-  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   const currentPage = location.pathname === '/' ? 'home' : location.pathname.substring(1);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-
 
   const navLinks = [
     { id: 'home', label: t('nav.home') },
@@ -26,7 +15,6 @@ export default function Navbar() {
     { id: 'contact', label: t('nav.contact') },
   ];
 
-  const isHome = currentPage === 'home';
   const isTransparent = false; // Carousel hero is below navbar, no dark bg behind it
 
   return (
