@@ -57,16 +57,14 @@ function AppContent() {
   );
 }
 
-import { HelmetProvider } from 'react-helmet-async';
+
 
 export default function App() {
   return (
-    <HelmetProvider>
-      <LanguageProvider>
-        <Router>
-          <AppContent />
-        </Router>
-      </LanguageProvider>
-    </HelmetProvider>
+    <LanguageProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </LanguageProvider>
   );
 }

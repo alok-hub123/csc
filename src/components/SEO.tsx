@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { useEffect } from 'react';
 import { useLang } from '../context/LanguageContext';
 
 interface SEOProps {
@@ -9,11 +9,19 @@ interface SEOProps {
 export default function SEO({ title, description }: SEOProps) {
   const { lang } = useLang();
 
-  return (
-    <Helmet>
-      <title>{title} | KIOSK</title>
-      <meta name="description" content={description} />
-      <html lang={lang} />
-    </Helmet>
-  );
+  useEffect(() => {
+    // Update document title
+    document.title = `${title} | KIOSK- Digital Gramin Service Center`;
+
+    // Update meta description
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', description);
+    }
+
+    // Update html lang attribute
+    document.documentElement.lang = lang;
+  }, [title, description, lang]);
+
+  return null;
 }
