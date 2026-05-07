@@ -18,6 +18,7 @@ function ScrollToTop() {
 
 import { AnimatePresence } from 'framer-motion';
 import ServiceDetailPage from './components/ServiceDetailPage';
+import EventsPage from './components/EventsPage';
 
 function AppContent() {
   const location = useLocation();
@@ -32,6 +33,7 @@ function AppContent() {
             <Route path="/" element={<HomePage />} />
             <Route path="/services" element={<ServicesPage />} />
             <Route path="/service/:id" element={<ServiceDetailPage />} />
+            <Route path="/events" element={<EventsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="*" element={<HomePage />} />

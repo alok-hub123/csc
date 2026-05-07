@@ -29,6 +29,7 @@ export default function Footer() {
           <ul className="list-none">
             <li className="mb-4"><Link to="/" className="cursor-pointer text-white/40 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('nav.home')}</Link></li>
             <li className="mb-4"><Link to="/services" className="cursor-pointer text-white/40 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('nav.services')}</Link></li>
+            <li className="mb-4"><Link to="/events" className="cursor-pointer text-white/40 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('nav.events')}</Link></li>
             <li className="mb-4"><Link to="/about" className="cursor-pointer text-white/40 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('nav.about')}</Link></li>
             <li className="mb-4"><Link to="/contact" className="cursor-pointer text-white/40 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('nav.contact')}</Link></li>
           </ul>
@@ -37,6 +38,7 @@ export default function Footer() {
         <div>
           <h4 className="text-white text-sm font-extrabold mb-7 uppercase tracking-widest">{t('footer.categories')}</h4>
           <ul className="list-none">
+            <li className="mb-4"><Link to="/services" className="cursor-pointer text-white/40 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.all')}</Link></li>
             <li className="mb-4"><Link to="/services" className="cursor-pointer text-white/40 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.govt')}</Link></li>
             <li className="mb-4"><Link to="/services" className="cursor-pointer text-white/40 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.financial')}</Link></li>
             <li className="mb-4"><Link to="/services" className="cursor-pointer text-white/40 text-[15px] font-medium transition-all duration-200 hover:text-orange-500 hover:pl-1.5 block">{t('services.utility')}</Link></li>

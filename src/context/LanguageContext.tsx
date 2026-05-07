@@ -12,6 +12,7 @@ const translations: Record<string, Record<Language, string>> = {
   // Navbar
   'nav.home': { en: 'Home', hi: 'होम' },
   'nav.services': { en: 'Services', hi: 'सेवाएं' },
+  'nav.events': { en: 'Events', hi: 'कार्यक्रम' },
   'nav.about': { en: 'About', hi: 'हमारे बारे में' },
   'nav.contact': { en: 'Contact', hi: 'संपर्क' },
 
@@ -109,12 +110,16 @@ const translations: Record<string, Record<Language, string>> = {
   'services.digiHealth': { en: 'Digital Health ID', hi: 'डिजिटल हेल्थ आईडी' },
   'services.digiHealth.desc': { en: 'ABHA card creation & health records', hi: 'ABHA कार्ड निर्माण एवं स्वास्थ्य रिकॉर्ड' },
 
+  // Events page
+  'events.title': { en: 'Events', hi: 'कार्यक्रम' },
+  'events.subtitle': { en: 'Join us for our events and workshops', hi: 'हमारे कार्यक्रमों और कार्यशालाओं में शामिल हों' },
+
   // About page
   'about.title': { en: 'About Us', hi: 'हमारे बारे में' },
   'about.subtitle': { en: 'Serving our community with dedication', hi: 'समर्पण के साथ अपने समुदाय की सेवा' },
   'about.vle.title': { en: 'Village Level Entrepreneur (VLE)', hi: 'ग्राम स्तरीय उद्यमी (VLE)' },
-  'about.vle.name': { en: 'Avesh Kumar', hi: 'रमेश कुमार वर्मा' },
-  'about.vle.desc': { en: 'Dedicated VLE serving the community of Chandpur and nearby villages since 2017. Committed to bridging the digital divide and ensuring every citizen has access to government services.', hi: '2017 से चांदपुर और आस-पास के गांवों के समुदाय की सेवा करने वाले समर्पित VLE। डिजिटल विभाजन को पाटने और हर नागरिक को सरकारी सेवाओं तक पहुंच सुनिश्चित करने के लिए प्रतिबद्ध।' },
+  'about.vle.name': { en: 'Avesh Kumar', hi: 'अवेश कुमार' },
+  'about.vle.desc': { en: 'Dedicated VLE serving the community of Nauwadeeh || (Nauwa Gaon) and nearby villages since 2021. Committed to bridging the digital divide and ensuring every citizen has access to government services.', hi: '2021 से नौवदीह || (नौवा गांव) और आस-पास के गांवों के समुदाय की सेवा करने वाले समर्पित VLE। डिजिटल विभाजन को पाटने और हर नागरिक को सरकारी सेवाओं तक पहुंच सुनिश्चित करने के लिए प्रतिबद्ध।' },
   'about.mission.title': { en: 'Our Mission', hi: 'हमारा उद्देश्य' },
   'about.mission.desc': { en: 'CSC (Common Service Centre) is an initiative under the Digital India programme. It provides a single-window platform for delivering government, financial, and social sector services to citizens in rural and semi-urban areas.', hi: 'CSC (कॉमन सर्विस सेंटर) डिजिटल इंडिया कार्यक्रम के तहत एक पहल है। यह ग्रामीण और अर्ध-शहरी क्षेत्रों में नागरिकों को सरकारी, वित्तीय और सामाजिक क्षेत्र की सेवाएं प्रदान करने का एकल-खिड़की मंच है।' },
   'about.mission.point1': { en: 'Provide accessible digital services to rural citizens', hi: 'ग्रामीण नागरिकों को सुलभ डिजिटल सेवाएं प्रदान करना' },
