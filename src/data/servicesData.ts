@@ -232,8 +232,8 @@ export const servicesData: Record<string, ServiceDetail> = {
     id: 'driving', icon: '🚗', nameKey: 'services.driving', descKey: 'services.driving.desc',
     briefEn: 'Driving License is issued by the Regional Transport Office (RTO). We assist in the complete online application process through the Parivahan Sewa portal for learning license, permanent driving license, and renewals.',
     briefHi: 'ड्राइविंग लाइसेंस क्षेत्रीय परिवहन कार्यालय (RTO) द्वारा जारी किया जाता है। हम परिवहन सेवा पोर्टल के माध्यम से लर्निंग लाइसेंस, स्थायी ड्राइविंग लाइसेंस और नवीनीकरण के लिए पूर्ण ऑनलाइन आवेदन प्रक्रिया में सहायता करते हैं।',
-    subServicesEn: ['Learning License Application', 'Permanent DL Application', 'DL Renewal', 'International Driving Permit', 'DL Status Check'],
-    subServicesHi: ['लर्निंग लाइसेंस आवेदन', 'स्थायी DL आवेदन', 'DL नवीनीकरण', 'अंतरराष्ट्रीय ड्राइविंग परमिट', 'DL स्थिति जांच'],
+    subServicesEn: ['Learning License Application', 'Permanent DL Application', 'DL Renewal', 'Transport Vehicle License (TR)', 'International Driving Permit', 'DL Status Check'],
+    subServicesHi: ['लर्निंग लाइसेंस आवेदन', 'स्थायी DL आवेदन', 'DL नवीनीकरण', 'परिवहन वाहन लाइसेंस (TR)', 'अंतरराष्ट्रीय ड्राइविंग परमिट', 'DL स्थिति जांच'],
     documentsEn: ['Aadhaar Card', 'Age Proof', 'Address Proof', 'Passport Size Photo'],
     documentsHi: ['आधार कार्ड', 'आयु प्रमाण', 'पते का प्रमाण', 'पासपोर्ट साइज फोटो']
   },
@@ -317,5 +317,89 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesHi: ['UAN सक्रियण', 'EPF KYC अपडेट', 'पासबुक डाउनलोड', 'PF निकासी दावा', 'ट्रांसफर दावा'],
     documentsEn: ['UAN Number', 'Aadhaar Card', 'PAN Card', 'Bank Passbook'],
     documentsHi: ['UAN नंबर', 'आधार कार्ड', 'पैन कार्ड', 'बैंक पासबुक']
+  },
+  pcc: {
+    id: 'pcc',
+    icon: '👮',
+    nameKey: 'services.pcc',
+    descKey: 'services.pcc.desc',
+    briefEn: 'A Police Clearance Certificate (PCC) is an official document issued by the police department or Passport Seva to verify a person\'s criminal record. It is widely required for employment, visa applications, and emigration purposes. We assist in the complete online application, appointment booking, and documentation.',
+    briefHi: 'पुलिस क्लीयरेंस सर्टिफिकेट (PCC) पुलिस विभाग या पासपोर्ट सेवा द्वारा किसी व्यक्ति के आपराधिक रिकॉर्ड को सत्यापित करने के लिए जारी किया गया एक आधिकारिक दस्तावेज है। यह रोजगार, वीजा आवेदनों और विदेश प्रवास के लिए व्यापक रूप से आवश्यक है। हम पूर्ण ऑनलाइन आवेदन, अपॉइंटमेंट बुकिंग और दस्तावेज बनाने में सहायता करते हैं।',
+    subServicesEn: ['New PCC Application', 'Passport Seva PCC', 'State Police Portal PCC', 'Document Verification', 'Appointment Booking', 'Status Tracking'],
+    subServicesHi: ['नया PCC आवेदन', 'पासपोर्ट सेवा PCC', 'राज्य पुलिस पोर्टल PCC', 'दस्तावेज सत्यापन', 'अपॉइंटमेंट बुकिंग', 'स्थिति ट्रैकिंग'],
+    documentsEn: ['Aadhaar Card', 'Passport (if international)', 'Proof of Address', 'Current Address Proof', 'Passport size photograph'],
+    documentsHi: ['आधार कार्ड', 'पासपोर्ट (यदि अंतर्राष्ट्रीय है)', 'पते का प्रमाण', 'वर्तमान पते का प्रमाण', 'पासपोर्ट साइज फोटो']
+  },
+  passportImmigration: {
+    id: 'passportImmigration',
+    icon: '🛂',
+    nameKey: 'services.passportImmigration',
+    descKey: 'services.passportImmigration.desc',
+    briefEn: 'Passport Emigration (ECR/Non-ECR) services ensure smooth international travel clearance for Indian citizens traveling abroad for work or residency. We help verify your passport\'s ECR (Emigration Check Required) status, apply for Emigration Clearance (EC) via the eMigrate portal, and ensure compliance with Ministry of External Affairs regulations.',
+    briefHi: 'पासपोर्ट इमिग्रेशन/उत्प्रवास (ECR/Non-ECR) सेवाएं काम या निवास के लिए विदेश यात्रा करने वाले भारतीय नागरिकों के लिए सुचारू अंतरराष्ट्रीय यात्रा मंजूरी सुनिश्चित करती हैं। हम आपके पासपोर्ट की ECR (उत्प्रवास जांच आवश्यक) स्थिति को सत्यापित करने, eMigrate पोर्टल के माध्यम से उत्प्रवास मंजूरी (EC) के लिए आवेदन करने और विदेश मंत्रालय के नियमों का अनुपालन सुनिश्चित करने में मदद करते हैं।',
+    subServicesEn: ['ECR / Non-ECR Status Check', 'eMigrate Portal Registration', 'Emigration Clearance (EC) Application', 'Document Attestation Assistance', 'Employer Verification Check', 'Pre-Departure Orientation Training Help'],
+    subServicesHi: ['ECR / Non-ECR स्थिति जांच', 'eMigrate पोर्टल पंजीकरण', 'उत्प्रवास मंजूरी (EC) आवेदन', 'दस्तावेज सत्यापन एवं सत्यापन सहायता', 'नियोक्ता सत्यापन जांच', 'प्रस्थान-पूर्व ओरिएंटेशन प्रशिक्षण सहायता'],
+    documentsEn: ['Passport (Original & Copy)', 'Employment Contract / Offer Letter', 'Visa Copy', 'Aadhaar Card', 'Passport size photographs'],
+    documentsHi: ['पासपोर्ट (मूल और प्रति)', 'रोजगार अनुबंध / प्रस्ताव पत्र', 'वीजा प्रति', 'आधार कार्ड', 'पासपोर्ट साइज फोटो']
+  },
+  airTicket: {
+    id: 'airTicket',
+    icon: '✈️',
+    nameKey: 'services.airTicket',
+    descKey: 'services.airTicket.desc',
+    briefEn: 'Book domestic and international flight tickets to destinations worldwide at competitive rates. We compare prices across all major airlines, find the best deals, assist with baggage selection, seat reservation, web check-in, and manage ticket cancellations or rescheduling.',
+    briefHi: 'प्रतिस्पर्धी दरों पर दुनिया भर के गंतव्यों के लिए घरेलू और अंतर्राष्ट्रीय उड़ान टिकट बुक करें। हम सभी प्रमुख एयरलाइनों के किराए की तुलना करते हैं, सर्वोत्तम डील ढूंढते हैं, सामान चयन, सीट आरक्षण, वेब चेक-इन में सहायता करते हैं, और टिकट रद्दीकरण या रिशेड्यूलिंग का प्रबंधन करते हैं।',
+    subServicesEn: ['Domestic Flight Booking', 'International Flight Booking', 'Instant Ticket Printing', 'Web Check-in & Boarding Pass', 'Seat & Meal Selection', 'Baggage Allowance Assistance', 'Refund & Cancellation Management'],
+    subServicesHi: ['घरेलू उड़ान बुकिंग', 'अंतरराष्ट्रीय उड़ान बुकिंग', 'तत्काल टिकट प्रिंटिंग', 'वेब चेक-इन और बोर्डिंग पास', 'सीट और भोजन चयन', 'सामान भत्ता सहायता', 'रिफंड और रद्दीकरण प्रबंधन'],
+    documentsEn: ['Valid ID Proof (Aadhaar/Voter ID)', 'Passport (for international flights)', 'Travel Dates and Destination Details'],
+    documentsHi: ['वैध पहचान प्रमाण (आधार/वोटर आईडी)', 'पासपोर्ट (अंतरराष्ट्रीय उड़ानों के लिए)', 'यात्रा की तिथियां और गंतव्य विवरण']
+  },
+  tourPackage: {
+    id: 'tourPackage',
+    icon: '🏖️',
+    nameKey: 'services.tourPackage',
+    descKey: 'services.tourPackage.desc',
+    briefEn: 'Plan your dream vacation, family holiday, or sacred pilgrimage with our curated tour packages. We partner with authorized travel operators to offer budget-friendly and premium travel packages including accommodation, sightseeing, transportation, and custom itineraries for both domestic and international destinations.',
+    briefHi: 'हमारे द्वारा तैयार किए गए टूर पैकेजों के साथ अपने सपनों की छुट्टी, पारिवारिक छुट्टी या पवित्र तीर्थयात्रा की योजना बनाएं। हम घरेलू और अंतर्राष्ट्रीय दोनों गंतव्यों के लिए आवास, दर्शनीय स्थलों की यात्रा, परिवहन और कस्टम यात्रा कार्यक्रमों सहित बजट-अनुकूल और प्रीमियम यात्रा पैकेजों की पेशकश करने के लिए अधिकृत ट्रैवल ऑपरेटरों के साथ साझेदारी करते हैं।',
+    subServicesEn: ['Domestic Tour Packages', 'Sacred Pilgrimage / Yatra Packages', 'International Holiday Packages', 'Custom Itinerary Planning', 'Hotel & Transport Booking', 'Group Tour Bookings'],
+    subServicesHi: ['घरेलू टूर पैकेज', 'पवित्र तीर्थयात्रा / यात्रा पैकेज', 'अंतर्राष्ट्रीय अवकाश पैकेज', 'अनुकूलित यात्रा कार्यक्रम योजना', 'होटल और परिवहन बुकिंग', 'ग्रुप टूर बुकिंग'],
+    documentsEn: ['Aadhaar Card of all travelers', 'Passport (for international tours)', 'Specific travel requirements / details'],
+    documentsHi: ['सभी यात्रियों के आधार कार्ड', 'पासपोर्ट (अंतरराष्ट्रीय दौरों के लिए)', 'विशिष्ट यात्रा आवश्यकताएं / विवरण']
+  },
+  visaAssistance: {
+    id: 'visaAssistance',
+    icon: '🛂',
+    nameKey: 'services.visaAssistance',
+    descKey: 'services.visaAssistance.desc',
+    briefEn: 'Applying for a visa can be complex and time-consuming. We provide end-to-end support for tourist, business, student, and transit visa applications. Our team assists with form filling, document checklist compliance, appointment scheduling, visa fee payments, and interview preparation for major countries.',
+    briefHi: 'वीजा के लिए आवेदन करना जटिल और समय लेने वाला हो सकता है। हम पर्यटक, व्यवसाय, छात्र और पारगमन वीजा आवेदनों के लिए शुरू से अंत तक सहायता प्रदान करते हैं। हमारी टीम प्रमुख देशों के लिए फॉर्म भरने, दस्तावेज चेकलिस्ट अनुपालन, अपॉइंटमेंट शेड्यूलिंग, वीजा शुल्क भुगतान और साक्षात्कार की तैयारी में सहायता करती है।',
+    subServicesEn: ['Tourist Visa Application', 'Business Visa Application', 'Student Visa Documentation Support', 'Online Visa Form Filling', 'Document Checklist & Formatting', 'Visa Fee Payment', 'Embassy Appointment Booking', 'Mock Interview Guidance'],
+    subServicesHi: ['पर्यटक वीजा आवेदन', 'व्यवसाय वीजा आवेदन', 'छात्र वीजा दस्तावेज सहायता', 'ऑनलाइन वीजा फॉर्म भरना', 'दस्तावेज चेकलिस्ट और प्रारूपण', 'वीजा शुल्क भुगतान', 'दूतावास अपॉइंटमेंट बुकिंग', 'साक्षात्कार मार्गदर्शन'],
+    documentsEn: ['Valid Passport (at least 6 months validity)', 'Passport size photographs (specific criteria)', 'Flight itinerary & Hotel booking', 'Bank Statements (Proof of Funds)', 'Employment / Business Proof', 'Invitation Letter (if applicable)'],
+    documentsHi: ['वैध पासपोर्ट (कम से कम 6 महीने की वैधता)', 'पासपोर्ट साइज फोटो (विशिष्ट मानदंड)', 'उड़ान कार्यक्रम और होटल बुकिंग', 'बैंक स्टेटमेंट (धन का प्रमाण)', 'रोजगार / व्यवसाय का प्रमाण', 'निमंत्रण पत्र (यदि लागू हो)']
+  },
+  farmerSubsidy: {
+    id: 'farmerSubsidy',
+    icon: '🚜',
+    nameKey: 'services.farmerSubsidy',
+    descKey: 'services.farmerSubsidy.desc',
+    briefEn: 'The Government offers significant subsidies to farmers for purchasing high-quality seeds, fertilizers, pesticides, and modern agricultural machinery (tractors, tillers, irrigation pumps, etc.) under various DBT (Direct Benefit Transfer) schemes. We assist farmers in registering on the DBT Agriculture portal, applying for subsidies, submitting land details, and tracking credit status.',
+    briefHi: 'सरकार विभिन्न डीबीटी (प्रत्यक्ष लाभ हस्तांतरण) योजनाओं के तहत उच्च गुणवत्ता वाले बीज, उर्वरक, कीटनाशकों और आधुनिक कृषि मशीनरी (ट्रैक्टर, टिलर, सिंचाई पंप आदि) खरीदने के लिए किसानों को महत्वपूर्ण सब्सिडी प्रदान करती है। हम किसानों को डीबीटी कृषि पोर्टल पर पंजीकरण करने, सब्सिडी के लिए आवेदन करने, भूमि विवरण जमा करने और क्रेडिट स्थिति को ट्रैक करने में सहायता करते हैं।',
+    subServicesEn: ['Subsidy on Certified Seeds', 'Subsidy on Organic & Chemical Pesticides', 'Agricultural Implements Subsidy (Tractors, Pumps, etc.)', 'DBT Agriculture Portal Registration', 'Subsidy Application Submission', 'Application Status Tracking'],
+    subServicesHi: ['प्रमाणित बीजों पर अनुदान', 'जैविक और रासायनिक कीटनाशकों पर अनुदान', 'कृषि यंत्रों पर अनुदान (ट्रैक्टर, पंप, आदि)', 'डीबीटी कृषि पोर्टल पंजीकरण', 'अनुदान आवेदन जमा करना', 'आवेदन स्थिति ट्रैकिंग'],
+    documentsEn: ['Aadhaar Card', 'Bank Passbook (linked with Aadhaar)', 'Land Record (Khatauni)', 'Mobile Number (for OTP verification)', 'Farmer Registration Number'],
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक (आधार से लिंक)', 'भूमि रिकॉर्ड (खतौनी)', 'मोबाइल नंबर (OTP सत्यापन के लिए)', 'किसान पंजीकरण संख्या']
+  },
+  farmerRegistry: {
+    id: 'farmerRegistry',
+    icon: '📝',
+    nameKey: 'services.farmerRegistry',
+    descKey: 'services.farmerRegistry.desc',
+    briefEn: 'The Farmer Registry (Farmer ID) is a landmark initiative of the government to create a centralized, verified digital repository of all farmers and their landholdings. A unique digital Farmer ID is generated, which acts as a single-window credential for all agricultural schemes, credit, and subsidies. We assist in creating new registry profiles, resolving data mismatches, and linking missing land accounts.',
+    briefHi: 'फार्मर रजिस्ट्री (किसान आईडी) सभी किसानों और उनकी जोतों का एक केंद्रीकृत, सत्यापित डिजिटल रिपोजिटरी बनाने के लिए सरकार की एक ऐतिहासिक पहल है। एक विशिष्ट डिजिटल किसान आईडी उत्पन्न होती है, जो सभी कृषि योजनाओं, ऋण और सब्सिडी के लिए एकल-खिड़की क्रेडेंशियल के रूप में कार्य करती है। हम नए रजिस्ट्री प्रोफाइल बनाने, डेटा विसंगतियों को हल करने और छूटे हुए भूमि खातों को जोड़ने में सहायता करते हैं।',
+    subServicesEn: ['New Farmer Registry Profile', 'Digital Farmer ID Creation', 'Linking Missing Land Accounts (छूटे खाते जोड़ना)', 'Landholding Record Verification', 'Aadhaar & Land Mismatch Correction', 'Farmer Registry Certificate Download'],
+    subServicesHi: ['नया फार्मर रजिस्ट्री प्रोफाइल', 'डिजिटल किसान आईडी निर्माण', 'छूटे हुए भूमि खातों को जोड़ना', 'जोत रिकॉर्ड सत्यापन', 'आधार और भूमि बेमेल सुधार', 'फार्मर रजिस्ट्री प्रमाण पत्र डाउनलोड'],
+    documentsEn: ['Aadhaar Card', 'Land Record (Khatauni)', 'Bank Passbook', 'Active Mobile Number linked with Aadhaar'],
+    documentsHi: ['आधार कार्ड', 'भूमि रिकॉर्ड (खतौनी)', 'बैंक पासबुक', 'आधार से लिंक सक्रिय मोबाइल नंबर']
   }
 };
