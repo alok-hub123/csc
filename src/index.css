@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  --color-saffron-500: #f97316;
-  --color-saffron-600: #ea580c;
-  --color-navy-900: #0f172a;
-  --color-navy-800: #1e293b;
-  --color-accent: #F04E3C;
-  --color-accent-light: #FFF0ED;
-  --color-surface: #F7F7F7;
-  --color-surface-alt: #FFFFFF;
-  --color-dark: #0A0A0F;
+  --color-saffron: #FF6B00;
+  --color-saffron-dark: #E55F00;
+  --color-cream: #FFFDF5;
+  --color-black: #000000;
+  --color-pale-saffron: #FFF3E0;
+  --color-mint: #D1FAE5;
+  --color-lavender: #E8E0FF;
+  --color-sky: #DBEAFE;
+  --color-rose-lite: #FFE4E6;
 }
 
 @layer base {
@@ -18,7 +18,7 @@
   }
 
   body {
-    @apply bg-[#F7F7F7] text-slate-900 antialiased overflow-x-hidden relative;
+    @apply bg-[#FFFDF5] text-black antialiased overflow-x-hidden relative;
     font-family: 'Inter', 'Noto Sans Devanagari', system-ui, sans-serif;
   }
 }
@@ -79,19 +79,19 @@
   }
 }
 
-/* Base utility layer components for highly reused complex glass elements */
+/* Neo-Brutalism utility layer */
 @layer components {
-  .glass-panel {
-    @apply bg-white border border-slate-100;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+  .brutal-card {
+    @apply bg-white border-2 border-black rounded-xl p-8 transition-all duration-200;
+    box-shadow: 4px 4px 0px 0px #000;
   }
 
-  .glass-panel-hover {
-    @apply hover:-translate-y-1.5 transition-all duration-300;
+  .brutal-card-hover {
+    @apply hover:-translate-x-0.5 hover:-translate-y-0.5;
   }
 
-  .glass-panel-hover:hover {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+  .brutal-card-hover:hover {
+    box-shadow: 6px 6px 0px 0px #000;
   }
 
   .animate-ticker {
@@ -114,29 +114,83 @@
     animation: fadeInUp 0.6s ease-out both;
   }
 
-  /* Pill button base */
-  .pill-btn {
-    @apply px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300;
+  /* Brutalist button base */
+  .brutal-btn {
+    @apply px-7 py-3.5 rounded-xl font-black text-sm transition-all duration-200 border-2 border-black uppercase tracking-wider;
+    box-shadow: 3px 3px 0px 0px #000;
   }
 
-  .pill-btn-primary {
-    @apply px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300 bg-orange-500 text-white hover:bg-orange-600 hover:-translate-y-0.5;
+  .brutal-btn:hover {
+    @apply -translate-x-0.5 -translate-y-0.5;
+    box-shadow: 5px 5px 0px 0px #000;
   }
 
-  .pill-btn-primary:hover {
-    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.35);
+  .brutal-btn:active {
+    @apply translate-x-0 translate-y-0;
+    box-shadow: 0px 0px 0px 0px #000;
   }
 
-  .pill-btn-outline {
-    @apply px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300 bg-white text-[#0A0A0F] border-2 border-slate-200 hover:border-orange-500 hover:text-orange-500 hover:-translate-y-0.5;
+  .brutal-btn-primary {
+    @apply px-7 py-3.5 rounded-xl font-black text-sm transition-all duration-200 bg-[#FF6B00] text-white border-2 border-black uppercase tracking-wider;
+    box-shadow: 3px 3px 0px 0px #000;
+  }
+
+  .brutal-btn-primary:hover {
+    @apply -translate-x-0.5 -translate-y-0.5;
+    box-shadow: 5px 5px 0px 0px #000;
+  }
+
+  .brutal-btn-primary:active {
+    @apply translate-x-0 translate-y-0;
+    box-shadow: 0px 0px 0px 0px #000;
+  }
+
+  .brutal-btn-outline {
+    @apply px-7 py-3.5 rounded-xl font-black text-sm transition-all duration-200 bg-white text-black border-2 border-black uppercase tracking-wider;
+    box-shadow: 3px 3px 0px 0px #000;
+  }
+
+  .brutal-btn-outline:hover {
+    @apply -translate-x-0.5 -translate-y-0.5 bg-[#FFF3E0];
+    box-shadow: 5px 5px 0px 0px #000;
   }
 
   /* Section heading */
   .section-heading {
-    @apply text-3xl md:text-4xl lg:text-[42px] font-extrabold text-[#0A0A0F] tracking-tight leading-tight;
+    @apply text-3xl md:text-4xl lg:text-[44px] font-black text-black tracking-tight leading-tight;
   }
 
   .section-subheading {
-    @apply text-base text-slate-500 font-medium mt-3 max-w-xl mx-auto;
+    @apply text-base text-black/50 font-bold mt-3 max-w-xl mx-auto leading-relaxed;
   }
+
+  /* Brutalist badge */
+  .brutal-badge {
+    @apply inline-block px-4 py-1.5 rounded-lg bg-[#FFF3E0] text-[#FF6B00] text-xs font-black uppercase tracking-widest border-2 border-black;
+    box-shadow: 2px 2px 0px 0px #000;
+  }
+
+  /* Brutalist input */
+  .brutal-input {
+    @apply w-full bg-white border-2 border-black p-4 rounded-xl text-[14px] font-bold text-black outline-none transition-all duration-200 placeholder:text-black/30;
+    box-shadow: 3px 3px 0px 0px #000;
+  }
+
+  .brutal-input:focus {
+    @apply border-[#FF6B00];
+    box-shadow: 3px 3px 0px 0px #FF6B00;
+  }
+}
+
+@keyframes softFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0.2deg);
+  }
+}
+
+.animate-soft-float {
+  animation: softFloat 7s ease-in-out infinite;
 }

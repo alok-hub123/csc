@@ -4,6 +4,7 @@ import { useLang } from '../context/LanguageContext';
 import PageTransition from './PageTransition';
 import SEO from './SEO';
 import { servicesData } from '../data/servicesData';
+import { MapPinIcon, PhoneIcon, WhatsAppIcon } from './Icons';
 
 export default function ContactPage() {
   const { t } = useLang();
@@ -44,7 +45,7 @@ export default function ContactPage() {
         body: formData,
       });
 
-      console.log('Form data submitted to Excel successfully.');
+      console.log('Form data submitted successfully.');
 
       setSubmitted(true);
       // Reset success message after 5 seconds
@@ -58,185 +59,202 @@ export default function ContactPage() {
     }
   };
 
-  const inputClass = "w-full bg-[#F7F7F7] border-2 border-slate-100 p-4 rounded-xl text-[15px] font-semibold text-[#0A0A0F] outline-none transition-all duration-300 focus:bg-white focus:border-orange-500 focus:shadow-[0_4px_16px_rgba(249,115,22,0.1)]";
-
   return (
-    <PageTransition className="mt-[116px]">
+    <PageTransition>
       <SEO
         title={t('nav.contact')}
         description={t('contact.subtitle')}
       />
-      <section className="py-20 lg:py-10 px-4 max-w-7xl mx-auto" id="contact-page">
-        <div className="text-center mb-14">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold uppercase tracking-widest mb-5">Contact</span>
-          <h2 className="section-heading">{t('contact.title')}</h2>
-        </div>
+      <div className="min-h-screen bg-[#FFFDF5] relative overflow-x-hidden pt-[136px] pb-24 z-10">
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch">
-          {/* Left Column: Contact Info Cards */}
-          <div className="flex flex-col h-full">
-            <h3 className="text-2xl font-extrabold text-[#0A0A0F] mb-6 leading-tight">{t('contact.subtitle')}</h3>
+        <section className="px-4 max-w-7xl mx-auto relative z-10" id="contact-page">
 
-            <div className="flex flex-col gap-5 flex-1">
-              <div className="bg-white border border-slate-100 p-7 rounded-[24px] text-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] group flex-1 flex flex-col items-center justify-center">
-                <div className="w-14 h-14 rounded-2xl bg-[#F7F7F7] text-orange-500 flex items-center justify-center text-2xl mx-auto mb-5 border border-slate-100 transition-all group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 group-hover:shadow-[0_8px_24px_rgba(249,115,22,0.3)]">📍</div>
-                <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3">{t('contact.address.title')}</h4>
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Digital+Gramin+Service+Centre+Nauwa+Gaon"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cursor-pointer block text-lg text-[#0A0A0F] font-bold leading-relaxed whitespace-pre-line hover:text-orange-500 transition-colors"
-                >
-                  {t('contact.address')}
-                </a>
+          <div className="text-center mb-14">
+            <span className="brutal-badge mb-4">Get In Touch</span>
+            <h2 className="section-heading mt-4">{t('nav.contact')}</h2>
+            <div className="w-16 h-1.5 bg-[#FF6B00] mx-auto mt-5 border border-black" />
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-stretch max-w-6xl mx-auto">
+            {/* Left Column: Contact Info Cards */}
+            <div className="flex flex-col h-full justify-between">
+              <div>
+                <span className="inline-block px-3 py-1 rounded-lg bg-[#FFF3E0] text-[#FF6B00] text-[10px] font-black uppercase tracking-wider mb-2 border-2 border-black" style={{ boxShadow: '2px 2px 0px 0px #000' }}>Connect</span>
+                <h3 className="text-xl md:text-2xl font-black text-black mb-6 leading-tight tracking-tight">{t('contact.subtitle')}</h3>
               </div>
 
-              <div className="bg-white border border-slate-100 p-7 rounded-[24px] text-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] group flex-1 flex flex-col items-center justify-center">
-                <div className="w-14 h-14 rounded-2xl bg-[#F7F7F7] text-orange-500 flex items-center justify-center text-2xl mx-auto mb-5 border border-slate-100 transition-all group-hover:bg-orange-500 group-hover:text-white group-hover:border-orange-500 group-hover:shadow-[0_8px_24px_rgba(249,115,22,0.3)]">📞</div>
-                <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3">{t('contact.phone.title')}</h4>
-                <a href="tel:+917233060698" className="cursor-pointer text-lg text-[#0A0A0F] font-bold leading-relaxed whitespace-pre-line hover:text-orange-500 transition-colors">{t('contact.phone')}</a>
-              </div>
+              <div className="flex flex-col gap-4 flex-1 mt-2">
+                
+                {/* Card 1: Address */}
+                <div className="bg-white border-2 border-black p-6 rounded-xl text-center transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 group flex-1 flex flex-col items-center justify-center" style={{ boxShadow: '4px 4px 0px 0px #000' }}>
+                  <div className="w-12 h-12 rounded-xl bg-[#DBEAFE] border-2 border-black text-black flex items-center justify-center mx-auto mb-4 transition-all group-hover:bg-[#FF6B00] group-hover:text-white">
+                    <MapPinIcon size={20} />
+                  </div>
+                  <h4 className="text-[10px] font-black text-black/50 uppercase tracking-widest mb-2">{t('contact.address.title')}</h4>
+                  <a
+                    href="https://www.google.com/maps/search/?api=1&query=Digital+Gramin+Service+Centre+Nauwa+Gaon"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer block text-base text-black font-black leading-relaxed whitespace-pre-line hover:text-[#FF6B00] transition-colors"
+                  >
+                    {t('contact.address')}
+                  </a>
+                </div>
 
-              <div className="bg-white border border-slate-100 p-7 rounded-[24px] text-center transition-all duration-400 hover:-translate-y-1.5 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] group flex-1 flex flex-col items-center justify-center">
-                <div className="w-14 h-14 rounded-2xl bg-[#F7F7F7] text-emerald-500 flex items-center justify-center text-2xl mx-auto mb-5 border border-slate-100 transition-all group-hover:bg-emerald-500 group-hover:text-white group-hover:border-emerald-500 group-hover:shadow-[0_8px_24px_rgba(16,185,129,0.3)]">💬</div>
-                <h4 className="text-xs font-extrabold text-slate-400 uppercase tracking-widest mb-3">{t('contact.whatsapp.title')}</h4>
-                <a
-                  href="https://wa.me/917233060698"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cursor-pointer inline-flex items-center gap-2 px-6 py-3 bg-emerald-50 text-emerald-600 font-bold rounded-full transition-all duration-300 hover:bg-emerald-500 hover:text-white hover:shadow-[0_8px_24px_rgba(16,185,129,0.3)]"
-                >
-                  Chat on WhatsApp
-                </a>
+                {/* Card 2: Phone */}
+                <div className="bg-white border-2 border-black p-6 rounded-xl text-center transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 group flex-1 flex flex-col items-center justify-center" style={{ boxShadow: '4px 4px 0px 0px #000' }}>
+                  <div className="w-12 h-12 rounded-xl bg-[#FFF3E0] border-2 border-black text-black flex items-center justify-center mx-auto mb-4 transition-all group-hover:bg-[#FF6B00] group-hover:text-white">
+                    <PhoneIcon size={18} />
+                  </div>
+                  <h4 className="text-[10px] font-black text-black/50 uppercase tracking-widest mb-2">{t('contact.phone.title')}</h4>
+                  <a href="tel:+917233060698" className="cursor-pointer text-base text-black font-black leading-relaxed whitespace-pre-line hover:text-[#FF6B00] transition-colors">{t('contact.phone')}</a>
+                </div>
+
+                {/* Card 3: WhatsApp */}
+                <div className="bg-white border-2 border-black p-6 rounded-xl text-center transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 group flex-1 flex flex-col items-center justify-center" style={{ boxShadow: '4px 4px 0px 0px #000' }}>
+                  <div className="w-12 h-12 rounded-xl bg-[#D1FAE5] border-2 border-black text-black flex items-center justify-center mx-auto mb-4 transition-all group-hover:bg-[#25D366] group-hover:text-white">
+                    <WhatsAppIcon size={18} />
+                  </div>
+                  <h4 className="text-[10px] font-black text-black/50 uppercase tracking-widest mb-2">{t('contact.whatsapp.title')}</h4>
+                  <a
+                    href="https://wa.me/917233060698"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="cursor-pointer inline-flex items-center gap-2.5 px-6 py-2.5 bg-[#D1FAE5] text-black font-black rounded-xl text-xs transition-all duration-200 hover:bg-[#25D366] hover:text-white border-2 border-black"
+                    style={{ boxShadow: '2px 2px 0px 0px #000' }}
+                  >
+                    Chat on WhatsApp
+                  </a>
+                </div>
               </div>
+            </div>
+
+            {/* Right Column: Apply Form */}
+            <div className="w-full">
+              <span className="inline-block px-3 py-1 rounded-lg bg-[#FFF3E0] text-[#FF6B00] text-[10px] font-black uppercase tracking-wider mb-2 border-2 border-black" style={{ boxShadow: '2px 2px 0px 0px #000' }}>Request</span>
+              <h3 className="text-xl md:text-2xl font-black text-black mb-6 leading-tight tracking-tight">{t('apply.title')}</h3>
+              
+              <form className="bg-white border-2 border-black p-8 md:p-10 rounded-xl space-y-4" style={{ boxShadow: '4px 4px 0px 0px #000' }} onSubmit={handleSubmit} id="apply-form">
+                <p className="text-[11px] text-right font-black text-black/40 mb-2 uppercase tracking-wide"><span className="text-red-500">*</span> {t('apply.requiredNote')}</p>
+
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[10px] font-black text-black/50 uppercase tracking-widest ml-1">
+                    {t('apply.name')} <span className="text-red-500">*</span>
+                  </label>
+                  <input name="Name" type="text" required className="brutal-input" placeholder={t('apply.name.placeholder')} />
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[10px] font-black text-black/50 uppercase tracking-widest ml-1">
+                    {t('apply.mobile')} <span className="text-red-500">*</span>
+                  </label>
+                  <input
+                    name="Mobile"
+                    type="tel"
+                    required
+                    pattern="[0-9]{10}"
+                    title="Please enter a valid 10-digit mobile number"
+                    className="brutal-input invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500"
+                    placeholder={t('apply.mobile.placeholder')}
+                  />
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[10px] font-black text-black/50 uppercase tracking-widest ml-1">
+                    {t('apply.service')} <span className="text-red-500">*</span>
+                  </label>
+                  <select name="Service" value={selectedService} onChange={(e) => setSelectedService(e.target.value)} required className="brutal-input appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1.2rem_center] bg-[length:0.75rem_auto] cursor-pointer">
+                    <option value="" disabled>{t('apply.service.placeholder')}</option>
+                    {Object.values(servicesData).map(service => (
+                      <option key={service.id} value={service.id}>{t(service.nameKey)}</option>
+                    ))}
+                    <option value="other">{t('apply.otherService')}</option>
+                  </select>
+                </div>
+
+                {selectedService === 'other' && (
+                  <div className="flex flex-col gap-1.5">
+                    <label className="text-[10px] font-black text-black/50 uppercase tracking-widest ml-1">
+                      {t('apply.otherService')} <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      name="OtherService"
+                      type="text"
+                      required
+                      className="brutal-input"
+                      placeholder={t('apply.otherService.placeholder')}
+                    />
+                  </div>
+                )}
+
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[10px] font-black text-black/50 uppercase tracking-widest ml-1">
+                    {t('apply.requestType')} <span className="text-red-500">*</span>
+                  </label>
+                  <select name="RequestType" required defaultValue="query" className="brutal-input appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1.2rem_center] bg-[length:0.75rem_auto] cursor-pointer">
+                    <option value="query">{t('apply.requestType.query')}</option>
+                    <option value="feedback">{t('apply.requestType.feedback')}</option>
+                    <option value="complaint">{t('apply.requestType.complaint')}</option>
+                  </select>
+                </div>
+
+                <div className="flex flex-col gap-1.5">
+                  <label className="text-[10px] font-black text-black/50 uppercase tracking-widest ml-1">{t('apply.message')}</label>
+                  <textarea
+                    name="Message"
+                    className="brutal-input min-h-[100px] resize-y"
+                    placeholder={t('apply.message.placeholder')}
+                  />
+                </div>
+
+                <div className="mt-6 pt-2">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="cursor-pointer w-full p-4 bg-[#FF6B00] text-white border-2 border-black rounded-xl text-xs uppercase tracking-wider font-black transition-all duration-200 hover:-translate-x-0.5 hover:-translate-y-0.5 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:translate-x-0 flex items-center justify-center gap-3"
+                    style={{ boxShadow: '3px 3px 0px 0px #000' }}
+                    id="submit-btn"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        Processing...
+                      </>
+                    ) : (
+                      t('apply.submit')
+                    )}
+                  </button>
+
+                  {submitted && <div className="bg-[#D1FAE5] border-2 border-black text-black p-4 rounded-xl text-xs font-black text-center mt-4" style={{ boxShadow: '2px 2px 0px 0px #000' }} id="success-message">{t('apply.success')}</div>}
+                </div>
+              </form>
             </div>
           </div>
 
-          {/* Right Column: Apply Form */}
-          <div className="w-full">
-            <h3 className="text-2xl font-extrabold text-[#0A0A0F] mb-6 leading-tight text-center lg:text-left">{t('apply.title')}</h3>
-            <form className="bg-white border border-slate-100 p-8 md:p-10 rounded-[24px] space-y-5 shadow-[0_4px_24px_rgba(0,0,0,0.04)]" onSubmit={handleSubmit} id="apply-form">
-              <p className="text-sm text-right font-semibold text-slate-400 mb-2"><span className="text-red-500">* </span> {t('apply.requiredNote')}</p>
-
-              <div className="flex flex-col gap-2">
-                <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">
-                  {t('apply.name')} <span className="text-red-500">*</span>
-                </label>
-                <input name="Name" type="text" required className={inputClass} placeholder={t('apply.name.placeholder')} />
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">
-                  {t('apply.mobile')} <span className="text-red-500">*</span>
-                </label>
-                <input
-                  name="Mobile"
-                  type="tel"
-                  required
-                  pattern="[0-9]{10}"
-                  title="Please enter a valid 10-digit mobile number"
-                  className={`${inputClass} invalid:[&:not(:placeholder-shown):not(:focus)]:border-red-500`}
-                  placeholder={t('apply.mobile.placeholder')}
-                />
-              </div>
-
-
-              <div className="flex flex-col gap-2">
-                <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">
-                  {t('apply.service')} <span className="text-red-500">*</span>
-                </label>
-                <select name="Service" value={selectedService} onChange={(e) => setSelectedService(e.target.value)} required className={`${inputClass} appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer`}>
-                  <option value="" disabled>{t('apply.service.placeholder')}</option>
-                  {Object.values(servicesData).map(service => (
-                    <option key={service.id} value={service.id}>{t(service.nameKey)}</option>
-                  ))}
-                  <option value="other">{t('apply.otherService')}</option>
-                </select>
-              </div>
-
-              {selectedService === 'other' && (
-                <div className="flex flex-col gap-2">
-                  <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">
-                    {t('apply.otherService')} <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    name="OtherService"
-                    type="text"
-                    required
-                    className={inputClass}
-                    placeholder={t('apply.otherService.placeholder')}
-                  />
-                </div>
-              )}
-
-              <div className="flex flex-col gap-2">
-                <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">
-                  {t('apply.requestType')} <span className="text-red-500">*</span>
-                </label>
-                <select name="RequestType" required defaultValue="query" className={`${inputClass} appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2364748B%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-no-repeat bg-[position:right_1rem_center] bg-[length:0.8rem_auto] cursor-pointer`}>
-                  <option value="query">{t('apply.requestType.query')}</option>
-                  <option value="feedback">{t('apply.requestType.feedback')}</option>
-                  <option value="complaint">{t('apply.requestType.complaint')}</option>
-                </select>
-              </div>
-
-              <div className="flex flex-col gap-2">
-                <label className="text-[12px] font-extrabold text-slate-400 uppercase tracking-widest ml-1">{t('apply.message')}</label>
-                <textarea
-                  name="Message"
-                  className={`${inputClass} min-h-[120px] resize-y`}
-                  placeholder={t('apply.message.placeholder')}
-                />
-              </div>
-
-
-
-              <div className="mt-6">
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="cursor-pointer w-full p-4 bg-[#0A0A0F] text-white border-none rounded-xl text-base font-extrabold transition-all duration-300 shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:bg-orange-500 hover:-translate-y-0.5 hover:shadow-[0_12px_32px_rgba(249,115,22,0.3)] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:bg-[#0A0A0F] flex items-center justify-center gap-3"
-                  id="submit-btn"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
-                      Processing...
-                    </>
-                  ) : (
-                    t('apply.submit')
-                  )}
-                </button>
-
-                {submitted && <div className="bg-emerald-50 border-2 border-emerald-500 text-emerald-800 p-5 rounded-xl text-[15px] font-bold text-center mt-6" id="success-message">{t('apply.success')}</div>}
-              </div>
-            </form>
+          {/* Full Width Map Section */}
+          <div className="mt-20 max-w-6xl mx-auto">
+            <div className="text-center mb-10">
+              <span className="brutal-badge mb-4">Visual Map</span>
+              <h3 className="text-2xl font-black text-black mb-3 tracking-tight mt-4">{t('contact.map.title')}</h3>
+              <p className="text-black/50 font-bold text-xs max-w-md mx-auto leading-relaxed">{t('contact.address')}</p>
+            </div>
+            <div className="h-[460px] w-full bg-white rounded-xl overflow-hidden relative border-2 border-black p-2 group" style={{ boxShadow: '6px 6px 0px 0px #000' }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d289.55085484681547!2d82.90393093501596!3d26.839053270700855!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3990d700e68b619d%3A0xe64ab105a9eaf876!2sDigital%20Gramin%20Service%20Centre%20Nauwa%20Gaon!5e0!3m2!1sen!2sin!4v1777957754927!5m2!1sen!2sin"
+                className="w-full h-full rounded-lg transition-all duration-700"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="KIOSK Location Map"
+              />
+            </div>
           </div>
-        </div>
-
-        {/* Full Width Map Section */}
-        <div className="mt-20">
-          <div className="text-center mb-10">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold uppercase tracking-widest mb-5">Location</span>
-            <h3 className="text-3xl font-extrabold text-[#0A0A0F] mb-3">{t('contact.map.title')}</h3>
-            <p className="text-slate-400 font-medium">{t('contact.address')}</p>
-          </div>
-          <div className="h-[500px] w-full bg-slate-100 rounded-[24px] overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.04)] relative border border-slate-100 group">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d289.55085484681547!2d82.90393093501596!3d26.839053270700855!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3990d700e68b619d%3A0xe64ab105a9eaf876!2sDigital%20Gramin%20Service%20Centre%20Nauwa%20Gaon!5e0!3m2!1sen!2sin!4v1777957754927!5m2!1sen!2sin"
-              className="w-full h-full grayscale-[20%] transition-all duration-500 group-hover:grayscale-0"
-              style={{ border: 0 }}
-              allowFullScreen={true}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="KIOSK Location Map"
-            />
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </PageTransition >
   );
 }

@@ -28,18 +28,18 @@ export default function Navbar() {
   const isTransparent = currentPage === 'home' && !scrolled;
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isTransparent
-      ? 'bg-transparent shadow-none'
-      : 'bg-white/90 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.04)]'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isTransparent
+      ? 'bg-transparent'
+      : 'bg-white border-b-2 border-black'
       }`}>
 
       {/* Announcement Ticker */}
-      <div className={`${isTransparent ? 'bg-transparent border-b border-slate-200/20' : 'bg-[#F7F7F7] border-b border-slate-100'} overflow-hidden whitespace-nowrap py-1.5 text-[12px] font-bold tracking-wide transition-colors duration-300`}>
-        <div className={`inline-block animate-ticker ${isTransparent ? 'text-[#0A0A0F]/80' : 'text-slate-600'}`}>
-          <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-1.5 before:h-1.5 before:bg-orange-500 before:rounded-full before:mr-3">{t('announce.1')}</span>
-          <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-1.5 before:h-1.5 before:bg-orange-500 before:rounded-full before:mr-3">{t('announce.2')}</span>
-          <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-1.5 before:h-1.5 before:bg-orange-500 before:rounded-full before:mr-3">{t('announce.3')}</span>
-          <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-1.5 before:h-1.5 before:bg-orange-500 before:rounded-full before:mr-3">{t('announce.4')}</span>
+      <div className={`${isTransparent ? 'bg-black text-white' : 'bg-[#FFF3E0] text-black'} overflow-hidden whitespace-nowrap py-2 text-[11px] font-black uppercase tracking-widest border-b-2 border-black transition-colors duration-300`}>
+        <div className="inline-block animate-ticker">
+          <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-2 before:h-2 before:bg-[#FF6B00] before:mr-3 before:border before:border-black">{t('announce.1')}</span>
+          <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-2 before:h-2 before:bg-[#FF6B00] before:mr-3 before:border before:border-black">{t('announce.2')}</span>
+          <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-2 before:h-2 before:bg-[#FF6B00] before:mr-3 before:border before:border-black">{t('announce.3')}</span>
+          <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-2 before:h-2 before:bg-[#FF6B00] before:mr-3 before:border before:border-black">{t('announce.4')}</span>
         </div>
       </div>
 
@@ -50,29 +50,30 @@ export default function Navbar() {
           className="flex items-center gap-3 cursor-pointer"
           onClick={() => setMobileMenuOpen(false)}
         >
-          <div className="w-11 h-11 rounded-xl flex items-center justify-center font-black text-[14px] text-white bg-gradient-to-br from-orange-500 to-orange-600 shadow-[0_4px_16px_rgba(249,115,22,0.3)]">
+          <div className="w-11 h-11 rounded-xl flex items-center justify-center font-black text-[13px] text-white bg-[#FF6B00] border-2 border-black" style={{ boxShadow: '3px 3px 0px 0px #000' }}>
             CSC
           </div>
           <div>
-            <h1 className="text-lg font-extrabold leading-tight tracking-tight text-[#0A0A0F]">
+            <h1 className="text-lg font-black leading-none tracking-tight text-black">
               KIOSK
             </h1>
-            <span className={`text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 hidden sm:block ${isTransparent ? 'text-slate-500' : 'text-slate-400'}`}>
+            <span className={`text-[9px] font-black uppercase tracking-widest hidden sm:block ${isTransparent ? 'text-black/50' : 'text-black/40'}`}>
               Digital Gramin Service Center
             </span>
           </div>
         </Link>
 
-        {/* Desktop Links — Pill Style */}
-        <div className={`hidden lg:flex items-center gap-1 p-1.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-slate-100/60 border border-slate-200/50 backdrop-blur-md' : 'bg-[#F7F7F7] border border-slate-100'}`}>
+        {/* Desktop Links — Brutalist Style */}
+        <div className="hidden lg:flex items-center gap-1 p-1.5 rounded-xl border-2 border-black bg-[#FFFDF5]" style={{ boxShadow: '3px 3px 0px 0px #000' }}>
           {navLinks.map((link) => (
             <Link
               key={link.id}
               to={link.id === 'home' ? '/' : `/${link.id}`}
-              className={`cursor-pointer px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${currentPage === link.id
-                ? 'bg-white text-[#0A0A0F] shadow-sm'
-                : (isTransparent ? 'text-slate-700 hover:text-[#0A0A0F] hover:bg-white/60' : 'text-slate-500 hover:text-[#0A0A0F] hover:bg-white')
+              className={`cursor-pointer px-5 py-2 rounded-lg text-[12px] font-black uppercase tracking-wide transition-all duration-200 ${currentPage === link.id
+                ? 'bg-[#FF6B00] text-white border-2 border-black'
+                : 'text-black/60 hover:text-black hover:bg-[#FFF3E0]'
                 }`}
+              style={currentPage === link.id ? { boxShadow: '2px 2px 0px 0px #000' } : {}}
             >
               {link.label}
             </Link>
@@ -83,10 +84,8 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <button
             onClick={toggleLang}
-            className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-300 hover:-translate-y-0.5 ${isTransparent
-              ? 'bg-slate-100/60 text-slate-700 border border-slate-200/50 hover:bg-white/60 hover:text-[#0A0A0F]'
-              : 'bg-[#F7F7F7] border border-slate-100 text-[#0A0A0F] hover:text-orange-500 hover:border-orange-200'
-              }`}
+            className="cursor-pointer px-4.5 py-2 rounded-xl text-[11px] font-black uppercase tracking-wider transition-all duration-200 bg-white text-black border-2 border-black hover:-translate-x-0.5 hover:-translate-y-0.5"
+            style={{ boxShadow: '2px 2px 0px 0px #000' }}
           >
             {lang === 'en' ? 'हिंदी' : 'English'}
           </button>
@@ -95,25 +94,27 @@ export default function Navbar() {
             className="cursor-pointer flex lg:hidden flex-col gap-1.5 p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 bg-[#0A0A0F] ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 bg-[#0A0A0F] ${mobileMenuOpen ? 'opacity-0' : ''}`} />
-            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 bg-[#0A0A0F] ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`w-6 h-[2.5px] rounded-sm transition-all duration-300 bg-black ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`w-6 h-[2.5px] rounded-sm transition-all duration-300 bg-black ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+            <span className={`w-6 h-[2.5px] rounded-sm transition-all duration-300 bg-black ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
       </div>
 
+
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b border-slate-100 shadow-[0_16px_48px_rgba(0,0,0,0.06)] p-5 flex flex-col gap-1">
+        <div className="lg:hidden absolute top-full left-0 right-0 bg-white border-b-2 border-x-2 border-black p-4 flex flex-col gap-1" style={{ boxShadow: '4px 4px 0px 0px #000' }}>
           {navLinks.map((link) => (
             <Link
               key={link.id}
               to={link.id === 'home' ? '/' : `/${link.id}`}
               onClick={() => setMobileMenuOpen(false)}
-              className={`cursor-pointer text-left px-5 py-3 rounded-xl text-sm font-semibold transition-all duration-300 ${currentPage === link.id
-                ? 'bg-orange-50 text-orange-500'
-                : 'text-slate-600 hover:bg-[#F7F7F7] hover:text-[#0A0A0F]'
+              className={`cursor-pointer text-left px-5 py-3 rounded-xl text-sm font-black uppercase tracking-wide transition-all duration-200 ${currentPage === link.id
+                ? 'bg-[#FF6B00] text-white border-2 border-black'
+                : 'text-black/60 hover:bg-[#FFF3E0] hover:text-black'
                 }`}
+              style={currentPage === link.id ? { boxShadow: '2px 2px 0px 0px #000' } : {}}
             >
               {link.label}
             </Link>

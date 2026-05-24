@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLang } from '../context/LanguageContext';
 import PageTransition from './PageTransition';
 import SEO from './SEO';
+import { serviceIconMap, SearchIcon } from './Icons';
 
 export default function ServicesPage() {
   const { t, lang } = useLang();
@@ -11,6 +12,7 @@ export default function ServicesPage() {
   const [activeTab, setActiveTab] = useState('All');
 
   const categories = [
+
     {
       title: t('services.govt'),
       items: [
@@ -82,76 +84,90 @@ export default function ServicesPage() {
     item.desc.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const pastelColors = ['bg-[#FFF3E0]', 'bg-[#DBEAFE]', 'bg-[#D1FAE5]', 'bg-[#E8E0FF]', 'bg-[#FFE4E6]'];
+
   return (
-    <PageTransition className="mt-[116px]">
+    <PageTransition>
       <SEO
         title={t('nav.services')}
         description={t('services.subtitle')}
       />
-      <section className="py-20 lg:py-10 px-4 max-w-7xl mx-auto" id="services-page">
-        <div className="text-center mb-14">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold uppercase tracking-widest mb-5">Services</span>
-          <h2 className="section-heading">{t('services.title')}</h2>
-          <div className="w-16 h-1 bg-orange-500 rounded-full mx-auto mt-5 mb-8" />
-        </div>
+      <div className="min-h-screen bg-[#FFFDF5] relative overflow-x-hidden pt-[136px] pb-24 z-10">
 
-        <div className='flex flex-col gap-3 mb-10 sm:flex-row overflow-hidden'>
-          {/* Tabs — Pill Style */}
-          <div className="flex overflow-x-auto items-center md:justify-center gap-2 p-2 bg-white rounded-full  border border-slate-100 ">
-            {tabs.map((tab, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveTab(tab)}
-                className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer whitespace-nowrap ${currentTab === tab ? 'bg-orange-500 text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)]' : 'text-slate-500 hover:text-[#0A0A0F] hover:bg-white'}`}
-              >
-                {tab}
-              </button>
-            ))}
+        <section className="px-4 max-w-7xl mx-auto relative z-10" id="services-page">
+          <div className="text-center mb-14">
+            <span className="brutal-badge mb-4">Service Hub</span>
+            <h2 className="section-heading mt-4">{t('services.title')}</h2>
+            <p className="text-black/50 font-bold text-sm mt-3 max-w-md mx-auto leading-relaxed">{t('services.subtitle')}</p>
+            <div className="w-16 h-1.5 bg-[#FF6B00] mx-auto mt-5 border border-black" />
           </div>
 
-          <div className="max-w-xl mx-auto relative">
-            <input
-              type="text"
-              placeholder={t('services.search.placeholder')}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full py-3 px-6 rounded-full border-2 border-slate-100 bg-white focus:border-orange-500 focus:outline-none text-lg transition-colors font-medium"
-            />
-            <span className="absolute right-6 top-1/2 -translate-y-1/2 text-2xl text-slate-300">
-              🔍
-            </span>
-          </div>
-        </div>
+          {/* Filtering and Search Area */}
+          <div className="flex flex-col lg:flex-row gap-5 mb-12 items-center justify-between bg-white border-2 border-black p-4 rounded-xl max-w-6xl mx-auto" style={{ boxShadow: '4px 4px 0px 0px #000' }}>
 
-        {filteredItems.length === 0 ? (
-          <div className="text-center py-12 text-slate-400 text-lg font-medium">
-            {lang === 'hi' ? 'कोई सेवा नहीं मिली' : `No services found matching "${searchQuery}"`}
+            {/* Tabs Brutalist Style */}
+            <div className="flex overflow-x-auto items-center gap-1.5 p-1.5 bg-[#FFFDF5] border-2 border-black rounded-xl w-full lg:w-auto">
+              {tabs.map((tab, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-6 py-2.5 rounded-lg font-black text-xs transition-all duration-200 cursor-pointer whitespace-nowrap ${currentTab === tab ? 'bg-[#FF6B00] text-white border-2 border-black' : 'text-black/50 hover:text-black hover:bg-[#FFF3E0]'}`}
+                  style={currentTab === tab ? { boxShadow: '2px 2px 0px 0px #000' } : {}}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+            {/* Search Input Box */}
+            <div className="relative w-full lg:w-96 flex items-center">
+              <input
+                type="text"
+                placeholder={t('services.search.placeholder')}
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="brutal-input pr-12"
+              />
+              <SearchIcon size={16} className="absolute right-5 text-black/40 pointer-events-none stroke-[2.2]" />
+            </div>
           </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
-            {filteredItems.map((item) => (
-              <div
-                className="bg-white border border-slate-100 rounded-[24px] p-8 md:p-9 transition-all duration-400 relative overflow-hidden group cursor-pointer hover:-translate-y-1.5 hover:shadow-[0_16px_48px_rgba(0,0,0,0.06)] hover:border-orange-100"
-                key={item.id}
-                onClick={() => navigate(`/service/${item.id}`)}
-              >
-                <div className="absolute top-0 right-0 w-28 h-28 bg-gradient-to-br from-orange-50 to-transparent rounded-bl-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                <div className="w-14 h-14 rounded-2xl bg-[#F7F7F7] border border-slate-100 flex items-center justify-center text-3xl mb-6 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 group-hover:bg-orange-50 group-hover:border-orange-200">
-                  {item.icon}
-                </div>
-                <div>
-                  <h4 className="text-lg font-extrabold text-[#0A0A0F] mb-2">{item.name}</h4>
-                  <p className="text-[14px] text-slate-500 font-medium leading-relaxed mb-5">{item.desc}</p>
-                  <button className="cursor-pointer text-orange-500 font-extrabold text-[13px] uppercase tracking-wide flex items-center gap-2 transition-all opacity-70 group-hover:opacity-100 group-hover:gap-3">
-                    {t('services.viewDetail')}
-                    <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-      </section>
+
+          {/* Cards Grid */}
+          {filteredItems.length === 0 ? (
+            <div className="text-center py-20 text-black/50 text-base font-bold max-w-sm mx-auto">
+              {lang === 'hi' ? 'कोई सेवा नहीं मिली' : `No services found matching "${searchQuery}"`}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+              {filteredItems.map((item, idx) => {
+                const IconComponent = serviceIconMap[item.id] || SearchIcon;
+                const cardBg = pastelColors[idx % pastelColors.length];
+                return (
+                  <div
+                    className="bg-white border-2 border-black rounded-xl p-8 hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 relative overflow-hidden group cursor-pointer flex flex-col justify-between"
+                    style={{ boxShadow: '4px 4px 0px 0px #000' }}
+                    key={item.id}
+                    onClick={() => navigate(`/service/${item.id}`)}
+                  >
+                    <div>
+                      <div className={`w-12 h-12 rounded-xl ${cardBg} border-2 border-black flex items-center justify-center mb-6 transition-all duration-200 group-hover:scale-105 text-black`} style={{ boxShadow: '2px 2px 0px 0px #000' }}>
+                        <IconComponent size={22} />
+                      </div>
+                      <h4 className="text-base font-black text-black mb-2 group-hover:text-[#FF6B00] transition-colors">{item.name}</h4>
+                      <p className="text-[13px] text-black/50 font-bold leading-relaxed mb-6">{item.desc}</p>
+                    </div>
+
+                    <button className="cursor-pointer text-[#FF6B00] font-black text-[11px] uppercase tracking-wider flex items-center gap-1.5 transition-all group-hover:gap-2.5">
+                      {t('services.viewDetail')}
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </section>
+      </div>
     </PageTransition>
   );
 }
+
