@@ -1,12 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../context/LanguageContext';
 
 export default function Navbar() {
   const { lang, toggleLang, t } = useLang();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   const currentPage = location.pathname === '/' ? 'home' : location.pathname.substring(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 30);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
     { id: 'home', label: t('nav.home') },
@@ -16,17 +25,17 @@ export default function Navbar() {
     { id: 'contact', label: t('nav.contact') },
   ];
 
-  const isTransparent = false; // Carousel hero is below navbar, no dark bg behind it
+  const isTransparent = currentPage === 'home' && !scrolled;
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isTransparent
-      ? ''
+      ? 'bg-transparent shadow-none'
       : 'bg-white/90 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.04)]'
       }`}>
 
       {/* Announcement Ticker */}
-      <div className={`${isTransparent ? 'bg-white/[0.06] border-b border-white/[0.05]' : 'bg-[#F7F7F7] border-b border-slate-100'} overflow-hidden whitespace-nowrap py-1.5 text-[12px] font-bold tracking-wide transition-colors duration-300`}>
-        <div className={`inline-block animate-ticker ${isTransparent ? 'text-white/70' : 'text-slate-600'}`}>
+      <div className={`${isTransparent ? 'bg-transparent border-b border-slate-200/20' : 'bg-[#F7F7F7] border-b border-slate-100'} overflow-hidden whitespace-nowrap py-1.5 text-[12px] font-bold tracking-wide transition-colors duration-300`}>
+        <div className={`inline-block animate-ticker ${isTransparent ? 'text-[#0A0A0F]/80' : 'text-slate-600'}`}>
           <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-1.5 before:h-1.5 before:bg-orange-500 before:rounded-full before:mr-3">{t('announce.1')}</span>
           <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-1.5 before:h-1.5 before:bg-orange-500 before:rounded-full before:mr-3">{t('announce.2')}</span>
           <span className="mr-20 inline-flex items-center before:content-[''] before:inline-block before:w-1.5 before:h-1.5 before:bg-orange-500 before:rounded-full before:mr-3">{t('announce.3')}</span>
@@ -45,24 +54,24 @@ export default function Navbar() {
             CSC
           </div>
           <div>
-            <h1 className={`text-lg font-extrabold leading-tight tracking-tight transition-colors duration-300 ${isTransparent ? 'text-white' : 'text-[#0A0A0F]'}`}>
+            <h1 className="text-lg font-extrabold leading-tight tracking-tight text-[#0A0A0F]">
               KIOSK
             </h1>
-            <span className={`text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 hidden sm:block ${isTransparent ? 'text-white/60' : 'text-slate-400'}`}>
+            <span className={`text-[10px] font-semibold uppercase tracking-widest transition-colors duration-300 hidden sm:block ${isTransparent ? 'text-slate-500' : 'text-slate-400'}`}>
               Digital Gramin Service Center
             </span>
           </div>
         </Link>
 
         {/* Desktop Links — Pill Style */}
-        <div className={`hidden lg:flex items-center gap-1 p-1.5 rounded-full ${isTransparent ? 'bg-white/[0.06] border border-white/[0.06]' : 'bg-[#F7F7F7] border border-slate-100'}`}>
+        <div className={`hidden lg:flex items-center gap-1 p-1.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-slate-100/60 border border-slate-200/50 backdrop-blur-md' : 'bg-[#F7F7F7] border border-slate-100'}`}>
           {navLinks.map((link) => (
             <Link
               key={link.id}
               to={link.id === 'home' ? '/' : `/${link.id}`}
               className={`cursor-pointer px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${currentPage === link.id
-                ? (isTransparent ? 'bg-white text-[#0A0A0F] shadow-sm' : 'bg-white text-[#0A0A0F] shadow-sm')
-                : (isTransparent ? 'text-white/80 hover:text-white hover:bg-white/10' : 'text-slate-500 hover:text-[#0A0A0F] hover:bg-white')
+                ? 'bg-white text-[#0A0A0F] shadow-sm'
+                : (isTransparent ? 'text-slate-700 hover:text-[#0A0A0F] hover:bg-white/60' : 'text-slate-500 hover:text-[#0A0A0F] hover:bg-white')
                 }`}
             >
               {link.label}
@@ -75,7 +84,7 @@ export default function Navbar() {
           <button
             onClick={toggleLang}
             className={`cursor-pointer px-4 py-2 rounded-full text-[13px] font-bold transition-all duration-300 hover:-translate-y-0.5 ${isTransparent
-              ? 'bg-white/[0.08] text-white border border-white/[0.1] hover:bg-white/[0.15]'
+              ? 'bg-slate-100/60 text-slate-700 border border-slate-200/50 hover:bg-white/60 hover:text-[#0A0A0F]'
               : 'bg-[#F7F7F7] border border-slate-100 text-[#0A0A0F] hover:text-orange-500 hover:border-orange-200'
               }`}
           >
@@ -86,9 +95,9 @@ export default function Navbar() {
             className="cursor-pointer flex lg:hidden flex-col gap-1.5 p-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-white' : 'bg-[#0A0A0F]'} ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-white' : 'bg-[#0A0A0F]'} ${mobileMenuOpen ? 'opacity-0' : ''}`} />
-            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 ${isTransparent ? 'bg-white' : 'bg-[#0A0A0F]'} ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 bg-[#0A0A0F] ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 bg-[#0A0A0F] ${mobileMenuOpen ? 'opacity-0' : ''}`} />
+            <span className={`w-6 h-0.5 rounded-full transition-all duration-300 bg-[#0A0A0F] ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
           </button>
         </div>
       </div>
