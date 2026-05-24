@@ -81,11 +81,26 @@ export default function ServicesPage() {
         title={t('nav.services')}
         description={t('services.subtitle')}
       />
-      <section className="py-20 lg:py-24 px-4 max-w-7xl mx-auto" id="services-page">
+      <section className="py-20 lg:py-10 px-4 max-w-7xl mx-auto" id="services-page">
         <div className="text-center mb-14">
           <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold uppercase tracking-widest mb-5">Services</span>
           <h2 className="section-heading">{t('services.title')}</h2>
           <div className="w-16 h-1 bg-orange-500 rounded-full mx-auto mt-5 mb-8" />
+        </div>
+
+        <div className='flex flex-col gap-3 mb-10 sm:flex-row overflow-hidden'>
+          {/* Tabs — Pill Style */}
+          <div className="flex overflow-x-auto items-center md:justify-center gap-2 p-2 bg-white rounded-full  border border-slate-100 ">
+            {tabs.map((tab, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveTab(tab)}
+                className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer whitespace-nowrap ${currentTab === tab ? 'bg-orange-500 text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)]' : 'text-slate-500 hover:text-[#0A0A0F] hover:bg-white'}`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div>
 
           <div className="max-w-xl mx-auto relative">
             <input
@@ -93,25 +108,12 @@ export default function ServicesPage() {
               placeholder={t('services.search.placeholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-6 py-4 rounded-full border-2 border-slate-100 bg-white focus:border-orange-500 focus:outline-none shadow-sm text-lg transition-colors font-medium"
+              className="w-full py-3 px-6 rounded-full border-2 border-slate-100 bg-white focus:border-orange-500 focus:outline-none text-lg transition-colors font-medium"
             />
             <span className="absolute right-6 top-1/2 -translate-y-1/2 text-2xl text-slate-300">
               🔍
             </span>
           </div>
-        </div>
-
-        {/* Tabs — Pill Style */}
-        <div className="flex overflow-x-auto items-center md:justify-center gap-2 mb-12 p-2 bg-white rounded-full max-w-max mx-auto border border-slate-100">
-          {tabs.map((tab, idx) => (
-            <button
-              key={idx}
-              onClick={() => setActiveTab(tab)}
-              className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 cursor-pointer whitespace-nowrap ${currentTab === tab ? 'bg-orange-500 text-white shadow-[0_4px_16px_rgba(249,115,22,0.3)]' : 'text-slate-500 hover:text-[#0A0A0F] hover:bg-white'}`}
-            >
-              {tab}
-            </button>
-          ))}
         </div>
 
         {filteredItems.length === 0 ? (

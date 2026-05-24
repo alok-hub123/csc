@@ -16,7 +16,7 @@ export default function AboutPage() {
         title={t('nav.about')}
         description={t('about.subtitle')}
       />
-      <section className="py-20 lg:py-24 px-4 max-w-7xl mx-auto" id="about-page">
+      <section className="py-20 lg:py-10 px-4 max-w-7xl mx-auto" id="about-page">
         <div className="text-center mb-14">
           <span className="inline-block px-4 py-1.5 rounded-full bg-orange-50 text-orange-500 text-xs font-bold uppercase tracking-widest mb-5">About Us</span>
           <h2 className="section-heading">{t('about.title')}</h2>
