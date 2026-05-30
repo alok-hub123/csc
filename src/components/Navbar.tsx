@@ -50,8 +50,8 @@ export default function Navbar() {
           className="flex items-center gap-3 cursor-pointer"
           onClick={() => setMobileMenuOpen(false)}
         >
-          <div className="w-11 h-11 rounded-xl flex items-center justify-center font-black text-[13px] text-white bg-[#FF6B00] border-2 border-black" style={{ boxShadow: '3px 3px 0px 0px #000' }}>
-            CSC
+          <div className="w-11 h-11 rounded-xl overflow-hidden border-2 border-black bg-white flex items-center justify-center shrink-0" style={{ boxShadow: '3px 3px 0px 0px #000' }}>
+            <img src="/images/logo.png" alt="CSC Logo" className="w-full h-full object-cover p-1" />
           </div>
           <div>
             <h1 className="text-lg font-black leading-none tracking-tight text-black">

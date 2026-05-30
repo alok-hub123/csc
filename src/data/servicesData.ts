@@ -9,6 +9,11 @@ export interface ServiceDetail {
   briefHi: string;
   subServicesEn: string[];
   subServicesHi: string[];
+  benefitsEn?: string[];
+  benefitsHi?: string[];
+  eligibilityEn?: string[];
+  eligibilityHi?: string[];
+  availableAtCenter?: boolean;
 }
 
 export const servicesData: Record<string, ServiceDetail> = {
@@ -17,12 +22,16 @@ export const servicesData: Record<string, ServiceDetail> = {
     icon: '🆔',
     nameKey: 'services.aadhaar',
     descKey: 'services.aadhaar.desc',
-    briefEn: 'Aadhaar is a 12-digit unique identity number issued by UIDAI to every resident of India. It serves as a universal proof of identity and address across the country. Our centre provides complete Aadhaar services including new enrollment for all ages, biometric and demographic updates, mobile number linking, address correction, and instant Aadhaar printing.',
-    briefHi: 'आधार UIDAI द्वारा भारत के प्रत्येक निवासी को जारी किया गया 12 अंकों का विशिष्ट पहचान नंबर है। यह पूरे देश में पहचान और पते के सार्वभौमिक प्रमाण के रूप में कार्य करता है। हमारा केंद्र सभी आयु के लिए नया नामांकन, बायोमेट्रिक और डेमोग्राफिक अपडेट, मोबाइल नंबर लिंकिंग, पता सुधार, और तत्काल आधार प्रिंटिंग सहित पूर्ण आधार सेवाएं प्रदान करता है।',
-    subServicesEn: ['New Aadhaar Enrollment', 'Aadhaar Update (Name, Address, DOB, Mobile)', 'Biometric Update (Fingerprint & Iris)', 'Aadhaar-PAN Linking', 'Aadhaar Print / e-Aadhaar Download', 'Aadhaar-Bank Account Linking', 'Child Aadhaar (Baal Aadhaar)'],
-    subServicesHi: ['नया आधार नामांकन', 'आधार अपडेट (नाम, पता, जन्मतिथि, मोबाइल)', 'बायोमेट्रिक अपडेट (फिंगरप्रिंट और आइरिस)', 'आधार-पैन लिंकिंग', 'आधार प्रिंट / ई-आधार डाउनलोड', 'आधार-बैंक खाता लिंकिंग', 'बाल आधार'],
+    briefEn: 'Aadhaar is a 12-digit unique identity number issued by UIDAI to every resident of India. It serves as a universal proof of identity and address across the country. Our centre provides services including Aadhaar printing, downloading, and Aadhaar-PAN linking.',
+    briefHi: 'आधार UIDAI द्वारा भारत के प्रत्येक निवासी को जारी किया गया 12 अंकों का विशिष्ट पहचान नंबर है। यह पूरे देश में पहचान और पते के सार्वभौमिक प्रमाण के रूप में कार्य करता है। हमारा केंद्र आधार प्रिंटिंग, डाउनलोडिंग और आधार-पैन लिंकिंग सहित सेवाएं प्रदान करता है।',
+    subServicesEn: ['Aadhaar-PAN Linking', 'Aadhaar Print / e-Aadhaar Download', 'Aadhaar-Bank Account Linking', 'Child Aadhaar (Baal Aadhaar)'],
+    subServicesHi: ['आधार-पैन लिंकिंग', 'आधार प्रिंट / ई-आधार डाउनलोड', 'आधार-बैंक खाता लिंकिंग', 'बाल आधार'],
     documentsEn: ['Aadhaar Form (if new)', 'Proof of Identity (POI)', 'Proof of Address (POA)', 'Proof of Date of Birth (PDB)'],
-    documentsHi: ['आधार फॉर्म (यदि नया है)', 'पहचान का प्रमाण (POI)', 'पते का प्रमाण (POA)', 'जन्म तिथि का प्रमाण (PDB)']
+    documentsHi: ['आधार फॉर्म (यदि नया है)', 'पहचान का प्रमाण (POI)', 'पते का प्रमाण (POA)', 'जन्म तिथि का प्रमाण (PDB)'],
+    benefitsEn: ["Serves as a universal proof of identity and address","Mandatory for direct benefit transfers (DBT) and opening bank accounts","Enables e-KYC and digital signatures instantly"],
+    benefitsHi: ["पहचान और पते के सार्वभौमिक प्रमाण के रूप में कार्य करता है","प्रत्यक्ष लाभ हस्तांतरण (DBT) और बैंक खाते खोलने के लिए अनिवार्य","तुरंत ई-केवाईसी और डिजिटल हस्ताक्षर सक्षम करता है"],
+    eligibilityEn: ["Any resident of India regardless of age or gender","Must have valid proof of identity and address for updates","Biometrics must be updated at age 5 and 15"],
+    eligibilityHi: ["उम्र या लिंग की परवाह किए बिना भारत का कोई भी निवासी","अपडेट के लिए पहचान और पते का वैध प्रमाण होना चाहिए","5 और 15 वर्ष की आयु में बायोमेट्रिक्स अपडेट होना चाहिए"]
   },
   pan: {
     id: 'pan',
@@ -34,19 +43,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['New PAN Card Application', 'PAN Card Correction (Name, DOB, Photo)', 'PAN Card Reprint / Duplicate', 'PAN-Aadhaar Linking', 'PAN Verification & Status Check', 'Minor to Major PAN Update'],
     subServicesHi: ['नया पैन कार्ड आवेदन', 'पैन कार्ड सुधार (नाम, जन्मतिथि, फोटो)', 'पैन कार्ड रीप्रिंट / डुप्लीकेट', 'पैन-आधार लिंकिंग', 'पैन सत्यापन और स्थिति जांच', 'माइनर से मेजर पैन अपडेट'],
     documentsEn: ['Aadhaar Card', 'Passport size photograph', 'Signature on white paper'],
-    documentsHi: ['आधार कार्ड', 'पासपोर्ट साइज फोटो', 'सफेद कागज पर हस्ताक्षर']
-  },
-  certificates: {
-    id: 'certificates',
-    icon: '📄',
-    nameKey: 'services.certificates',
-    descKey: 'services.certificates.desc',
-    briefEn: 'Government certificates are essential legal documents required for various purposes including admissions, jobs, property, and availing government schemes. We help citizens apply for and obtain all types of certificates issued by the Revenue and District Administration through the official e-District portal of Uttar Pradesh.',
-    briefHi: 'सरकारी प्रमाण पत्र विभिन्न उद्देश्यों जैसे प्रवेश, नौकरी, संपत्ति और सरकारी योजनाओं का लाभ उठाने के लिए आवश्यक कानूनी दस्तावेज हैं। हम नागरिकों को उत्तर प्रदेश के आधिकारिक ई-डिस्ट्रिक्ट पोर्टल के माध्यम से राजस्व और जिला प्रशासन द्वारा जारी सभी प्रकार के प्रमाण पत्र प्राप्त करने में मदद करते हैं।',
-    subServicesEn: ['Income Certificate (आय प्रमाण पत्र)', 'Caste Certificate (जाति प्रमाण पत्र)', 'Domicile Certificate (निवास प्रमाण पत्र)', 'Birth Certificate', 'Death Certificate', 'Character Certificate', 'OBC / SC / ST Certificate'],
-    subServicesHi: ['आय प्रमाण पत्र', 'जाति प्रमाण पत्र', 'निवास प्रमाण पत्र', 'जन्म प्रमाण पत्र', 'मृत्यु प्रमाण पत्र', 'चरित्र प्रमाण पत्र', 'OBC / SC / ST प्रमाण पत्र'],
-    documentsEn: ['Aadhaar Card', 'Ration Card / Voter ID', 'Self Declaration Form', 'Photograph'],
-    documentsHi: ['आधार कार्ड', 'राशन कार्ड / वोटर आईडी', 'स्व-घोषणा पत्र', 'फोटोग्राफ']
+    documentsHi: ['आधार कार्ड', 'पासपोर्ट साइज फोटो', 'सफेद कागज पर हस्ताक्षर'],
+    benefitsEn: ["Legal registration allowing you to run a legitimate business","Essential for filing taxes, opening current accounts, and getting loans","Government recognition and MSME subsidy eligibility"],
+    benefitsHi: ["कानूनी पंजीकरण जिससे आप एक वैध व्यवसाय चला सकें","कर दाखिल करने, चालू खाते खोलने और ऋण प्राप्त करने के लिए आवश्यक","सरकारी मान्यता और MSME सब्सिडी पात्रता"],
+    eligibilityEn: ["Must have Aadhaar and PAN cards linked","Must have a physical or registered business address","Turnover limits apply for specific MSME/GST categories"],
+    eligibilityHi: ["आधार और पैन कार्ड लिंक होने चाहिए","भौतिक या पंजीकृत व्यावसायिक पता होना चाहिए","विशिष्ट MSME/GST श्रेणियों के लिए टर्नओवर सीमा लागू होती है"]
   },
   passport: {
     id: 'passport',
@@ -58,7 +59,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Fresh Passport Application', 'Passport Renewal', 'Tatkal Passport Application', 'Passport Status Tracking', 'Police Verification Assistance'],
     subServicesHi: ['नया पासपोर्ट आवेदन', 'पासपोर्ट नवीनीकरण', 'तत्काल पासपोर्ट आवेदन', 'पासपोर्ट स्थिति ट्रैकिंग', 'पुलिस सत्यापन सहायता'],
     documentsEn: ['Aadhaar Card', '10th Marksheet', 'Voter ID or PAN Card', 'Electricity Bill / Bank Passbook'],
-    documentsHi: ['आधार कार्ड', '10वीं की मार्कशीट', 'वोटर आईडी या पैन कार्ड', 'बिजली बिल / बैंक पासबुक']
+    documentsHi: ['आधार कार्ड', '10वीं की मार्कशीट', 'वोटर आईडी या पैन कार्ड', 'बिजली बिल / बैंक पासबुक'],
+    benefitsEn: ["Universal primary proof of identity and address across India","Required for international travel and official verification","Mandatory for opening bank accounts and government schemes"],
+    benefitsHi: ["पूरे भारत में पहचान और पते का सार्वभौमिक प्राथमिक प्रमाण","अंतर्राष्ट्रीय यात्रा और आधिकारिक सत्यापन के लिए आवश्यक","बैंक खाते खोलने और सरकारी योजनाओं के लिए अनिवार्य"],
+    eligibilityEn: ["Must be a resident/citizen of India (as applicable)","Must provide original supporting documents (Birth/Address)","No strict age limit for basic identity cards"],
+    eligibilityHi: ["भारत का निवासी/नागरिक होना चाहिए","मूल सहायक दस्तावेज (जन्म/पता) प्रदान करना होगा","बुनियादी पहचान पत्रों के लिए कोई सख्त आयु सीमा नहीं"]
   },
   voter: {
     id: 'voter',
@@ -70,7 +75,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['New Voter ID Registration (Form 6)', 'Voter ID Correction (Form 8)', 'Voter ID Transfer (Form 6A)', 'e-EPIC Download', 'Voter List Name Search'],
     subServicesHi: ['नया वोटर आईडी पंजीकरण (फॉर्म 6)', 'वोटर आईडी सुधार (फॉर्म 8)', 'वोटर आईडी ट्रांसफर (फॉर्म 6A)', 'ई-EPIC डाउनलोड', 'मतदाता सूची में नाम खोजें'],
     documentsEn: ['Aadhaar Card', 'Passport size photograph', 'Age proof (Birth Certificate/10th Marksheet)'],
-    documentsHi: ['आधार कार्ड', 'पासपोर्ट साइज फोटो', 'आयु प्रमाण (जन्म प्रमाण पत्र/10वीं की मार्कशीट)']
+    documentsHi: ['आधार कार्ड', 'पासपोर्ट साइज फोटो', 'आयु प्रमाण (जन्म प्रमाण पत्र/10वीं की मार्कशीट)'],
+    benefitsEn: ["Universal primary proof of identity and address across India","Required for international travel and official verification","Mandatory for opening bank accounts and government schemes"],
+    benefitsHi: ["पूरे भारत में पहचान और पते का सार्वभौमिक प्राथमिक प्रमाण","अंतर्राष्ट्रीय यात्रा और आधिकारिक सत्यापन के लिए आवश्यक","बैंक खाते खोलने और सरकारी योजनाओं के लिए अनिवार्य"],
+    eligibilityEn: ["Must be a resident/citizen of India (as applicable)","Must provide original supporting documents (Birth/Address)","No strict age limit for basic identity cards"],
+    eligibilityHi: ["भारत का निवासी/नागरिक होना चाहिए","मूल सहायक दस्तावेज (जन्म/पता) प्रदान करना होगा","बुनियादी पहचान पत्रों के लिए कोई सख्त आयु सीमा नहीं"]
   },
   ration: {
     id: 'ration',
@@ -82,7 +91,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['New Ration Card Application', 'Member Addition / Deletion', 'Ration Card Surrender', 'Category Change (APL/BPL)', 'Ration Card Correction', 'Duplicate Ration Card'],
     subServicesHi: ['नया राशन कार्ड आवेदन', 'सदस्य जोड़ना / हटाना', 'राशन कार्ड समर्पण', 'श्रेणी परिवर्तन (APL/BPL)', 'राशन कार्ड सुधार', 'डुप्लीकेट राशन कार्ड'],
     documentsEn: ['Aadhaar Cards of all family members', 'Income Certificate', 'Passport size photograph of head of family', 'Bank Passbook'],
-    documentsHi: ['परिवार के सभी सदस्यों के आधार कार्ड', 'आय प्रमाण पत्र', 'परिवार के मुखिया की पासपोर्ट साइज फोटो', 'बैंक पासबुक']
+    documentsHi: ['परिवार के सभी सदस्यों के आधार कार्ड', 'आय प्रमाण पत्र', 'परिवार के मुखिया की पासपोर्ट साइज फोटो', 'बैंक पासबुक'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
   },
   banking: {
     id: 'banking',
@@ -94,7 +107,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Jan Dhan Account Opening', 'Cash Deposit & Withdrawal (AePS)', 'Fund Transfer (NEFT/IMPS)', 'Balance Enquiry & Mini Statement', 'Fixed Deposit & RD Opening', 'Cheque Book Request'],
     subServicesHi: ['जन धन खाता खोलना', 'नकद जमा और निकासी (AePS)', 'फंड ट्रांसफर (NEFT/IMPS)', 'शेष राशि पूछताछ और मिनी स्टेटमेंट', 'सावधि जमा और RD खोलना', 'चेक बुक अनुरोध'],
     documentsEn: ['Aadhaar Card', 'PAN Card', 'Passport size photograph'],
-    documentsHi: ['आधार कार्ड', 'पैन कार्ड', 'पासपोर्ट साइज फोटो']
+    documentsHi: ['आधार कार्ड', 'पैन कार्ड', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Secure and instant money transfers and withdrawals anywhere","Access to low-interest business loans without collateral","Convenient digital banking at your doorstep"],
+    benefitsHi: ["कहीं भी सुरक्षित और तत्काल मनी ट्रांसफर और निकासी","बिना गारंटी के कम ब्याज वाले व्यापार ऋण तक पहुंच","आपके घर पर सुविधाजनक डिजिटल बैंकिंग"],
+    eligibilityEn: ["Must possess a valid Aadhaar card and linked mobile number","Must be 18+ years of age for loan applications","Active bank account required for DBT transfers"],
+    eligibilityHi: ["वैध आधार कार्ड और लिंक किया गया मोबाइल नंबर होना चाहिए","ऋण आवेदनों के लिए आयु 18+ वर्ष होनी चाहिए","DBT ट्रांसफर के लिए सक्रिय बैंक खाता आवश्यक है"]
   },
   insurance: {
     id: 'insurance',
@@ -106,7 +123,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['PMJJBY (Jeevan Jyoti Bima)', 'PMSBY (Suraksha Bima)', 'Crop Insurance (PMFBY)', 'Life Insurance Enrollment', 'Insurance Claim Assistance'],
     subServicesHi: ['PMJJBY (जीवन ज्योति बीमा)', 'PMSBY (सुरक्षा बीमा)', 'फसल बीमा (PMFBY)', 'जीवन बीमा नामांकन', 'बीमा दावा सहायता'],
     documentsEn: ['Aadhaar Card', 'Bank Passbook', 'Nominee Aadhaar Card'],
-    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'नॉमिनी आधार कार्ड']
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'नॉमिनी आधार कार्ड'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
   },
   pension: {
     id: 'pension',
@@ -118,7 +139,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Atal Pension Yojana (APY) Enrollment', 'PM-SYM Registration', 'Pension Status Check', 'Pension Account Modification', 'Nominee Update'],
     subServicesHi: ['अटल पेंशन योजना (APY) नामांकन', 'PM-SYM पंजीकरण', 'पेंशन स्थिति जांच', 'पेंशन खाता संशोधन', 'नॉमिनी अपडेट'],
     documentsEn: ['Aadhaar Card', 'Bank Passbook', 'Age Proof'],
-    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'आयु प्रमाण']
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'आयु प्रमाण'],
+    benefitsEn: ["Direct fixed monthly financial assistance credited to bank account","Financial independence and security for vulnerable individuals","Covers basic living and medical expenses"],
+    benefitsHi: ["बैंक खाते में सीधे निश्चित मासिक वित्तीय सहायता","कमजोर व्यक्तियों के लिए वित्तीय स्वतंत्रता और सुरक्षा","बुनियादी रहने और चिकित्सा खर्चों को कवर करता है"],
+    eligibilityEn: ["Applicant must fall within the specific age/status bracket (e.g., above 60 years, widow, or disabled)","Family income must be below the poverty line or state-specified threshold","Must not be receiving other government pensions"],
+    eligibilityHi: ["आवेदक को विशिष्ट आयु/स्थिति ब्रैकेट के भीतर होना चाहिए (जैसे 60 वर्ष से ऊपर, विधवा या विकलांग)","पारिवारिक आय गरीबी रेखा या राज्य-निर्दिष्ट सीमा से नीचे होनी चाहिए","अन्य सरकारी पेंशन प्राप्त नहीं कर रहा होना चाहिए"]
   },
   mudra: {
     id: 'mudra',
@@ -130,7 +155,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Shishu Loan (up to ₹50,000)', 'Kishore Loan (₹50K - ₹5 Lakh)', 'Tarun Loan (₹5L - ₹10 Lakh)', 'Loan Application Assistance', 'Document Preparation'],
     subServicesHi: ['शिशु लोन (₹50,000 तक)', 'किशोर लोन (₹50K - ₹5 लाख)', 'तरुण लोन (₹5L - ₹10 लाख)', 'लोन आवेदन सहायता', 'दस्तावेज तैयारी'],
     documentsEn: ['Aadhaar Card', 'PAN Card', 'Business Proof', 'Bank Statement', 'Photographs'],
-    documentsHi: ['आधार कार्ड', 'पैन कार्ड', 'व्यापार प्रमाण', 'बैंक स्टेटमेंट', 'फोटोग्राफ']
+    documentsHi: ['आधार कार्ड', 'पैन कार्ड', 'व्यापार प्रमाण', 'बैंक स्टेटमेंट', 'फोटोग्राफ'],
+    benefitsEn: ["Secure and instant money transfers and withdrawals anywhere","Access to low-interest business loans without collateral","Convenient digital banking at your doorstep"],
+    benefitsHi: ["कहीं भी सुरक्षित और तत्काल मनी ट्रांसफर और निकासी","बिना गारंटी के कम ब्याज वाले व्यापार ऋण तक पहुंच","आपके घर पर सुविधाजनक डिजिटल बैंकिंग"],
+    eligibilityEn: ["Must possess a valid Aadhaar card and linked mobile number","Must be 18+ years of age for loan applications","Active bank account required for DBT transfers"],
+    eligibilityHi: ["वैध आधार कार्ड और लिंक किया गया मोबाइल नंबर होना चाहिए","ऋण आवेदनों के लिए आयु 18+ वर्ष होनी चाहिए","DBT ट्रांसफर के लिए सक्रिय बैंक खाता आवश्यक है"]
   },
   billpay: {
     id: 'billpay',
@@ -142,7 +171,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Electricity Bill Payment', 'Water Bill Payment', 'Gas Bill Payment', 'Telephone / Broadband Bill', 'Municipal Tax Payment'],
     subServicesHi: ['बिजली बिल भुगतान', 'पानी बिल भुगतान', 'गैस बिल भुगतान', 'टेलीफोन / ब्रॉडबैंड बिल', 'नगरपालिका कर भुगतान'],
     documentsEn: ['Previous Bill Copy / Consumer Number'],
-    documentsHi: ['पिछला बिल कॉपी / उपभोक्ता संख्या']
+    documentsHi: ['पिछला बिल कॉपी / उपभोक्ता संख्या'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
   },
   recharge: {
     id: 'recharge',
@@ -154,7 +187,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Prepaid Mobile Recharge', 'Postpaid Bill Payment', 'DTH Recharge', 'Data Pack / Add-on Recharge'],
     subServicesHi: ['प्रीपेड मोबाइल रिचार्ज', 'पोस्टपेड बिल भुगतान', 'DTH रिचार्ज', 'डेटा पैक / एड-ऑन रिचार्ज'],
     documentsEn: ['Mobile Number / DTH ID'],
-    documentsHi: ['मोबाइल नंबर / DTH आईडी']
+    documentsHi: ['मोबाइल नंबर / DTH आईडी'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
   },
   ticket: {
     id: 'ticket',
@@ -166,7 +203,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Train Ticket Booking (IRCTC)', 'Bus Ticket Booking', 'Flight Ticket Booking', 'Ticket Cancellation & Refund', 'PNR Status Check'],
     subServicesHi: ['ट्रेन टिकट बुकिंग (IRCTC)', 'बस टिकट बुकिंग', 'फ्लाइट टिकट बुकिंग', 'टिकट रद्दीकरण और रिफंड', 'PNR स्थिति जांच'],
     documentsEn: ['Passenger ID Proof (Aadhaar/Voter ID)', 'Travel Details (Date, Destination)'],
-    documentsHi: ['यात्री पहचान प्रमाण (आधार/वोटर आईडी)', 'यात्रा विवरण (तिथि, गंतव्य)']
+    documentsHi: ['यात्री पहचान प्रमाण (आधार/वोटर आईडी)', 'यात्रा विवरण (तिथि, गंतव्य)'],
+    benefitsEn: ["Instant confirmed booking for trains, flights, and tour packages","Access to special concessions for senior citizens and disabled","Hassle-free secure payment and instant ticketing"],
+    benefitsHi: ["ट्रेन, फ्लाइट और टूर पैकेज के लिए तत्काल कन्फर्म बुकिंग","वरिष्ठ नागरिकों और विकलांगों के लिए विशेष रियायतों तक पहुंच","परेशानी मुक्त सुरक्षित भुगतान और तत्काल टिकटिंग"],
+    eligibilityEn: ["Anyone with a valid ID proof can book","Concessions require valid government certificates","Must provide accurate passenger details"],
+    eligibilityHi: ["वैध आईडी प्रमाण वाला कोई भी व्यक्ति बुक कर सकता है","रियायतों के लिए वैध सरकारी प्रमाण पत्र की आवश्यकता होती है","यात्री का सटीक विवरण देना होगा"]
   },
   printScan: {
     id: 'printScan',
@@ -178,7 +219,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Black & White Printing', 'Color Printing', 'Document Scanning', 'Photocopying', 'Lamination', 'Passport Photo Printing'],
     subServicesHi: ['ब्लैक एंड व्हाइट प्रिंटिंग', 'कलर प्रिंटिंग', 'दस्तावेज़ स्कैनिंग', 'फोटोकॉपी', 'लैमिनेशन', 'पासपोर्ट फोटो प्रिंटिंग'],
     documentsEn: ['Original documents or pendrive/email with soft copy'],
-    documentsHi: ['मूल दस्तावेज या सॉफ्ट कॉपी के साथ पेनड्राइव/ईमेल']
+    documentsHi: ['मूल दस्तावेज या सॉफ्ट कॉपी के साथ पेनड्राइव/ईमेल'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
   },
   ayushman: {
     id: 'ayushman',
@@ -190,7 +235,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Eligibility Check', 'Ayushman Card Creation', 'Hospital Search', 'Claim Status Check', 'Family Member Addition'],
     subServicesHi: ['पात्रता जांच', 'आयुष्मान कार्ड निर्माण', 'अस्पताल खोज', 'दावा स्थिति जांच', 'परिवार सदस्य जोड़ना'],
     documentsEn: ['Ration Card (Antyodaya/Patra Grihasti)', 'Aadhaar Card', 'Active Mobile Number'],
-    documentsHi: ['राशन कार्ड (अंत्योदय/पात्र गृहस्थी)', 'आधार कार्ड', 'सक्रिय मोबाइल नंबर']
+    documentsHi: ['राशन कार्ड (अंत्योदय/पात्र गृहस्थी)', 'आधार कार्ड', 'सक्रिय मोबाइल नंबर'],
+    benefitsEn: ["Free medical treatment up to ₹5 Lakhs per family per year","Cashless hospitalisation in empaneled public and private hospitals","Access to expert doctor consultations via telemedicine"],
+    benefitsHi: ["प्रति परिवार प्रति वर्ष ₹5 लाख तक का मुफ्त चिकित्सा उपचार","सूचीबद्ध सार्वजनिक और निजी अस्पतालों में कैशलेस अस्पताल में भर्ती","टेलीमेडिसिन के माध्यम से विशेषज्ञ डॉक्टर के परामर्श तक पहुंच"],
+    eligibilityEn: ["Must be listed in the SECC 2011 database or eligible state lists","Must hold a valid ration card or health card ID","Applicable to economically weaker sections"],
+    eligibilityHi: ["SECC 2011 डेटाबेस या पात्र राज्य सूचियों में सूचीबद्ध होना चाहिए","वैध राशन कार्ड या स्वास्थ्य कार्ड आईडी होना चाहिए","आर्थिक रूप से कमजोर वर्गों पर लागू"]
   },
   telemedicine: {
     id: 'telemedicine', icon: '👨‍⚕️', nameKey: 'services.telemedicine', descKey: 'services.telemedicine.desc',
@@ -199,7 +248,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Online Doctor Consultation', 'E-Prescription', 'Basic Health Check-up', 'Follow-up Consultation'],
     subServicesHi: ['ऑनलाइन डॉक्टर परामर्श', 'ई-प्रिस्क्रिप्शन', 'बेसिक हेल्थ चेक-अप', 'फॉलो-अप परामर्श'],
     documentsEn: ['Aadhaar Card', 'Previous Medical Reports (if any)'],
-    documentsHi: ['आधार कार्ड', 'पिछली मेडिकल रिपोर्ट (यदि कोई हो)']
+    documentsHi: ['आधार कार्ड', 'पिछली मेडिकल रिपोर्ट (यदि कोई हो)'],
+    benefitsEn: ["Free medical treatment up to ₹5 Lakhs per family per year","Cashless hospitalisation in empaneled public and private hospitals","Access to expert doctor consultations via telemedicine"],
+    benefitsHi: ["प्रति परिवार प्रति वर्ष ₹5 लाख तक का मुफ्त चिकित्सा उपचार","सूचीबद्ध सार्वजनिक और निजी अस्पतालों में कैशलेस अस्पताल में भर्ती","टेलीमेडिसिन के माध्यम से विशेषज्ञ डॉक्टर के परामर्श तक पहुंच"],
+    eligibilityEn: ["Must be listed in the SECC 2011 database or eligible state lists","Must hold a valid ration card or health card ID","Applicable to economically weaker sections"],
+    eligibilityHi: ["SECC 2011 डेटाबेस या पात्र राज्य सूचियों में सूचीबद्ध होना चाहिए","वैध राशन कार्ड या स्वास्थ्य कार्ड आईडी होना चाहिए","आर्थिक रूप से कमजोर वर्गों पर लागू"]
   },
   digiHealth: {
     id: 'digiHealth', icon: '💊', nameKey: 'services.digiHealth', descKey: 'services.digiHealth.desc',
@@ -208,7 +261,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['ABHA Card Creation', 'Health Record Linking', 'ABHA Profile Update', 'Digital Health Records Access'],
     subServicesHi: ['ABHA कार्ड निर्माण', 'स्वास्थ्य रिकॉर्ड लिंकिंग', 'ABHA प्रोफाइल अपडेट', 'डिजिटल स्वास्थ्य रिकॉर्ड एक्सेस'],
     documentsEn: ['Aadhaar Card linked with Mobile Number'],
-    documentsHi: ['आधार कार्ड (मोबाइल नंबर से लिंक)']
+    documentsHi: ['आधार कार्ड (मोबाइल नंबर से लिंक)'],
+    benefitsEn: ["Free medical treatment up to ₹5 Lakhs per family per year","Cashless hospitalisation in empaneled public and private hospitals","Access to expert doctor consultations via telemedicine"],
+    benefitsHi: ["प्रति परिवार प्रति वर्ष ₹5 लाख तक का मुफ्त चिकित्सा उपचार","सूचीबद्ध सार्वजनिक और निजी अस्पतालों में कैशलेस अस्पताल में भर्ती","टेलीमेडिसिन के माध्यम से विशेषज्ञ डॉक्टर के परामर्श तक पहुंच"],
+    eligibilityEn: ["Must be listed in the SECC 2011 database or eligible state lists","Must hold a valid ration card or health card ID","Applicable to economically weaker sections"],
+    eligibilityHi: ["SECC 2011 डेटाबेस या पात्र राज्य सूचियों में सूचीबद्ध होना चाहिए","वैध राशन कार्ड या स्वास्थ्य कार्ड आईडी होना चाहिए","आर्थिक रूप से कमजोर वर्गों पर लागू"]
   },
   cmyuva: {
     id: 'cmyuva', icon: '👨‍💼', nameKey: 'services.cmyuva', descKey: 'services.cmyuva.desc',
@@ -217,7 +274,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Online Application', 'Document Verification', 'Business Plan Assistance', 'Status Tracking'],
     subServicesHi: ['ऑनलाइन आवेदन', 'दस्तावेज सत्यापन', 'बिजनेस प्लान सहायता', 'स्थिति ट्रैकिंग'],
     documentsEn: ['Aadhaar Card', 'Educational Certificates', 'Project Report', 'Bank Details'],
-    documentsHi: ['आधार कार्ड', 'शैक्षिक प्रमाण पत्र', 'प्रोजेक्ट रिपोर्ट', 'बैंक विवरण']
+    documentsHi: ['आधार कार्ड', 'शैक्षिक प्रमाण पत्र', 'प्रोजेक्ट रिपोर्ट', 'बैंक विवरण'],
+    benefitsEn: ["Financial scholarships to support higher education without burden","Free coaching for competitive exams (UPSC/SSC/State)","Free residential hostel facilities for marginalized students"],
+    benefitsHi: ["बिना किसी बोझ के उच्च शिक्षा का समर्थन करने के लिए वित्तीय छात्रवृत्ति","प्रतियोगी परीक्षाओं (UPSC/SSC/State) के लिए मुफ्त कोचिंग","हाशिए पर रहने वाले छात्रों के लिए मुफ्त आवासीय छात्रावास सुविधाएं"],
+    eligibilityEn: ["Must have passed previous exams with minimum required marks","Family income must be below the scholarship threshold","Must belong to the specified category (SC/ST/OBC/General EWS)"],
+    eligibilityHi: ["पिछली परीक्षाओं को न्यूनतम आवश्यक अंकों के साथ उत्तीर्ण होना चाहिए","पारिवारिक आय छात्रवृत्ति सीमा से नीचे होनी चाहिए","निर्दिष्ट श्रेणी (SC/ST/OBC/General EWS) से संबंधित होना चाहिए"]
   },
   udyam: {
     id: 'udyam', icon: '🏭', nameKey: 'services.udyam', descKey: 'services.udyam.desc',
@@ -226,7 +287,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['New Udyam Registration', 'Udyam Certificate Download', 'Registration Update', 'Print Certificate'],
     subServicesHi: ['नया उद्यम रजिस्ट्रेशन', 'उद्यम प्रमाणपत्र डाउनलोड', 'रजिस्ट्रेशन अपडेट', 'प्रमाणपत्र प्रिंट'],
     documentsEn: ['Aadhaar Card', 'PAN Card', 'Bank Account Details'],
-    documentsHi: ['आधार कार्ड', 'पैन कार्ड', 'बैंक खाता विवरण']
+    documentsHi: ['आधार कार्ड', 'पैन कार्ड', 'बैंक खाता विवरण'],
+    benefitsEn: ["Legal registration allowing you to run a legitimate business","Essential for filing taxes, opening current accounts, and getting loans","Government recognition and MSME subsidy eligibility"],
+    benefitsHi: ["कानूनी पंजीकरण जिससे आप एक वैध व्यवसाय चला सकें","कर दाखिल करने, चालू खाते खोलने और ऋण प्राप्त करने के लिए आवश्यक","सरकारी मान्यता और MSME सब्सिडी पात्रता"],
+    eligibilityEn: ["Must have Aadhaar and PAN cards linked","Must have a physical or registered business address","Turnover limits apply for specific MSME/GST categories"],
+    eligibilityHi: ["आधार और पैन कार्ड लिंक होने चाहिए","भौतिक या पंजीकृत व्यावसायिक पता होना चाहिए","विशिष्ट MSME/GST श्रेणियों के लिए टर्नओवर सीमा लागू होती है"]
   },
   driving: {
     id: 'driving', icon: '🚗', nameKey: 'services.driving', descKey: 'services.driving.desc',
@@ -235,7 +300,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Learning License Application', 'Permanent DL Application', 'DL Renewal', 'Transport Vehicle License (TR)', 'International Driving Permit', 'DL Status Check'],
     subServicesHi: ['लर्निंग लाइसेंस आवेदन', 'स्थायी DL आवेदन', 'DL नवीनीकरण', 'परिवहन वाहन लाइसेंस (TR)', 'अंतरराष्ट्रीय ड्राइविंग परमिट', 'DL स्थिति जांच'],
     documentsEn: ['Aadhaar Card', 'Age Proof', 'Address Proof', 'Passport Size Photo'],
-    documentsHi: ['आधार कार्ड', 'आयु प्रमाण', 'पते का प्रमाण', 'पासपोर्ट साइज फोटो']
+    documentsHi: ['आधार कार्ड', 'आयु प्रमाण', 'पते का प्रमाण', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Legal compliance allowing you to drive or operate vehicles safely","Protection against heavy traffic fines and legal penalties","Financial coverage for accidents and vehicle damages"],
+    benefitsHi: ["वाहन चलाने की कानूनी अनुमति जिससे आप सुरक्षित रह सकें","भारी ट्रैफिक जुर्माने और कानूनी दंड से सुरक्षा","दुर्घटनाओं और वाहन के नुकसान के लिए वित्तीय कवरेज"],
+    eligibilityEn: ["Must hold appropriate age and qualifications for driving","Vehicle must be properly registered with RTO","Valid identity and address proof required"],
+    eligibilityHi: ["ड्राइविंग के लिए उचित आयु और योग्यता होनी चाहिए","वाहन RTO के साथ ठीक से पंजीकृत होना चाहिए","वैध पहचान और पते का प्रमाण आवश्यक है"]
   },
   labour: {
     id: 'labour', icon: '👷', nameKey: 'services.labour', descKey: 'services.labour.desc',
@@ -244,7 +313,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['New Labour Card Registration', 'Labour Card Renewal', 'Scheme Application', 'Status Check'],
     subServicesHi: ['नया श्रमिक कार्ड पंजीकरण', 'श्रमिक कार्ड नवीनीकरण', 'योजना आवेदन', 'स्थिति जांच'],
     documentsEn: ['Aadhaar Card', 'Bank Passbook', 'Nominee Aadhaar', 'Passport Size Photo'],
-    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'नॉमिनी आधार', 'पासपोर्ट साइज फोटो']
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'नॉमिनी आधार', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
   },
   marriage: {
     id: 'marriage', icon: '💍', nameKey: 'services.marriage', descKey: 'services.marriage.desc',
@@ -253,7 +326,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Marriage Certificate Application', 'Document Verification', 'Certificate Download'],
     subServicesHi: ['विवाह प्रमाण पत्र आवेदन', 'दस्तावेज सत्यापन', 'प्रमाण पत्र डाउनलोड'],
     documentsEn: ['Aadhaar Card (Husband & Wife)', 'Wedding Photo', 'Age Proof'],
-    documentsHi: ['आधार कार्ड (पति और पत्नी)', 'शादी की तस्वीर', 'आयु प्रमाण']
+    documentsHi: ['आधार कार्ड (पति और पत्नी)', 'शादी की तस्वीर', 'आयु प्रमाण'],
+    benefitsEn: ["Valid legal proof for government and private tasks","Mandatory for availing state scholarships and subsidies","Required for admissions and job applications"],
+    benefitsHi: ["सरकारी और निजी कार्यों के लिए वैध कानूनी प्रमाण","राज्य की छात्रवृत्ति और सब्सिडी का लाभ उठाने के लिए अनिवार्य","प्रवेश और नौकरी के आवेदनों के लिए आवश्यक"],
+    eligibilityEn: ["Must be a citizen of India","Must be a permanent resident of the respective state","Must fulfill specific category criteria (e.g., income limits, caste)"],
+    eligibilityHi: ["भारत का नागरिक होना चाहिए","संबंधित राज्य का स्थायी निवासी होना चाहिए","विशिष्ट श्रेणी के मानदंडों (जैसे आय सीमा, जाति) को पूरा करना चाहिए"]
   },
   virasat: {
     id: 'virasat', icon: '📜', nameKey: 'services.virasat', descKey: 'services.virasat.desc',
@@ -262,7 +339,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Virasat Application', 'Document Submission', 'Status Tracking', 'Khatauni Update'],
     subServicesHi: ['विरासत आवेदन', 'दस्तावेज जमा', 'स्थिति ट्रैकिंग', 'खतौनी अपडेट'],
     documentsEn: ['Death Certificate', 'Family Register Copy', 'Aadhaar of Heirs', 'Khatauni'],
-    documentsHi: ['मृत्यु प्रमाण पत्र', 'परिवार रजिस्टर की नकल', 'वारिसों का आधार', 'खतौनी']
+    documentsHi: ['मृत्यु प्रमाण पत्र', 'परिवार रजिस्टर की नकल', 'वारिसों का आधार', 'खतौनी'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
   },
   scholarship: {
     id: 'scholarship', icon: '🎓', nameKey: 'services.scholarship', descKey: 'services.scholarship.desc',
@@ -271,7 +352,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Pre-Matric Scholarship', 'Post-Matric Scholarship', 'Scholarship Renewal', 'Status Check', 'Correction in Application'],
     subServicesHi: ['प्री-मैट्रिक छात्रवृत्ति', 'पोस्ट-मैट्रिक छात्रवृत्ति', 'छात्रवृत्ति नवीनीकरण', 'स्थिति जांच', 'आवेदन में सुधार'],
     documentsEn: ['Aadhaar Card', 'Income Certificate', 'Caste Certificate', 'Bank Passbook', 'Previous Marksheet'],
-    documentsHi: ['आधार कार्ड', 'आय प्रमाण पत्र', 'जाति प्रमाण पत्र', 'बैंक पासबुक', 'पिछली मार्कशीट']
+    documentsHi: ['आधार कार्ड', 'आय प्रमाण पत्र', 'जाति प्रमाण पत्र', 'बैंक पासबुक', 'पिछली मार्कशीट'],
+    benefitsEn: ["Financial scholarships to support higher education without burden","Free coaching for competitive exams (UPSC/SSC/State)","Free residential hostel facilities for marginalized students"],
+    benefitsHi: ["बिना किसी बोझ के उच्च शिक्षा का समर्थन करने के लिए वित्तीय छात्रवृत्ति","प्रतियोगी परीक्षाओं (UPSC/SSC/State) के लिए मुफ्त कोचिंग","हाशिए पर रहने वाले छात्रों के लिए मुफ्त आवासीय छात्रावास सुविधाएं"],
+    eligibilityEn: ["Must have passed previous exams with minimum required marks","Family income must be below the scholarship threshold","Must belong to the specified category (SC/ST/OBC/General EWS)"],
+    eligibilityHi: ["पिछली परीक्षाओं को न्यूनतम आवश्यक अंकों के साथ उत्तीर्ण होना चाहिए","पारिवारिक आय छात्रवृत्ति सीमा से नीचे होनी चाहिए","निर्दिष्ट श्रेणी (SC/ST/OBC/General EWS) से संबंधित होना चाहिए"]
   },
   pmkisan: {
     id: 'pmkisan', icon: '🌾', nameKey: 'services.pmkisan', descKey: 'services.pmkisan.desc',
@@ -280,7 +365,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['New Farmer Registration', 'eKYC Update', 'Beneficiary Status Check', 'Installment Status', 'Detail Correction'],
     subServicesHi: ['नया किसान पंजीकरण', 'eKYC अपडेट', 'लाभार्थी स्थिति जांच', 'किस्त स्थिति', 'विवरण सुधार'],
     documentsEn: ['Aadhaar Card', 'Khatauni (Land Record)', 'Bank Passbook'],
-    documentsHi: ['आधार कार्ड', 'खतौनी (भूमि रिकॉर्ड)', 'बैंक पासबुक']
+    documentsHi: ['आधार कार्ड', 'खतौनी (भूमि रिकॉर्ड)', 'बैंक पासबुक'],
+    benefitsEn: ["Direct financial benefit of ₹6,000 per year","Amount transferred in three equal installments of ₹2,000 every 4 months","Helps procure agricultural inputs like seeds and fertilizers"],
+    benefitsHi: ["प्रति वर्ष ₹6,000 का प्रत्यक्ष वित्तीय लाभ","हर 4 महीने में ₹2,000 की तीन समान किस्तों में राशि स्थानांतरित की जाती है","बीज और उर्वरक जैसे कृषि इनपुट खरीदने में मदद करता है"],
+    eligibilityEn: ["All landholding farmers' families in the country","Must possess cultivable land in their name","Institutional landholders and high-income earners are excluded"],
+    eligibilityHi: ["देश में सभी भूमिधारक किसान परिवार","उनके नाम पर कृषि योग्य भूमि होनी चाहिए","संस्थागत भूमिधारक और उच्च आय वाले लोग बाहर रखे गए हैं"]
   },
   itr: {
     id: 'itr', icon: '📊', nameKey: 'services.itr', descKey: 'services.itr.desc',
@@ -289,7 +378,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['ITR-1 Filing (Salaried)', 'ITR-4 Filing (Business)', 'Tax Computation', 'e-Verification', 'Refund Status Check'],
     subServicesHi: ['ITR-1 फाइलिंग (वेतनभोगी)', 'ITR-4 फाइलिंग (व्यवसाय)', 'कर गणना', 'ई-सत्यापन', 'रिफंड स्थिति जांच'],
     documentsEn: ['PAN Card', 'Aadhaar Card', 'Bank Statements', 'Form 16 (if salaried)'],
-    documentsHi: ['पैन कार्ड', 'आधार कार्ड', 'बैंक स्टेटमेंट', 'फॉर्म 16 (यदि वेतनभोगी हैं)']
+    documentsHi: ['पैन कार्ड', 'आधार कार्ड', 'बैंक स्टेटमेंट', 'फॉर्म 16 (यदि वेतनभोगी हैं)'],
+    benefitsEn: ["Legal registration allowing you to run a legitimate business","Essential for filing taxes, opening current accounts, and getting loans","Government recognition and MSME subsidy eligibility"],
+    benefitsHi: ["कानूनी पंजीकरण जिससे आप एक वैध व्यवसाय चला सकें","कर दाखिल करने, चालू खाते खोलने और ऋण प्राप्त करने के लिए आवश्यक","सरकारी मान्यता और MSME सब्सिडी पात्रता"],
+    eligibilityEn: ["Must have Aadhaar and PAN cards linked","Must have a physical or registered business address","Turnover limits apply for specific MSME/GST categories"],
+    eligibilityHi: ["आधार और पैन कार्ड लिंक होने चाहिए","भौतिक या पंजीकृत व्यावसायिक पता होना चाहिए","विशिष्ट MSME/GST श्रेणियों के लिए टर्नओवर सीमा लागू होती है"]
   },
   gst: {
     id: 'gst', icon: '🧾', nameKey: 'services.gst', descKey: 'services.gst.desc',
@@ -298,7 +391,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['New GST Registration', 'GST Return Filing', 'GST Amendment', 'GST Cancellation', 'E-Way Bill Generation'],
     subServicesHi: ['नया GST पंजीकरण', 'GST रिटर्न फाइलिंग', 'GST संशोधन', 'GST रद्दीकरण', 'ई-वे बिल जनरेशन'],
     documentsEn: ['PAN Card', 'Aadhaar Card', 'Business Address Proof', 'Bank Statement'],
-    documentsHi: ['पैन कार्ड', 'आधार कार्ड', 'व्यावसायिक पते का प्रमाण', 'बैंक स्टेटमेंट']
+    documentsHi: ['पैन कार्ड', 'आधार कार्ड', 'व्यावसायिक पते का प्रमाण', 'बैंक स्टेटमेंट'],
+    benefitsEn: ["Legal registration allowing you to run a legitimate business","Essential for filing taxes, opening current accounts, and getting loans","Government recognition and MSME subsidy eligibility"],
+    benefitsHi: ["कानूनी पंजीकरण जिससे आप एक वैध व्यवसाय चला सकें","कर दाखिल करने, चालू खाते खोलने और ऋण प्राप्त करने के लिए आवश्यक","सरकारी मान्यता और MSME सब्सिडी पात्रता"],
+    eligibilityEn: ["Must have Aadhaar and PAN cards linked","Must have a physical or registered business address","Turnover limits apply for specific MSME/GST categories"],
+    eligibilityHi: ["आधार और पैन कार्ड लिंक होने चाहिए","भौतिक या पंजीकृत व्यावसायिक पता होना चाहिए","विशिष्ट MSME/GST श्रेणियों के लिए टर्नओवर सीमा लागू होती है"]
   },
   ekcc: {
     id: 'ekcc', icon: '💳', nameKey: 'services.ekcc', descKey: 'services.ekcc.desc',
@@ -307,7 +404,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['New KCC Application', 'KCC Renewal', 'Limit Enhancement', 'Status Check'],
     subServicesHi: ['नया KCC आवेदन', 'KCC नवीनीकरण', 'सीमा वृद्धि', 'स्थिति जांच'],
     documentsEn: ['Aadhaar Card', 'Khatauni', 'Bank Passbook', 'Passport Size Photo'],
-    documentsHi: ['आधार कार्ड', 'खतौनी', 'बैंक पासबुक', 'पासपोर्ट साइज फोटो']
+    documentsHi: ['आधार कार्ड', 'खतौनी', 'बैंक पासबुक', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Direct financial support and subsidies for agricultural inputs","Protection against crop loss due to natural calamities","Access to modern farming equipment and low-interest credit"],
+    benefitsHi: ["कृषि आदानों के लिए प्रत्यक्ष वित्तीय सहायता और सब्सिडी","प्राकृतिक आपदाओं के कारण फसल के नुकसान से सुरक्षा","आधुनिक कृषि उपकरणों और कम ब्याज वाले ऋण तक पहुंच"],
+    eligibilityEn: ["Must be an active farmer with cultivable land holding","Must have a valid Aadhaar and bank account linked to it","Must be registered in the state/central farmer database"],
+    eligibilityHi: ["कृषि योग्य भूमि वाले सक्रिय किसान होना चाहिए","आधार और उससे जुड़ा बैंक खाता होना चाहिए","राज्य/केंद्रीय किसान डेटाबेस में पंजीकृत होना चाहिए"]
   },
   epf: {
     id: 'epf', icon: '💼', nameKey: 'services.epf', descKey: 'services.epf.desc',
@@ -316,7 +417,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['UAN Activation', 'EPF KYC Update', 'Passbook Download', 'PF Withdrawal Claim', 'Transfer Claim'],
     subServicesHi: ['UAN सक्रियण', 'EPF KYC अपडेट', 'पासबुक डाउनलोड', 'PF निकासी दावा', 'ट्रांसफर दावा'],
     documentsEn: ['UAN Number', 'Aadhaar Card', 'PAN Card', 'Bank Passbook'],
-    documentsHi: ['UAN नंबर', 'आधार कार्ड', 'पैन कार्ड', 'बैंक पासबुक']
+    documentsHi: ['UAN नंबर', 'आधार कार्ड', 'पैन कार्ड', 'बैंक पासबुक'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
   },
   pcc: {
     id: 'pcc',
@@ -328,7 +433,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['New PCC Application', 'Passport Seva PCC', 'State Police Portal PCC', 'Document Verification', 'Appointment Booking', 'Status Tracking'],
     subServicesHi: ['नया PCC आवेदन', 'पासपोर्ट सेवा PCC', 'राज्य पुलिस पोर्टल PCC', 'दस्तावेज सत्यापन', 'अपॉइंटमेंट बुकिंग', 'स्थिति ट्रैकिंग'],
     documentsEn: ['Aadhaar Card', 'Passport (if international)', 'Proof of Address', 'Current Address Proof', 'Passport size photograph'],
-    documentsHi: ['आधार कार्ड', 'पासपोर्ट (यदि अंतर्राष्ट्रीय है)', 'पते का प्रमाण', 'वर्तमान पते का प्रमाण', 'पासपोर्ट साइज फोटो']
+    documentsHi: ['आधार कार्ड', 'पासपोर्ट (यदि अंतर्राष्ट्रीय है)', 'पते का प्रमाण', 'वर्तमान पते का प्रमाण', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Universal primary proof of identity and address across India","Required for international travel and official verification","Mandatory for opening bank accounts and government schemes"],
+    benefitsHi: ["पूरे भारत में पहचान और पते का सार्वभौमिक प्राथमिक प्रमाण","अंतर्राष्ट्रीय यात्रा और आधिकारिक सत्यापन के लिए आवश्यक","बैंक खाते खोलने और सरकारी योजनाओं के लिए अनिवार्य"],
+    eligibilityEn: ["Must be a resident/citizen of India (as applicable)","Must provide original supporting documents (Birth/Address)","No strict age limit for basic identity cards"],
+    eligibilityHi: ["भारत का निवासी/नागरिक होना चाहिए","मूल सहायक दस्तावेज (जन्म/पता) प्रदान करना होगा","बुनियादी पहचान पत्रों के लिए कोई सख्त आयु सीमा नहीं"]
   },
   passportImmigration: {
     id: 'passportImmigration',
@@ -340,7 +449,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['ECR / Non-ECR Status Check', 'eMigrate Portal Registration', 'Emigration Clearance (EC) Application', 'Document Attestation Assistance', 'Employer Verification Check', 'Pre-Departure Orientation Training Help'],
     subServicesHi: ['ECR / Non-ECR स्थिति जांच', 'eMigrate पोर्टल पंजीकरण', 'उत्प्रवास मंजूरी (EC) आवेदन', 'दस्तावेज सत्यापन एवं सत्यापन सहायता', 'नियोक्ता सत्यापन जांच', 'प्रस्थान-पूर्व ओरिएंटेशन प्रशिक्षण सहायता'],
     documentsEn: ['Passport (Original & Copy)', 'Employment Contract / Offer Letter', 'Visa Copy', 'Aadhaar Card', 'Passport size photographs'],
-    documentsHi: ['पासपोर्ट (मूल और प्रति)', 'रोजगार अनुबंध / प्रस्ताव पत्र', 'वीजा प्रति', 'आधार कार्ड', 'पासपोर्ट साइज फोटो']
+    documentsHi: ['पासपोर्ट (मूल और प्रति)', 'रोजगार अनुबंध / प्रस्ताव पत्र', 'वीजा प्रति', 'आधार कार्ड', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Universal primary proof of identity and address across India","Required for international travel and official verification","Mandatory for opening bank accounts and government schemes"],
+    benefitsHi: ["पूरे भारत में पहचान और पते का सार्वभौमिक प्राथमिक प्रमाण","अंतर्राष्ट्रीय यात्रा और आधिकारिक सत्यापन के लिए आवश्यक","बैंक खाते खोलने और सरकारी योजनाओं के लिए अनिवार्य"],
+    eligibilityEn: ["Must be a resident/citizen of India (as applicable)","Must provide original supporting documents (Birth/Address)","No strict age limit for basic identity cards"],
+    eligibilityHi: ["भारत का निवासी/नागरिक होना चाहिए","मूल सहायक दस्तावेज (जन्म/पता) प्रदान करना होगा","बुनियादी पहचान पत्रों के लिए कोई सख्त आयु सीमा नहीं"]
   },
   airTicket: {
     id: 'airTicket',
@@ -352,7 +465,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Domestic Flight Booking', 'International Flight Booking', 'Instant Ticket Printing', 'Web Check-in & Boarding Pass', 'Seat & Meal Selection', 'Baggage Allowance Assistance', 'Refund & Cancellation Management'],
     subServicesHi: ['घरेलू उड़ान बुकिंग', 'अंतरराष्ट्रीय उड़ान बुकिंग', 'तत्काल टिकट प्रिंटिंग', 'वेब चेक-इन और बोर्डिंग पास', 'सीट और भोजन चयन', 'सामान भत्ता सहायता', 'रिफंड और रद्दीकरण प्रबंधन'],
     documentsEn: ['Valid ID Proof (Aadhaar/Voter ID)', 'Passport (for international flights)', 'Travel Dates and Destination Details'],
-    documentsHi: ['वैध पहचान प्रमाण (आधार/वोटर आईडी)', 'पासपोर्ट (अंतरराष्ट्रीय उड़ानों के लिए)', 'यात्रा की तिथियां और गंतव्य विवरण']
+    documentsHi: ['वैध पहचान प्रमाण (आधार/वोटर आईडी)', 'पासपोर्ट (अंतरराष्ट्रीय उड़ानों के लिए)', 'यात्रा की तिथियां और गंतव्य विवरण'],
+    benefitsEn: ["Instant confirmed booking for trains, flights, and tour packages","Access to special concessions for senior citizens and disabled","Hassle-free secure payment and instant ticketing"],
+    benefitsHi: ["ट्रेन, फ्लाइट और टूर पैकेज के लिए तत्काल कन्फर्म बुकिंग","वरिष्ठ नागरिकों और विकलांगों के लिए विशेष रियायतों तक पहुंच","परेशानी मुक्त सुरक्षित भुगतान और तत्काल टिकटिंग"],
+    eligibilityEn: ["Anyone with a valid ID proof can book","Concessions require valid government certificates","Must provide accurate passenger details"],
+    eligibilityHi: ["वैध आईडी प्रमाण वाला कोई भी व्यक्ति बुक कर सकता है","रियायतों के लिए वैध सरकारी प्रमाण पत्र की आवश्यकता होती है","यात्री का सटीक विवरण देना होगा"]
   },
   tourPackage: {
     id: 'tourPackage',
@@ -364,7 +481,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Domestic Tour Packages', 'Sacred Pilgrimage / Yatra Packages', 'International Holiday Packages', 'Custom Itinerary Planning', 'Hotel & Transport Booking', 'Group Tour Bookings'],
     subServicesHi: ['घरेलू टूर पैकेज', 'पवित्र तीर्थयात्रा / यात्रा पैकेज', 'अंतर्राष्ट्रीय अवकाश पैकेज', 'अनुकूलित यात्रा कार्यक्रम योजना', 'होटल और परिवहन बुकिंग', 'ग्रुप टूर बुकिंग'],
     documentsEn: ['Aadhaar Card of all travelers', 'Passport (for international tours)', 'Specific travel requirements / details'],
-    documentsHi: ['सभी यात्रियों के आधार कार्ड', 'पासपोर्ट (अंतरराष्ट्रीय दौरों के लिए)', 'विशिष्ट यात्रा आवश्यकताएं / विवरण']
+    documentsHi: ['सभी यात्रियों के आधार कार्ड', 'पासपोर्ट (अंतरराष्ट्रीय दौरों के लिए)', 'विशिष्ट यात्रा आवश्यकताएं / विवरण'],
+    benefitsEn: ["Instant confirmed booking for trains, flights, and tour packages","Access to special concessions for senior citizens and disabled","Hassle-free secure payment and instant ticketing"],
+    benefitsHi: ["ट्रेन, फ्लाइट और टूर पैकेज के लिए तत्काल कन्फर्म बुकिंग","वरिष्ठ नागरिकों और विकलांगों के लिए विशेष रियायतों तक पहुंच","परेशानी मुक्त सुरक्षित भुगतान और तत्काल टिकटिंग"],
+    eligibilityEn: ["Anyone with a valid ID proof can book","Concessions require valid government certificates","Must provide accurate passenger details"],
+    eligibilityHi: ["वैध आईडी प्रमाण वाला कोई भी व्यक्ति बुक कर सकता है","रियायतों के लिए वैध सरकारी प्रमाण पत्र की आवश्यकता होती है","यात्री का सटीक विवरण देना होगा"]
   },
   visaAssistance: {
     id: 'visaAssistance',
@@ -376,7 +497,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Tourist Visa Application', 'Business Visa Application', 'Student Visa Documentation Support', 'Online Visa Form Filling', 'Document Checklist & Formatting', 'Visa Fee Payment', 'Embassy Appointment Booking', 'Mock Interview Guidance'],
     subServicesHi: ['पर्यटक वीजा आवेदन', 'व्यवसाय वीजा आवेदन', 'छात्र वीजा दस्तावेज सहायता', 'ऑनलाइन वीजा फॉर्म भरना', 'दस्तावेज चेकलिस्ट और प्रारूपण', 'वीजा शुल्क भुगतान', 'दूतावास अपॉइंटमेंट बुकिंग', 'साक्षात्कार मार्गदर्शन'],
     documentsEn: ['Valid Passport (at least 6 months validity)', 'Passport size photographs (specific criteria)', 'Flight itinerary & Hotel booking', 'Bank Statements (Proof of Funds)', 'Employment / Business Proof', 'Invitation Letter (if applicable)'],
-    documentsHi: ['वैध पासपोर्ट (कम से कम 6 महीने की वैधता)', 'पासपोर्ट साइज फोटो (विशिष्ट मानदंड)', 'उड़ान कार्यक्रम और होटल बुकिंग', 'बैंक स्टेटमेंट (धन का प्रमाण)', 'रोजगार / व्यवसाय का प्रमाण', 'निमंत्रण पत्र (यदि लागू हो)']
+    documentsHi: ['वैध पासपोर्ट (कम से कम 6 महीने की वैधता)', 'पासपोर्ट साइज फोटो (विशिष्ट मानदंड)', 'उड़ान कार्यक्रम और होटल बुकिंग', 'बैंक स्टेटमेंट (धन का प्रमाण)', 'रोजगार / व्यवसाय का प्रमाण', 'निमंत्रण पत्र (यदि लागू हो)'],
+    benefitsEn: ["Universal primary proof of identity and address across India","Required for international travel and official verification","Mandatory for opening bank accounts and government schemes"],
+    benefitsHi: ["पूरे भारत में पहचान और पते का सार्वभौमिक प्राथमिक प्रमाण","अंतर्राष्ट्रीय यात्रा और आधिकारिक सत्यापन के लिए आवश्यक","बैंक खाते खोलने और सरकारी योजनाओं के लिए अनिवार्य"],
+    eligibilityEn: ["Must be a resident/citizen of India (as applicable)","Must provide original supporting documents (Birth/Address)","No strict age limit for basic identity cards"],
+    eligibilityHi: ["भारत का निवासी/नागरिक होना चाहिए","मूल सहायक दस्तावेज (जन्म/पता) प्रदान करना होगा","बुनियादी पहचान पत्रों के लिए कोई सख्त आयु सीमा नहीं"]
   },
   farmerSubsidy: {
     id: 'farmerSubsidy',
@@ -388,7 +513,11 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['Subsidy on Certified Seeds', 'Subsidy on Organic & Chemical Pesticides', 'Agricultural Implements Subsidy (Tractors, Pumps, etc.)', 'DBT Agriculture Portal Registration', 'Subsidy Application Submission', 'Application Status Tracking'],
     subServicesHi: ['प्रमाणित बीजों पर अनुदान', 'जैविक और रासायनिक कीटनाशकों पर अनुदान', 'कृषि यंत्रों पर अनुदान (ट्रैक्टर, पंप, आदि)', 'डीबीटी कृषि पोर्टल पंजीकरण', 'अनुदान आवेदन जमा करना', 'आवेदन स्थिति ट्रैकिंग'],
     documentsEn: ['Aadhaar Card', 'Bank Passbook (linked with Aadhaar)', 'Land Record (Khatauni)', 'Mobile Number (for OTP verification)', 'Farmer Registration Number'],
-    documentsHi: ['आधार कार्ड', 'बैंक पासबुक (आधार से लिंक)', 'भूमि रिकॉर्ड (खतौनी)', 'मोबाइल नंबर (OTP सत्यापन के लिए)', 'किसान पंजीकरण संख्या']
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक (आधार से लिंक)', 'भूमि रिकॉर्ड (खतौनी)', 'मोबाइल नंबर (OTP सत्यापन के लिए)', 'किसान पंजीकरण संख्या'],
+    benefitsEn: ["Direct financial support and subsidies for agricultural inputs","Protection against crop loss due to natural calamities","Access to modern farming equipment and low-interest credit"],
+    benefitsHi: ["कृषि आदानों के लिए प्रत्यक्ष वित्तीय सहायता और सब्सिडी","प्राकृतिक आपदाओं के कारण फसल के नुकसान से सुरक्षा","आधुनिक कृषि उपकरणों और कम ब्याज वाले ऋण तक पहुंच"],
+    eligibilityEn: ["Must be an active farmer with cultivable land holding","Must have a valid Aadhaar and bank account linked to it","Must be registered in the state/central farmer database"],
+    eligibilityHi: ["कृषि योग्य भूमि वाले सक्रिय किसान होना चाहिए","आधार और उससे जुड़ा बैंक खाता होना चाहिए","राज्य/केंद्रीय किसान डेटाबेस में पंजीकृत होना चाहिए"]
   },
   farmerRegistry: {
     id: 'farmerRegistry',
@@ -400,6 +529,699 @@ export const servicesData: Record<string, ServiceDetail> = {
     subServicesEn: ['New Farmer Registry Profile', 'Digital Farmer ID Creation', 'Linking Missing Land Accounts (छूटे खाते जोड़ना)', 'Landholding Record Verification', 'Aadhaar & Land Mismatch Correction', 'Farmer Registry Certificate Download'],
     subServicesHi: ['नया फार्मर रजिस्ट्री प्रोफाइल', 'डिजिटल किसान आईडी निर्माण', 'छूटे हुए भूमि खातों को जोड़ना', 'जोत रिकॉर्ड सत्यापन', 'आधार और भूमि बेमेल सुधार', 'फार्मर रजिस्ट्री प्रमाण पत्र डाउनलोड'],
     documentsEn: ['Aadhaar Card', 'Land Record (Khatauni)', 'Bank Passbook', 'Active Mobile Number linked with Aadhaar'],
-    documentsHi: ['आधार कार्ड', 'भूमि रिकॉर्ड (खतौनी)', 'बैंक पासबुक', 'आधार से लिंक सक्रिय मोबाइल नंबर']
+    documentsHi: ['आधार कार्ड', 'भूमि रिकॉर्ड (खतौनी)', 'बैंक पासबुक', 'आधार से लिंक सक्रिय मोबाइल नंबर'],
+    benefitsEn: ["Direct financial support and subsidies for agricultural inputs","Protection against crop loss due to natural calamities","Access to modern farming equipment and low-interest credit"],
+    benefitsHi: ["कृषि आदानों के लिए प्रत्यक्ष वित्तीय सहायता और सब्सिडी","प्राकृतिक आपदाओं के कारण फसल के नुकसान से सुरक्षा","आधुनिक कृषि उपकरणों और कम ब्याज वाले ऋण तक पहुंच"],
+    eligibilityEn: ["Must be an active farmer with cultivable land holding","Must have a valid Aadhaar and bank account linked to it","Must be registered in the state/central farmer database"],
+    eligibilityHi: ["कृषि योग्य भूमि वाले सक्रिय किसान होना चाहिए","आधार और उससे जुड़ा बैंक खाता होना चाहिए","राज्य/केंद्रीय किसान डेटाबेस में पंजीकृत होना चाहिए"]
+  },
+  eshram: {
+    id: 'eshram', icon: '👷‍♂️', nameKey: 'services.eshram', descKey: 'services.eshram.desc',
+    briefEn: 'e-Shram card is a centralized database of unorganized workers seeded with Aadhaar. It provides social security benefits, accidental insurance coverage, and financial assistance during emergencies.',
+    briefHi: 'ई-श्रम कार्ड आधार से जुड़ा असंगठित श्रमिकों का एक केंद्रीकृत डेटाबेस है। यह सामाजिक सुरक्षा लाभ, दुर्घटना बीमा कवरेज और आपात स्थिति के दौरान वित्तीय सहायता प्रदान करता है।',
+    subServicesEn: ['New e-Shram Registration', 'e-Shram Card Update/Correction', 'e-Shram Card Download/Print'],
+    subServicesHi: ['नया ई-श्रम पंजीकरण', 'ई-श्रम कार्ड अपडेट/सुधार', 'ई-श्रम कार्ड डाउनलोड/प्रिंट'],
+    documentsEn: ['Aadhaar Card (Mobile Linked)', 'Bank Passbook'],
+    documentsHi: ['आधार कार्ड (मोबाइल लिंक्ड)', 'बैंक पासबुक'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
+  },
+  telelaw: {
+    id: 'telelaw', icon: '⚖️', nameKey: 'services.telelaw', descKey: 'services.telelaw.desc',
+    briefEn: 'Tele-Law connects marginalized citizens with panel lawyers via video/audio conferencing for pre-litigation advice and legal consultation. This ensures justice is accessible at the grassroots level.',
+    briefHi: 'टेली-लॉ सीमांत नागरिकों को वीडियो/ऑडियो कॉन्फ्रेंसिंग के माध्यम से पैनल वकीलों से जोड़ता है। यह सुनिश्चित करता है कि जमीनी स्तर पर न्याय सुलभ हो।',
+    subServicesEn: ['Legal Consultation Booking', 'Video Conferencing with Lawyer', 'Case Advice & Documentation'],
+    subServicesHi: ['कानूनी परामर्श बुकिंग', 'वकील के साथ वीडियो कॉन्फ्रेंसिंग', 'केस सलाह और दस्तावेज़ीकरण'],
+    documentsEn: ['Aadhaar Card', 'Case related documents'],
+    documentsHi: ['आधार कार्ड', 'केस से संबंधित दस्तावेज़'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
+  },
+  disability: {
+    id: 'disability', icon: '🦽', nameKey: 'services.disability', descKey: 'services.disability.desc',
+    briefEn: 'UDID (Unique Disability ID) project aims to build a holistic database for Persons with Disabilities (PwDs). It facilitates the online application for a disability certificate and a universal ID card.',
+    briefHi: 'UDID (विशिष्ट विकलांगता आईडी) परियोजना का उद्देश्य विकलांग व्यक्तियों के लिए एक समग्र डेटाबेस बनाना है। यह विकलांगता प्रमाण पत्र और सार्वभौमिक आईडी कार्ड के लिए ऑनलाइन आवेदन की सुविधा प्रदान करता है।',
+    subServicesEn: ['New UDID Card Application', 'Disability Certificate Renewal', 'Status Check & Download'],
+    subServicesHi: ['नया UDID कार्ड आवेदन', 'विकलांगता प्रमाण पत्र नवीनीकरण', 'स्थिति जांच और डाउनलोड'],
+    documentsEn: ['Aadhaar Card', 'Recent Photograph', 'Medical Reports'],
+    documentsHi: ['आधार कार्ड', 'नवीनतम फोटो', 'मेडिकल रिपोर्ट'],
+    benefitsEn: ["Free medical treatment up to ₹5 Lakhs per family per year","Cashless hospitalisation in empaneled public and private hospitals","Access to expert doctor consultations via telemedicine"],
+    benefitsHi: ["प्रति परिवार प्रति वर्ष ₹5 लाख तक का मुफ्त चिकित्सा उपचार","सूचीबद्ध सार्वजनिक और निजी अस्पतालों में कैशलेस अस्पताल में भर्ती","टेलीमेडिसिन के माध्यम से विशेषज्ञ डॉक्टर के परामर्श तक पहुंच"],
+    eligibilityEn: ["Must be listed in the SECC 2011 database or eligible state lists","Must hold a valid ration card or health card ID","Applicable to economically weaker sections"],
+    eligibilityHi: ["SECC 2011 डेटाबेस या पात्र राज्य सूचियों में सूचीबद्ध होना चाहिए","वैध राशन कार्ड या स्वास्थ्य कार्ड आईडी होना चाहिए","आर्थिक रूप से कमजोर वर्गों पर लागू"]
+  },
+  railwayConcession: {
+    id: 'railwayConcession', icon: '🚆', nameKey: 'services.railwayConcession', descKey: 'services.railwayConcession.desc',
+    briefEn: 'Indian Railways offers concession on ticket fares to physically challenged persons. We assist in applying for the mandatory Railway Concession Certificate and ID card required to avail these benefits.',
+    briefHi: 'भारतीय रेलवे शारीरिक रूप से विकलांग व्यक्तियों को टिकट किराए में रियायत प्रदान करता है। हम इन लाभों का लाभ उठाने के लिए आवश्यक रेलवे रियायती प्रमाण पत्र और आईडी कार्ड के लिए आवेदन करने में सहायता करते हैं।',
+    subServicesEn: ['Concession Certificate Application', 'Railway ID Card for Divyangjan', 'Application Status Check'],
+    subServicesHi: ['रियायत प्रमाण पत्र आवेदन', 'दिव्यांगजनों के लिए रेलवे आईडी कार्ड', 'आवेदन स्थिति जांच'],
+    documentsEn: ['Disability Certificate (UDID)', 'Aadhaar Card', 'Passport Size Photo'],
+    documentsHi: ['विकलांगता प्रमाण पत्र (UDID)', 'आधार कार्ड', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Instant confirmed booking for trains, flights, and tour packages","Access to special concessions for senior citizens and disabled","Hassle-free secure payment and instant ticketing"],
+    benefitsHi: ["ट्रेन, फ्लाइट और टूर पैकेज के लिए तत्काल कन्फर्म बुकिंग","वरिष्ठ नागरिकों और विकलांगों के लिए विशेष रियायतों तक पहुंच","परेशानी मुक्त सुरक्षित भुगतान और तत्काल टिकटिंग"],
+    eligibilityEn: ["Anyone with a valid ID proof can book","Concessions require valid government certificates","Must provide accurate passenger details"],
+    eligibilityHi: ["वैध आईडी प्रमाण वाला कोई भी व्यक्ति बुक कर सकता है","रियायतों के लिए वैध सरकारी प्रमाण पत्र की आवश्यकता होती है","यात्री का सटीक विवरण देना होगा"]
+  },
+  ecourt: {
+    id: 'ecourt', icon: '🏛️', nameKey: 'services.ecourt', descKey: 'services.ecourt.desc',
+    briefEn: 'e-Courts services allow citizens to access judicial information easily. You can check case status, view court orders/judgments, and find cause lists across various district courts and high courts.',
+    briefHi: 'ई-कोर्ट सेवाएँ नागरिकों को न्यायिक जानकारी आसानी से प्राप्त करने की अनुमति देती हैं। आप मामले की स्थिति की जांच कर सकते हैं, अदालती आदेश देख सकते हैं, और विभिन्न अदालतों की कॉज लिस्ट पा सकते हैं।',
+    subServicesEn: ['Case Status Check', 'Court Orders & Judgments Download', 'Cause List Inquiry'],
+    subServicesHi: ['केस स्थिति जांच', 'अदालती आदेश और निर्णय डाउनलोड', 'कॉज लिस्ट पूछताछ'],
+    documentsEn: ['CNR Number', 'Case Number / FIR Details'],
+    documentsHi: ['CNR नंबर', 'केस नंबर / FIR विवरण'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
+  },
+  csp: {
+    id: 'csp', icon: '🏦', nameKey: 'services.csp', descKey: 'services.csp.desc',
+    briefEn: 'Customer Service Point (CSP) or Bank Mitra registration allows individuals to provide basic banking services in unbanked rural areas as an agent of the bank, facilitating financial inclusion.',
+    briefHi: 'ग्राहक सेवा केंद्र (CSP) या बैंक मित्र पंजीकरण व्यक्तियों को बैंक के एजेंट के रूप में ग्रामीण क्षेत्रों में बुनियादी बैंकिंग सेवाएं प्रदान करने की अनुमति देता है, जिससे वित्तीय समावेशन की सुविधा मिलती है।',
+    subServicesEn: ['New CSP Registration', 'BC Certificate Application', 'IIBF Exam Registration'],
+    subServicesHi: ['नया CSP पंजीकरण', 'BC प्रमाणपत्र आवेदन', 'IIBF परीक्षा पंजीकरण'],
+    documentsEn: ['Aadhaar Card', 'PAN Card', 'Police Clearance Certificate', 'IIBF Certificate'],
+    documentsHi: ['आधार कार्ड', 'पैन कार्ड', 'पुलिस क्लीयरेंस सर्टिफिकेट', 'IIBF प्रमाणपत्र'],
+    benefitsEn: ["Secure and instant money transfers and withdrawals anywhere","Access to low-interest business loans without collateral","Convenient digital banking at your doorstep"],
+    benefitsHi: ["कहीं भी सुरक्षित और तत्काल मनी ट्रांसफर और निकासी","बिना गारंटी के कम ब्याज वाले व्यापार ऋण तक पहुंच","आपके घर पर सुविधाजनक डिजिटल बैंकिंग"],
+    eligibilityEn: ["Must possess a valid Aadhaar card and linked mobile number","Must be 18+ years of age for loan applications","Active bank account required for DBT transfers"],
+    eligibilityHi: ["वैध आधार कार्ड और लिंक किया गया मोबाइल नंबर होना चाहिए","ऋण आवेदनों के लिए आयु 18+ वर्ष होनी चाहिए","DBT ट्रांसफर के लिए सक्रिय बैंक खाता आवश्यक है"]
+  },
+  fssai: {
+    id: 'fssai', icon: '🍽️', nameKey: 'services.fssai', descKey: 'services.fssai.desc',
+    briefEn: 'FSSAI Registration is mandatory for all food business operators (FBOs) in India. We assist small food businesses, retailers, and vendors in obtaining their basic Food License easily.',
+    briefHi: 'भारत में सभी खाद्य व्यवसाय ऑपरेटरों (FBO) के लिए FSSAI पंजीकरण अनिवार्य है। हम छोटे खाद्य व्यवसायों और विक्रेताओं को अपना बुनियादी खाद्य लाइसेंस आसानी से प्राप्त करने में सहायता करते हैं।',
+    subServicesEn: ['New FSSAI Registration', 'FSSAI License Renewal', 'License Modification'],
+    subServicesHi: ['नया FSSAI पंजीकरण', 'FSSAI लाइसेंस नवीनीकरण', 'लाइसेंस संशोधन'],
+    documentsEn: ['Aadhaar Card', 'Business Address Proof', 'Passport Size Photo'],
+    documentsHi: ['आधार कार्ड', 'व्यावसायिक पते का प्रमाण', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Legal registration allowing you to run a legitimate business","Essential for filing taxes, opening current accounts, and getting loans","Government recognition and MSME subsidy eligibility"],
+    benefitsHi: ["कानूनी पंजीकरण जिससे आप एक वैध व्यवसाय चला सकें","कर दाखिल करने, चालू खाते खोलने और ऋण प्राप्त करने के लिए आवश्यक","सरकारी मान्यता और MSME सब्सिडी पात्रता"],
+    eligibilityEn: ["Must have Aadhaar and PAN cards linked","Must have a physical or registered business address","Turnover limits apply for specific MSME/GST categories"],
+    eligibilityHi: ["आधार और पैन कार्ड लिंक होने चाहिए","भौतिक या पंजीकृत व्यावसायिक पता होना चाहिए","विशिष्ट MSME/GST श्रेणियों के लिए टर्नओवर सीमा लागू होती है"]
+  },
+  echallan: {
+    id: 'echallan', icon: '🚦', nameKey: 'services.echallan', descKey: 'services.echallan.desc',
+    briefEn: 'Quickly check and pay your pending traffic e-Challans online. The e-Challan system is integrated with the traffic police database to provide real-time updates and instant payment receipts.',
+    briefHi: 'अपने लंबित ट्रैफिक ई-चालान की तुरंत जांच करें और ऑनलाइन भुगतान करें। रीयल-टाइम अपडेट और तत्काल भुगतान रसीद प्रदान करने के लिए ई-चालान प्रणाली ट्रैफिक पुलिस डेटाबेस के साथ एकीकृत है।',
+    subServicesEn: ['e-Challan Status Check', 'Pending Challan Payment', 'Payment Receipt Print'],
+    subServicesHi: ['ई-चालान स्थिति जांच', 'लंबित चालान भुगतान', 'भुगतान रसीद प्रिंट'],
+    documentsEn: ['Vehicle Number (RC)', 'Challan Number / Driving License'],
+    documentsHi: ['वाहन संख्या (RC)', 'चालान संख्या / ड्राइविंग लाइसेंस'],
+    benefitsEn: ["Legal compliance allowing you to drive or operate vehicles safely","Protection against heavy traffic fines and legal penalties","Financial coverage for accidents and vehicle damages"],
+    benefitsHi: ["वाहन चलाने की कानूनी अनुमति जिससे आप सुरक्षित रह सकें","भारी ट्रैफिक जुर्माने और कानूनी दंड से सुरक्षा","दुर्घटनाओं और वाहन के नुकसान के लिए वित्तीय कवरेज"],
+    eligibilityEn: ["Must hold appropriate age and qualifications for driving","Vehicle must be properly registered with RTO","Valid identity and address proof required"],
+    eligibilityHi: ["ड्राइविंग के लिए उचित आयु और योग्यता होनी चाहिए","वाहन RTO के साथ ठीक से पंजीकृत होना चाहिए","वैध पहचान और पते का प्रमाण आवश्यक है"]
+  },
+  roadtax: {
+    id: 'roadtax', icon: '🛣️', nameKey: 'services.roadtax', descKey: 'services.roadtax.desc',
+    briefEn: 'Pay your vehicle road tax online securely through the Parivahan portal. We help commercial and private vehicle owners calculate, pay, and generate the official tax receipt instantly.',
+    briefHi: 'परिवहन पोर्टल के माध्यम से अपने वाहन का रोड टैक्स सुरक्षित रूप से ऑनलाइन चुकाएं। हम वाहन मालिकों को तुरंत आधिकारिक कर रसीद की गणना करने, भुगतान करने और उत्पन्न करने में मदद करते हैं।',
+    subServicesEn: ['Commercial Vehicle Tax Payment', 'Tax Arrears Calculation', 'Tax Receipt Download'],
+    subServicesHi: ['वाणिज्यिक वाहन कर भुगतान', 'कर बकाया गणना', 'कर रसीद डाउनलोड'],
+    documentsEn: ['Vehicle RC (Registration Certificate)'],
+    documentsHi: ['वाहन RC (पंजीकरण प्रमाण पत्र)'],
+    benefitsEn: ["Legal compliance allowing you to drive or operate vehicles safely","Protection against heavy traffic fines and legal penalties","Financial coverage for accidents and vehicle damages"],
+    benefitsHi: ["वाहन चलाने की कानूनी अनुमति जिससे आप सुरक्षित रह सकें","भारी ट्रैफिक जुर्माने और कानूनी दंड से सुरक्षा","दुर्घटनाओं और वाहन के नुकसान के लिए वित्तीय कवरेज"],
+    eligibilityEn: ["Must hold appropriate age and qualifications for driving","Vehicle must be properly registered with RTO","Valid identity and address proof required"],
+    eligibilityHi: ["ड्राइविंग के लिए उचित आयु और योग्यता होनी चाहिए","वाहन RTO के साथ ठीक से पंजीकृत होना चाहिए","वैध पहचान और पते का प्रमाण आवश्यक है"]
+  },
+  vehiclePermit: {
+    id: 'vehiclePermit', icon: '🚚', nameKey: 'services.vehiclePermit', descKey: 'services.vehiclePermit.desc',
+    briefEn: 'Commercial vehicles require valid permits to operate within a state or across states. We provide assistance for obtaining National Permits, State Permits, and temporary vehicle permits online.',
+    briefHi: 'वाणिज्यिक वाहनों को संचालित करने के लिए वैध परमिट की आवश्यकता होती है। हम ऑनलाइन राष्ट्रीय परमिट, राज्य परमिट और अस्थायी वाहन परमिट प्राप्त करने के लिए सहायता प्रदान करते हैं।',
+    subServicesEn: ['National Permit Application', 'State Goods Permit', 'Permit Renewal', 'Temporary Permit'],
+    subServicesHi: ['राष्ट्रीय परमिट आवेदन', 'राज्य माल परमिट', 'परमिट नवीनीकरण', 'अस्थायी परमिट'],
+    documentsEn: ['Vehicle RC', 'Fitness Certificate', 'Insurance Details'],
+    documentsHi: ['वाहन RC', 'फिटनेस प्रमाणपत्र', 'बीमा विवरण'],
+    benefitsEn: ["Legal compliance allowing you to drive or operate vehicles safely","Protection against heavy traffic fines and legal penalties","Financial coverage for accidents and vehicle damages"],
+    benefitsHi: ["वाहन चलाने की कानूनी अनुमति जिससे आप सुरक्षित रह सकें","भारी ट्रैफिक जुर्माने और कानूनी दंड से सुरक्षा","दुर्घटनाओं और वाहन के नुकसान के लिए वित्तीय कवरेज"],
+    eligibilityEn: ["Must hold appropriate age and qualifications for driving","Vehicle must be properly registered with RTO","Valid identity and address proof required"],
+    eligibilityHi: ["ड्राइविंग के लिए उचित आयु और योग्यता होनी चाहिए","वाहन RTO के साथ ठीक से पंजीकृत होना चाहिए","वैध पहचान और पते का प्रमाण आवश्यक है"]
+  },
+  recruitmentExams: {
+    id: 'recruitmentExams', icon: '📝', nameKey: 'services.recruitmentExams', descKey: 'services.recruitmentExams.desc',
+    briefEn: 'We provide form-filling services for all major government recruitment exams including SSC, UPSC, Railway, Banking, and State level exams to ensure your application is submitted error-free.',
+    briefHi: 'हम यह सुनिश्चित करने के लिए SSC, UPSC, रेलवे, बैंकिंग और राज्य स्तरीय परीक्षाओं सहित सभी प्रमुख सरकारी भर्ती परीक्षाओं के लिए फॉर्म भरने की सेवाएं प्रदान करते हैं कि आपका आवेदन त्रुटि मुक्त हो।',
+    subServicesEn: ['SSC Exam Application', 'UPSC Form Filling', 'Railway (RRB) Application', 'Admit Card Download', 'Result Checking'],
+    subServicesHi: ['SSC परीक्षा आवेदन', 'UPSC फॉर्म भरना', 'रेलवे (RRB) आवेदन', 'एडमिट कार्ड डाउनलोड', 'परिणाम जांच'],
+    documentsEn: ['Aadhaar Card', 'Educational Marksheets', 'Passport Size Photo & Signature', 'Caste Certificate (if applicable)'],
+    documentsHi: ['आधार कार्ड', 'शैक्षिक मार्कशीट', 'पासपोर्ट साइज फोटो और हस्ताक्षर', 'जाति प्रमाण पत्र (यदि लागू हो)'],
+    benefitsEn: ["Financial scholarships to support higher education without burden","Free coaching for competitive exams (UPSC/SSC/State)","Free residential hostel facilities for marginalized students"],
+    benefitsHi: ["बिना किसी बोझ के उच्च शिक्षा का समर्थन करने के लिए वित्तीय छात्रवृत्ति","प्रतियोगी परीक्षाओं (UPSC/SSC/State) के लिए मुफ्त कोचिंग","हाशिए पर रहने वाले छात्रों के लिए मुफ्त आवासीय छात्रावास सुविधाएं"],
+    eligibilityEn: ["Must have passed previous exams with minimum required marks","Family income must be below the scholarship threshold","Must belong to the specified category (SC/ST/OBC/General EWS)"],
+    eligibilityHi: ["पिछली परीक्षाओं को न्यूनतम आवश्यक अंकों के साथ उत्तीर्ण होना चाहिए","पारिवारिक आय छात्रवृत्ति सीमा से नीचे होनी चाहिए","निर्दिष्ट श्रेणी (SC/ST/OBC/General EWS) से संबंधित होना चाहिए"]
+  },
+  vehicleTransfer: {
+    id: 'vehicleTransfer', icon: '🔄', nameKey: 'services.vehicleTransfer', descKey: 'services.vehicleTransfer.desc',
+    briefEn: 'Transfer the ownership of your vehicle (RC Transfer) hassle-free. We assist with online RTO form submission, fee payment, and generating necessary transfer documents.',
+    briefHi: 'अपने वाहन के स्वामित्व (RC ट्रांसफर) को परेशानी मुक्त स्थानांतरित करें। हम ऑनलाइन RTO फॉर्म जमा करने, शुल्क भुगतान और आवश्यक स्थानांतरण दस्तावेज तैयार करने में सहायता करते हैं।',
+    subServicesEn: ['Vehicle RC Transfer Application', 'NOC Application (Form 28)', 'Address Change in RC'],
+    subServicesHi: ['वाहन RC ट्रांसफर आवेदन', 'NOC आवेदन (फॉर्म 28)', 'RC में पता परिवर्तन'],
+    documentsEn: ['Original RC', 'Aadhaar of Buyer & Seller', 'Form 29 & 30', 'Valid Insurance'],
+    documentsHi: ['मूल RC', 'क्रेता और विक्रेता का आधार', 'फॉर्म 29 और 30', 'वैध बीमा'],
+    benefitsEn: ["Legal compliance allowing you to drive or operate vehicles safely","Protection against heavy traffic fines and legal penalties","Financial coverage for accidents and vehicle damages"],
+    benefitsHi: ["वाहन चलाने की कानूनी अनुमति जिससे आप सुरक्षित रह सकें","भारी ट्रैफिक जुर्माने और कानूनी दंड से सुरक्षा","दुर्घटनाओं और वाहन के नुकसान के लिए वित्तीय कवरेज"],
+    eligibilityEn: ["Must hold appropriate age and qualifications for driving","Vehicle must be properly registered with RTO","Valid identity and address proof required"],
+    eligibilityHi: ["ड्राइविंग के लिए उचित आयु और योग्यता होनी चाहिए","वाहन RTO के साथ ठीक से पंजीकृत होना चाहिए","वैध पहचान और पते का प्रमाण आवश्यक है"]
+  },
+  swachhBharat: {
+    id: 'swachhBharat', icon: '🚽', nameKey: 'services.swachhBharat', descKey: 'services.swachhBharat.desc',
+    briefEn: 'Under the Swachh Bharat Mission (Gramin/Urban), the government provides financial assistance for the construction of Individual Household Latrines (IHHL). We assist in the online application process.',
+    briefHi: 'स्वच्छ भारत मिशन (ग्रामीण/शहरी) के तहत, सरकार व्यक्तिगत घरेलू शौचालय (IHHL) के निर्माण के लिए वित्तीय सहायता प्रदान करती है। हम ऑनलाइन आवेदन प्रक्रिया में सहायता करते हैं।',
+    subServicesEn: ['IHHL Toilet Application', 'Status Tracking', 'Geotagging Assistance'],
+    subServicesHi: ['IHHL शौचालय आवेदन', 'स्थिति ट्रैकिंग', 'जियोटैगिंग सहायता'],
+    documentsEn: ['Aadhaar Card', 'Bank Passbook', 'Photograph of applicant'],
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'आवेदक की तस्वीर'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
+  },
+  pmay: {
+    id: 'pmay', icon: '🏠', nameKey: 'services.pmay', descKey: 'services.pmay.desc',
+    briefEn: 'Pradhan Mantri Awas Yojana (PMAY) aims to provide affordable housing for all. We help citizens apply for housing subsidies under Gramin and Urban categories and check beneficiary lists.',
+    briefHi: 'प्रधानमंत्री आवास योजना (PMAY) का उद्देश्य सभी के लिए किफायती आवास प्रदान करना है। हम नागरिकों को ग्रामीण और शहरी श्रेणियों के तहत आवास सब्सिडी के लिए आवेदन करने और सूची की जांच करने में मदद करते हैं।',
+    subServicesEn: ['PMAY (Urban/Gramin) Application', 'Beneficiary Status Check', 'Installment Tracking'],
+    subServicesHi: ['PMAY (शहरी/ग्रामीण) आवेदन', 'लाभार्थी स्थिति जांच', 'किस्त ट्रैकिंग'],
+    documentsEn: ['Aadhaar Card', 'Bank Passbook', 'Income Proof / Ration Card'],
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'आय प्रमाण / राशन कार्ड'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
+  },
+  jeevanPramaan: {
+    id: 'jeevanPramaan', icon: '🪪', nameKey: 'services.jeevanPramaan', descKey: 'services.jeevanPramaan.desc',
+    briefEn: 'Jeevan Pramaan is a biometric enabled Digital Life Certificate for pensioners. It eliminates the need for pensioners to physically visit the disbursing agency to submit their life certificate.',
+    briefHi: 'जीवन प्रमाण पेंशनभोगियों के लिए एक बायोमेट्रिक सक्षम डिजिटल जीवन प्रमाण पत्र है। यह पेंशनभोगियों को अपना जीवन प्रमाण पत्र जमा करने के लिए भौतिक रूप से जाने की आवश्यकता को समाप्त करता है।',
+    subServicesEn: ['Digital Life Certificate Generation', 'Biometric Authentication for DLC', 'Certificate Print'],
+    subServicesHi: ['डिजिटल जीवन प्रमाण पत्र जनरेशन', 'DLC के लिए बायोमेट्रिक प्रमाणीकरण', 'प्रमाण पत्र प्रिंट'],
+    documentsEn: ['Aadhaar Card', 'PPO Number', 'Pension Bank Passbook'],
+    documentsHi: ['आधार कार्ड', 'PPO नंबर', 'पेंशन बैंक पासबुक'],
+    benefitsEn: ["Direct fixed monthly financial assistance credited to bank account","Financial independence and security for vulnerable individuals","Covers basic living and medical expenses"],
+    benefitsHi: ["बैंक खाते में सीधे निश्चित मासिक वित्तीय सहायता","कमजोर व्यक्तियों के लिए वित्तीय स्वतंत्रता और सुरक्षा","बुनियादी रहने और चिकित्सा खर्चों को कवर करता है"],
+    eligibilityEn: ["Applicant must fall within the specific age/status bracket (e.g., above 60 years, widow, or disabled)","Family income must be below the poverty line or state-specified threshold","Must not be receiving other government pensions"],
+    eligibilityHi: ["आवेदक को विशिष्ट आयु/स्थिति ब्रैकेट के भीतर होना चाहिए (जैसे 60 वर्ष से ऊपर, विधवा या विकलांग)","पारिवारिक आय गरीबी रेखा या राज्य-निर्दिष्ट सीमा से नीचे होनी चाहिए","अन्य सरकारी पेंशन प्राप्त नहीं कर रहा होना चाहिए"]
+  },
+  gasEkyc: {
+    id: 'gasEkyc', icon: '🔥', nameKey: 'services.gasEkyc', descKey: 'services.gasEkyc.desc',
+    briefEn: 'Complete your mandatory LPG Gas eKYC via biometric authentication to ensure uninterrupted gas subsidies. We also provide regular gas booking services for Ujjwala and general connections.',
+    briefHi: 'निर्बाध गैस सब्सिडी सुनिश्चित करने के लिए बायोमेट्रिक प्रमाणीकरण के माध्यम से अपना अनिवार्य LPG गैस eKYC पूरा करें। हम उज्ज्वला और सामान्य कनेक्शन के लिए नियमित गैस बुकिंग सेवाएं भी प्रदान करते हैं।',
+    subServicesEn: ['LPG Gas eKYC (Biometric)', 'Gas Cylinder Booking', 'Ujjwala Yojana New Application'],
+    subServicesHi: ['LPG गैस eKYC (बायोमेट्रिक)', 'गैस सिलेंडर बुकिंग', 'उज्ज्वला योजना नया आवेदन'],
+    documentsEn: ['Aadhaar Card', 'LPG Gas Passbook/Consumer Number'],
+    documentsHi: ['आधार कार्ड', 'LPG गैस पासबुक/उपभोक्ता संख्या'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
+  },
+  pmsym: {
+    id: 'pmsym', icon: '👷', nameKey: 'services.pmsym', descKey: 'services.pmsym.desc',
+    briefEn: 'Pradhan Mantri Shram Yogi Maan-dhan (PM-SYM) is a voluntary and contributory pension scheme ensuring a guaranteed monthly pension of ₹3,000 for unorganized sector workers after age 60.',
+    briefHi: 'प्रधानमंत्री श्रम योगी मान-धन (PM-SYM) एक स्वैच्छिक और अंशदायी पेंशन योजना है जो 60 वर्ष की आयु के बाद असंगठित क्षेत्र के श्रमिकों के लिए ₹3,000 की गारंटीकृत मासिक पेंशन सुनिश्चित करती है।',
+    subServicesEn: ['New PM-SYM Registration', 'Premium Payment', 'Card Print'],
+    subServicesHi: ['नया PM-SYM पंजीकरण', 'प्रीमियम भुगतान', 'कार्ड प्रिंट'],
+    documentsEn: ['Aadhaar Card', 'Bank Passbook (IFSC Code)', 'Active Mobile Number'],
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक (IFSC कोड)', 'सक्रिय मोबाइल नंबर'],
+    benefitsEn: ["Direct fixed monthly financial assistance credited to bank account","Financial independence and security for vulnerable individuals","Covers basic living and medical expenses"],
+    benefitsHi: ["बैंक खाते में सीधे निश्चित मासिक वित्तीय सहायता","कमजोर व्यक्तियों के लिए वित्तीय स्वतंत्रता और सुरक्षा","बुनियादी रहने और चिकित्सा खर्चों को कवर करता है"],
+    eligibilityEn: ["Applicant must fall within the specific age/status bracket (e.g., above 60 years, widow, or disabled)","Family income must be below the poverty line or state-specified threshold","Must not be receiving other government pensions"],
+    eligibilityHi: ["आवेदक को विशिष्ट आयु/स्थिति ब्रैकेट के भीतर होना चाहिए (जैसे 60 वर्ष से ऊपर, विधवा या विकलांग)","पारिवारिक आय गरीबी रेखा या राज्य-निर्दिष्ट सीमा से नीचे होनी चाहिए","अन्य सरकारी पेंशन प्राप्त नहीं कर रहा होना चाहिए"]
+  },
+  pmkmy: {
+    id: 'pmkmy', icon: '🧑‍🌾', nameKey: 'services.pmkmy', descKey: 'services.pmkmy.desc',
+    briefEn: 'Pradhan Mantri Kisan Maan-dhan Yojana (PM-KMY) provides a social security net for small and marginal farmers by guaranteeing a monthly pension of ₹3,000 upon reaching 60 years of age.',
+    briefHi: 'प्रधानमंत्री किसान मान-धन योजना (PM-KMY) छोटे और सीमांत किसानों को 60 वर्ष की आयु तक पहुंचने पर ₹3,000 की मासिक पेंशन की गारंटी देकर एक सामाजिक सुरक्षा जाल प्रदान करती है।',
+    subServicesEn: ['PM-KMY Registration', 'Premium Deduction Setup (Auto-debit)', 'Status Check'],
+    subServicesHi: ['PM-KMY पंजीकरण', 'प्रीमियम कटौती सेटअप', 'स्थिति जांच'],
+    documentsEn: ['Aadhaar Card', 'Bank Passbook', 'Land Record (Khatauni)'],
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'भूमि रिकॉर्ड (खतौनी)'],
+    benefitsEn: ["Direct fixed monthly financial assistance credited to bank account","Financial independence and security for vulnerable individuals","Covers basic living and medical expenses"],
+    benefitsHi: ["बैंक खाते में सीधे निश्चित मासिक वित्तीय सहायता","कमजोर व्यक्तियों के लिए वित्तीय स्वतंत्रता और सुरक्षा","बुनियादी रहने और चिकित्सा खर्चों को कवर करता है"],
+    eligibilityEn: ["Applicant must fall within the specific age/status bracket (e.g., above 60 years, widow, or disabled)","Family income must be below the poverty line or state-specified threshold","Must not be receiving other government pensions"],
+    eligibilityHi: ["आवेदक को विशिष्ट आयु/स्थिति ब्रैकेट के भीतर होना चाहिए (जैसे 60 वर्ष से ऊपर, विधवा या विकलांग)","पारिवारिक आय गरीबी रेखा या राज्य-निर्दिष्ट सीमा से नीचे होनी चाहिए","अन्य सरकारी पेंशन प्राप्त नहीं कर रहा होना चाहिए"]
+  },
+  pmlvmy: {
+    id: 'pmlvmy', icon: '🏪', nameKey: 'services.pmlvmy', descKey: 'services.pmlvmy.desc',
+    briefEn: 'PM Laghu Vyapari Maan-dhan Yojana provides old age protection to retail traders, shopkeepers, and self-employed persons with an annual turnover not exceeding ₹1.5 crore, ensuring ₹3,000/month pension.',
+    briefHi: 'पीएम लघु व्यापारी मान-धन योजना ₹1.5 करोड़ से कम वार्षिक कारोबार वाले खुदरा व्यापारियों, दुकानदारों और स्वरोजगार करने वाले व्यक्तियों को वृद्धावस्था सुरक्षा प्रदान करती है।',
+    subServicesEn: ['Trader Pension Registration', 'Premium Payment', 'Pension Card Print'],
+    subServicesHi: ['व्यापारी पेंशन पंजीकरण', 'प्रीमियम भुगतान', 'पेंशन कार्ड प्रिंट'],
+    documentsEn: ['Aadhaar Card', 'Bank Details', 'GST Number (optional)'],
+    documentsHi: ['आधार कार्ड', 'बैंक विवरण', 'GST नंबर (वैकल्पिक)'],
+    benefitsEn: ["Direct fixed monthly financial assistance credited to bank account","Financial independence and security for vulnerable individuals","Covers basic living and medical expenses"],
+    benefitsHi: ["बैंक खाते में सीधे निश्चित मासिक वित्तीय सहायता","कमजोर व्यक्तियों के लिए वित्तीय स्वतंत्रता और सुरक्षा","बुनियादी रहने और चिकित्सा खर्चों को कवर करता है"],
+    eligibilityEn: ["Applicant must fall within the specific age/status bracket (e.g., above 60 years, widow, or disabled)","Family income must be below the poverty line or state-specified threshold","Must not be receiving other government pensions"],
+    eligibilityHi: ["आवेदक को विशिष्ट आयु/स्थिति ब्रैकेट के भीतर होना चाहिए (जैसे 60 वर्ष से ऊपर, विधवा या विकलांग)","पारिवारिक आय गरीबी रेखा या राज्य-निर्दिष्ट सीमा से नीचे होनी चाहिए","अन्य सरकारी पेंशन प्राप्त नहीं कर रहा होना चाहिए"]
+  },
+  pmsvanidhi: {
+    id: 'pmsvanidhi', icon: '🛒', nameKey: 'services.pmsvanidhi', descKey: 'services.pmsvanidhi.desc',
+    briefEn: 'PM SVANidhi is a special micro-credit facility to provide affordable working capital loans to street vendors to resume their livelihoods. Get loans of ₹10,000, ₹20,000, or ₹50,000.',
+    briefHi: 'पीएम स्वनिधि सड़क विक्रेताओं (स्ट्रीट वेंडरों) को उनकी आजीविका फिर से शुरू करने के लिए किफायती कार्यशील पूंजी ऋण (₹10,000, ₹20,000, ₹50,000) प्रदान करने की एक विशेष सुविधा है।',
+    subServicesEn: ['New Loan Application (10K/20K/50K)', 'Status Tracking', 'Digital Payment Onboarding'],
+    subServicesHi: ['नया ऋण आवेदन (10K/20K/50K)', 'स्थिति ट्रैकिंग', 'डिजिटल भुगतान ऑनबोर्डिंग'],
+    documentsEn: ['Aadhaar Card', 'Voter ID', 'Bank Passbook', 'Vendor ID Card / Certificate of Vending'],
+    documentsHi: ['आधार कार्ड', 'वोटर आईडी', 'बैंक पासबुक', 'वेंडर आईडी कार्ड / वेंडिंग का प्रमाण पत्र'],
+    benefitsEn: ["Legal registration allowing you to run a legitimate business","Essential for filing taxes, opening current accounts, and getting loans","Government recognition and MSME subsidy eligibility"],
+    benefitsHi: ["कानूनी पंजीकरण जिससे आप एक वैध व्यवसाय चला सकें","कर दाखिल करने, चालू खाते खोलने और ऋण प्राप्त करने के लिए आवश्यक","सरकारी मान्यता और MSME सब्सिडी पात्रता"],
+    eligibilityEn: ["Must have Aadhaar and PAN cards linked","Must have a physical or registered business address","Turnover limits apply for specific MSME/GST categories"],
+    eligibilityHi: ["आधार और पैन कार्ड लिंक होने चाहिए","भौतिक या पंजीकृत व्यावसायिक पता होना चाहिए","विशिष्ट MSME/GST श्रेणियों के लिए टर्नओवर सीमा लागू होती है"]
+  },
+  pmvishwakarma: {
+    id: 'pmvishwakarma', icon: '🔨', nameKey: 'services.pmvishwakarma', descKey: 'services.pmvishwakarma.desc',
+    briefEn: 'PM Vishwakarma Yojana provides end-to-end support to artisans and craftspeople working with their hands and tools. It includes toolkit incentives, credit support, and skill training.',
+    briefHi: 'पीएम विश्वकर्मा योजना अपने हाथों और औजारों से काम करने वाले कारीगरों और शिल्पकारों को शुरू से अंत तक सहायता प्रदान करती है। इसमें टूलकिट प्रोत्साहन, ऋण सहायता और कौशल प्रशिक्षण शामिल है।',
+    subServicesEn: ['Artisan Registration', 'Toolkit Incentive Application', 'Credit Support Application'],
+    subServicesHi: ['कारीगर पंजीकरण', 'टूलकिट प्रोत्साहन आवेदन', 'क्रेडिट सहायता आवेदन'],
+    documentsEn: ['Aadhaar Card', 'Ration Card', 'Bank Details', 'Trade/Skill details'],
+    documentsHi: ['आधार कार्ड', 'राशन कार्ड', 'बैंक विवरण', 'व्यापार/कौशल विवरण'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
+  },
+  pmfby: {
+    id: 'pmfby', icon: '🌱', nameKey: 'services.pmfby', descKey: 'services.pmfby.desc',
+    briefEn: 'Pradhan Mantri Fasal Bima Yojana (PMFBY) offers comprehensive insurance cover against failure of the crop, helping in stabilizing the income of farmers.',
+    briefHi: 'प्रधानमंत्री फसल बीमा योजना (PMFBY) फसल की विफलता के खिलाफ व्यापक बीमा कवर प्रदान करती है, जिससे किसानों की आय को स्थिर करने में मदद मिलती है।',
+    subServicesEn: ['Crop Insurance Application', 'Premium Payment', 'Claim Status Track', 'Crop Loss Intimation'],
+    subServicesHi: ['फसल बीमा आवेदन', 'प्रीमियम भुगतान', 'दावा स्थिति ट्रैक', 'फसल नुकसान की सूचना'],
+    documentsEn: ['Aadhaar Card', 'Bank Passbook', 'Land Record (Khatauni)', 'Sowing Certificate'],
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'भूमि रिकॉर्ड (खतौनी)', 'बुवाई प्रमाण पत्र'],
+    benefitsEn: ["Direct financial support and subsidies for agricultural inputs","Protection against crop loss due to natural calamities","Access to modern farming equipment and low-interest credit"],
+    benefitsHi: ["कृषि आदानों के लिए प्रत्यक्ष वित्तीय सहायता और सब्सिडी","प्राकृतिक आपदाओं के कारण फसल के नुकसान से सुरक्षा","आधुनिक कृषि उपकरणों और कम ब्याज वाले ऋण तक पहुंच"],
+    eligibilityEn: ["Must be an active farmer with cultivable land holding","Must have a valid Aadhaar and bank account linked to it","Must be registered in the state/central farmer database"],
+    eligibilityHi: ["कृषि योग्य भूमि वाले सक्रिय किसान होना चाहिए","आधार और उससे जुड़ा बैंक खाता होना चाहिए","राज्य/केंद्रीय किसान डेटाबेस में पंजीकृत होना चाहिए"]
+  },
+  incomeCertificate: {
+    id: 'incomeCertificate', icon: '📄', nameKey: 'services.incomeCertificate', descKey: 'services.incomeCertificate.desc',
+    briefEn: 'Income Certificate is an official document issued by the state government certifying the annual income of an individual or their family. It is essential for availing scholarships, fee concessions, and government subsidies.',
+    briefHi: 'आय प्रमाण पत्र राज्य सरकार द्वारा जारी एक आधिकारिक दस्तावेज है जो किसी व्यक्ति या उसके परिवार की वार्षिक आय को प्रमाणित करता है। यह छात्रवृत्ति, शुल्क रियायत और सरकारी सब्सिडी का लाभ उठाने के लिए आवश्यक है।',
+    subServicesEn: ['New Income Certificate Application', 'Status Check', 'Certificate Download/Print'],
+    subServicesHi: ['नया आय प्रमाण पत्र आवेदन', 'स्थिति जांच', 'प्रमाण पत्र डाउनलोड/प्रिंट'],
+    documentsEn: ['Aadhaar Card', 'Ration Card', 'Self Declaration Form', 'Passport Size Photo'],
+    documentsHi: ['आधार कार्ड', 'राशन कार्ड', 'स्व-घोषणा पत्र', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Valid legal proof for government and private tasks","Mandatory for availing state scholarships and subsidies","Required for admissions and job applications"],
+    benefitsHi: ["सरकारी और निजी कार्यों के लिए वैध कानूनी प्रमाण","राज्य की छात्रवृत्ति और सब्सिडी का लाभ उठाने के लिए अनिवार्य","प्रवेश और नौकरी के आवेदनों के लिए आवश्यक"],
+    eligibilityEn: ["Must be a citizen of India","Must be a permanent resident of the respective state","Must fulfill specific category criteria (e.g., income limits, caste)"],
+    eligibilityHi: ["भारत का नागरिक होना चाहिए","संबंधित राज्य का स्थायी निवासी होना चाहिए","विशिष्ट श्रेणी के मानदंडों (जैसे आय सीमा, जाति) को पूरा करना चाहिए"]
+  },
+  casteCertificate: {
+    id: 'casteCertificate', icon: '📜', nameKey: 'services.casteCertificate', descKey: 'services.casteCertificate.desc',
+    briefEn: 'Caste Certificate is a documentary proof that an individual belongs to a particular caste (SC/ST/OBC). It is crucial for reservations in education and government jobs.',
+    briefHi: 'जाति प्रमाण पत्र एक दस्तावेजी प्रमाण है कि कोई व्यक्ति किसी विशेष जाति (SC/ST/OBC) से संबंधित है। यह शिक्षा और सरकारी नौकरियों में आरक्षण के लिए महत्वपूर्ण है।',
+    subServicesEn: ['SC/ST Caste Certificate', 'OBC Caste Certificate', 'Status Check', 'Certificate Print'],
+    subServicesHi: ['SC/ST जाति प्रमाण पत्र', 'OBC जाति प्रमाण पत्र', 'स्थिति जांच', 'प्रमाण पत्र प्रिंट'],
+    documentsEn: ['Aadhaar Card', 'Pradhan/Parshad Certificate', 'Self Declaration Form', 'Photograph'],
+    documentsHi: ['आधार कार्ड', 'प्रधान/पार्षद प्रमाण पत्र', 'स्व-घोषणा पत्र', 'फोटोग्राफ'],
+    benefitsEn: ["Valid legal proof for government and private tasks","Mandatory for availing state scholarships and subsidies","Required for admissions and job applications"],
+    benefitsHi: ["सरकारी और निजी कार्यों के लिए वैध कानूनी प्रमाण","राज्य की छात्रवृत्ति और सब्सिडी का लाभ उठाने के लिए अनिवार्य","प्रवेश और नौकरी के आवेदनों के लिए आवश्यक"],
+    eligibilityEn: ["Must be a citizen of India","Must be a permanent resident of the respective state","Must fulfill specific category criteria (e.g., income limits, caste)"],
+    eligibilityHi: ["भारत का नागरिक होना चाहिए","संबंधित राज्य का स्थायी निवासी होना चाहिए","विशिष्ट श्रेणी के मानदंडों (जैसे आय सीमा, जाति) को पूरा करना चाहिए"]
+  },
+  domicileCertificate: {
+    id: 'domicileCertificate', icon: '🏠', nameKey: 'services.domicileCertificate', descKey: 'services.domicileCertificate.desc',
+    briefEn: 'Domicile or Residence Certificate is issued by the state government to prove that the person is a permanent resident of that state/district. It is required for local quotas in education and employment.',
+    briefHi: 'निवास प्रमाण पत्र राज्य सरकार द्वारा यह साबित करने के लिए जारी किया जाता है कि व्यक्ति उस राज्य/जिले का स्थायी निवासी है। शिक्षा और रोजगार में स्थानीय कोटे के लिए इसकी आवश्यकता होती है।',
+    subServicesEn: ['New Domicile Application', 'Status Check', 'Certificate Download/Print'],
+    subServicesHi: ['नया निवास आवेदन', 'स्थिति जांच', 'प्रमाण पत्र डाउनलोड/प्रिंट'],
+    documentsEn: ['Aadhaar Card', 'Ration Card / Voter ID', 'Self Declaration Form', 'Photograph'],
+    documentsHi: ['आधार कार्ड', 'राशन कार्ड / वोटर आईडी', 'स्व-घोषणा पत्र', 'फोटोग्राफ'],
+    benefitsEn: ["Valid legal proof for government and private tasks","Mandatory for availing state scholarships and subsidies","Required for admissions and job applications"],
+    benefitsHi: ["सरकारी और निजी कार्यों के लिए वैध कानूनी प्रमाण","राज्य की छात्रवृत्ति और सब्सिडी का लाभ उठाने के लिए अनिवार्य","प्रवेश और नौकरी के आवेदनों के लिए आवश्यक"],
+    eligibilityEn: ["Must be a citizen of India","Must be a permanent resident of the respective state","Must fulfill specific category criteria (e.g., income limits, caste)"],
+    eligibilityHi: ["भारत का नागरिक होना चाहिए","संबंधित राज्य का स्थायी निवासी होना चाहिए","विशिष्ट श्रेणी के मानदंडों (जैसे आय सीमा, जाति) को पूरा करना चाहिए"]
+  },
+  netWorthCertificate: {
+    id: 'netWorthCertificate', icon: '💰', nameKey: 'services.netWorthCertificate', descKey: 'services.netWorthCertificate.desc',
+    briefEn: 'Status or Net Worth Certificate (Haisiyat Praman Patra) is an official document evaluating the total financial worth or assets of an individual or entity. It is required for bidding on government tenders and contracts.',
+    briefHi: 'हैसियत प्रमाण पत्र एक आधिकारिक दस्तावेज है जो किसी व्यक्ति या संस्था की कुल वित्तीय संपत्ति का मूल्यांकन करता है। सरकारी निविदाओं और अनुबंधों पर बोली लगाने के लिए इसकी आवश्यकता होती है।',
+    subServicesEn: ['Haisiyat Praman Patra Application', 'Status Check', 'Certificate Download'],
+    subServicesHi: ['हैसियत प्रमाण पत्र आवेदन', 'स्थिति जांच', 'प्रमाण पत्र डाउनलोड'],
+    documentsEn: ['Property Documents (Khatauni)', 'Bank Statements', 'Aadhaar Card', 'PAN Card', 'Photograph'],
+    documentsHi: ['संपत्ति के दस्तावेज (खतौनी)', 'बैंक स्टेटमेंट', 'आधार कार्ड', 'पैन कार्ड', 'फोटोग्राफ'],
+    benefitsEn: ["Valid legal proof for government and private tasks","Mandatory for availing state scholarships and subsidies","Required for admissions and job applications"],
+    benefitsHi: ["सरकारी और निजी कार्यों के लिए वैध कानूनी प्रमाण","राज्य की छात्रवृत्ति और सब्सिडी का लाभ उठाने के लिए अनिवार्य","प्रवेश और नौकरी के आवेदनों के लिए आवश्यक"],
+    eligibilityEn: ["Must be a citizen of India","Must be a permanent resident of the respective state","Must fulfill specific category criteria (e.g., income limits, caste)"],
+    eligibilityHi: ["भारत का नागरिक होना चाहिए","संबंधित राज्य का स्थायी निवासी होना चाहिए","विशिष्ट श्रेणी के मानदंडों (जैसे आय सीमा, जाति) को पूरा करना चाहिए"]
+  },
+  characterCertificate: {
+    id: 'characterCertificate', icon: '👮‍♂️', nameKey: 'services.characterCertificate', descKey: 'services.characterCertificate.desc',
+    briefEn: 'A Character Certificate (Police Clearance) validates that the applicant has no criminal record. It is frequently requested by employers, educational institutions, and government bodies.',
+    briefHi: 'चरित्र प्रमाण पत्र (पुलिस क्लीयरेंस) यह प्रमाणित करता है कि आवेदक का कोई आपराधिक रिकॉर्ड नहीं है। यह अक्सर नियोक्ताओं, शैक्षणिक संस्थानों और सरकारी निकायों द्वारा मांगा जाता है।',
+    subServicesEn: ['Police Character Certificate Application', 'Verification Tracking', 'Download Final Certificate'],
+    subServicesHi: ['पुलिस चरित्र प्रमाण पत्र आवेदन', 'सत्यापन ट्रैकिंग', 'अंतिम प्रमाण पत्र डाउनलोड'],
+    documentsEn: ['Aadhaar Card', 'Voter ID/Passport', 'Photograph', 'Gram Pradhan Certificate'],
+    documentsHi: ['आधार कार्ड', 'वोटर आईडी/पासपोर्ट', 'फोटोग्राफ', 'ग्राम प्रधान प्रमाण पत्र'],
+    benefitsEn: ["Valid legal proof for government and private tasks","Mandatory for availing state scholarships and subsidies","Required for admissions and job applications"],
+    benefitsHi: ["सरकारी और निजी कार्यों के लिए वैध कानूनी प्रमाण","राज्य की छात्रवृत्ति और सब्सिडी का लाभ उठाने के लिए अनिवार्य","प्रवेश और नौकरी के आवेदनों के लिए आवश्यक"],
+    eligibilityEn: ["Must be a citizen of India","Must be a permanent resident of the respective state","Must fulfill specific category criteria (e.g., income limits, caste)"],
+    eligibilityHi: ["भारत का नागरिक होना चाहिए","संबंधित राज्य का स्थायी निवासी होना चाहिए","विशिष्ट श्रेणी के मानदंडों (जैसे आय सीमा, जाति) को पूरा करना चाहिए"]
+  },
+  daughterMarriageGrant: {
+    id: 'daughterMarriageGrant', icon: '👰', nameKey: 'services.daughterMarriageGrant', descKey: 'services.daughterMarriageGrant.desc',
+    briefEn: 'The Grant Scheme for Daughter\'s Marriage provides financial assistance to poor families for the marriage of their daughters, ensuring they can marry with dignity without severe financial burden.',
+    briefHi: 'पुत्री विवाह हेतु अनुदान योजना गरीब परिवारों को उनकी बेटियों की शादी के लिए वित्तीय सहायता प्रदान करती है, यह सुनिश्चित करते हुए कि वे गंभीर वित्तीय बोझ के बिना गरिमा के साथ शादी कर सकें।',
+    subServicesEn: ['Grant Application Submission', 'Status Tracking'],
+    subServicesHi: ['अनुदान आवेदन जमा करना', 'स्थिति ट्रैकिंग'],
+    documentsEn: ['Aadhaar Card of Bride & Groom', 'Income Certificate', 'Caste Certificate', 'Marriage Card/Proof', 'Bank Passbook'],
+    documentsHi: ['दूल्हा-दुल्हन का आधार कार्ड', 'आय प्रमाण पत्र', 'जाति प्रमाण पत्र', 'शादी का कार्ड/प्रमाण', 'बैंक पासबुक'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
+  },
+  cmCollectiveMarriage: {
+    id: 'cmCollectiveMarriage', icon: '👫', nameKey: 'services.cmCollectiveMarriage', descKey: 'services.cmCollectiveMarriage.desc',
+    briefEn: 'Chief Minister Collective Marriage Scheme (Mukhyamantri Samuhik Vivah Yojana) conducts mass marriages for girls from economically weaker sections, providing financial aid and household items.',
+    briefHi: 'मुख्यमंत्री सामूहिक विवाह योजना आर्थिक रूप से कमजोर वर्ग की लड़कियों के लिए सामूहिक विवाह आयोजित करती है, वित्तीय सहायता और घरेलू सामान प्रदान करती है।',
+    subServicesEn: ['Registration for Mass Marriage', 'Status Check'],
+    subServicesHi: ['सामूहिक विवाह के लिए पंजीकरण', 'स्थिति जांच'],
+    documentsEn: ['Aadhaar Card of Bride & Groom', 'Income Certificate', 'Age Proof', 'Photographs'],
+    documentsHi: ['दूल्हा-दुल्हन का आधार कार्ड', 'आय प्रमाण पत्र', 'आयु प्रमाण', 'फोटोग्राफ'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
+  },
+  oldAgePension: {
+    id: 'oldAgePension', icon: '👵', nameKey: 'services.oldAgePension', descKey: 'services.oldAgePension.desc',
+    briefEn: 'The Old Age Pension Scheme provides monthly financial assistance to destitute senior citizens above 60 years of age living below the poverty line.',
+    briefHi: 'वृद्धावस्था पेंशन योजना गरीबी रेखा से नीचे जीवन यापन करने वाले 60 वर्ष से अधिक आयु के निराश्रित वरिष्ठ नागरिकों को मासिक वित्तीय सहायता प्रदान करती है।',
+    subServicesEn: ['New Pension Application', 'Aadhaar Verification', 'Status Track', 'Pension Status Check'],
+    subServicesHi: ['नया पेंशन आवेदन', 'आधार सत्यापन', 'स्थिति ट्रैक', 'पेंशन स्थिति जांच'],
+    documentsEn: ['Aadhaar Card', 'Bank Passbook', 'Income Certificate', 'Age Proof / Photograph'],
+    documentsHi: ['आधार कार्ड', 'बैंक पासबुक', 'आय प्रमाण पत्र', 'आयु प्रमाण / फोटोग्राफ'],
+    benefitsEn: ["Direct fixed monthly financial assistance credited to bank account","Financial independence and security for vulnerable individuals","Covers basic living and medical expenses"],
+    benefitsHi: ["बैंक खाते में सीधे निश्चित मासिक वित्तीय सहायता","कमजोर व्यक्तियों के लिए वित्तीय स्वतंत्रता और सुरक्षा","बुनियादी रहने और चिकित्सा खर्चों को कवर करता है"],
+    eligibilityEn: ["Applicant must fall within the specific age/status bracket (e.g., above 60 years, widow, or disabled)","Family income must be below the poverty line or state-specified threshold","Must not be receiving other government pensions"],
+    eligibilityHi: ["आवेदक को विशिष्ट आयु/स्थिति ब्रैकेट के भीतर होना चाहिए (जैसे 60 वर्ष से ऊपर, विधवा या विकलांग)","पारिवारिक आय गरीबी रेखा या राज्य-निर्दिष्ट सीमा से नीचे होनी चाहिए","अन्य सरकारी पेंशन प्राप्त नहीं कर रहा होना चाहिए"]
+  },
+  widowPension: {
+    id: 'widowPension', icon: '👩‍🦳', nameKey: 'services.widowPension', descKey: 'services.widowPension.desc',
+    briefEn: 'The Widow Pension Scheme (Nirashrit Mahila Pension) offers monthly financial support to destitute widows above 18 years of age without a steady source of income.',
+    briefHi: 'विधवा पेंशन योजना (निराश्रित महिला पेंशन) 18 वर्ष से अधिक आयु की उन निराश्रित विधवाओं को मासिक वित्तीय सहायता प्रदान करती है जिनके पास आय का कोई स्थिर स्रोत नहीं है।',
+    subServicesEn: ['New Widow Pension Application', 'Aadhaar Verification', 'Pension Status Check'],
+    subServicesHi: ['नया विधवा पेंशन आवेदन', 'आधार सत्यापन', 'पेंशन स्थिति जांच'],
+    documentsEn: ['Aadhaar Card', 'Husband\'s Death Certificate', 'Income Certificate', 'Bank Passbook', 'Photograph'],
+    documentsHi: ['आधार कार्ड', 'पति का मृत्यु प्रमाण पत्र', 'आय प्रमाण पत्र', 'बैंक पासबुक', 'फोटोग्राफ'],
+    benefitsEn: ["Direct fixed monthly financial assistance credited to bank account","Financial independence and security for vulnerable individuals","Covers basic living and medical expenses"],
+    benefitsHi: ["बैंक खाते में सीधे निश्चित मासिक वित्तीय सहायता","कमजोर व्यक्तियों के लिए वित्तीय स्वतंत्रता और सुरक्षा","बुनियादी रहने और चिकित्सा खर्चों को कवर करता है"],
+    eligibilityEn: ["Applicant must fall within the specific age/status bracket (e.g., above 60 years, widow, or disabled)","Family income must be below the poverty line or state-specified threshold","Must not be receiving other government pensions"],
+    eligibilityHi: ["आवेदक को विशिष्ट आयु/स्थिति ब्रैकेट के भीतर होना चाहिए (जैसे 60 वर्ष से ऊपर, विधवा या विकलांग)","पारिवारिक आय गरीबी रेखा या राज्य-निर्दिष्ट सीमा से नीचे होनी चाहिए","अन्य सरकारी पेंशन प्राप्त नहीं कर रहा होना चाहिए"]
+  },
+  disabilityPension: {
+    id: 'disabilityPension', icon: '🦽', nameKey: 'services.disabilityPension', descKey: 'services.disabilityPension.desc',
+    briefEn: 'Disability and Leprosy Pension Scheme offers monthly financial assistance to physically challenged individuals with at least 40% disability, helping them meet basic living expenses.',
+    briefHi: 'विकलांग और कुष्ठावस्था पेंशन योजना कम से कम 40% विकलांगता वाले शारीरिक रूप से विकलांग व्यक्तियों को मासिक वित्तीय सहायता प्रदान करती है, जिससे उन्हें बुनियादी जीवन व्यय को पूरा करने में मदद मिलती है।',
+    subServicesEn: ['New Disability Pension Application', 'Aadhaar Verification', 'Pension Status Check'],
+    subServicesHi: ['नया विकलांग पेंशन आवेदन', 'आधार सत्यापन', 'पेंशन स्थिति जांच'],
+    documentsEn: ['Aadhaar Card', 'Disability Certificate (UDID)', 'Income Certificate', 'Bank Passbook'],
+    documentsHi: ['आधार कार्ड', 'विकलांगता प्रमाण पत्र (UDID)', 'आय प्रमाण पत्र', 'बैंक पासबुक'],
+    benefitsEn: ["Direct fixed monthly financial assistance credited to bank account","Financial independence and security for vulnerable individuals","Covers basic living and medical expenses"],
+    benefitsHi: ["बैंक खाते में सीधे निश्चित मासिक वित्तीय सहायता","कमजोर व्यक्तियों के लिए वित्तीय स्वतंत्रता और सुरक्षा","बुनियादी रहने और चिकित्सा खर्चों को कवर करता है"],
+    eligibilityEn: ["Applicant must fall within the specific age/status bracket (e.g., above 60 years, widow, or disabled)","Family income must be below the poverty line or state-specified threshold","Must not be receiving other government pensions"],
+    eligibilityHi: ["आवेदक को विशिष्ट आयु/स्थिति ब्रैकेट के भीतर होना चाहिए (जैसे 60 वर्ष से ऊपर, विधवा या विकलांग)","पारिवारिक आय गरीबी रेखा या राज्य-निर्दिष्ट सीमा से नीचे होनी चाहिए","अन्य सरकारी पेंशन प्राप्त नहीं कर रहा होना चाहिए"]
+  },
+  familyBenefit: {
+    id: 'familyBenefit', icon: '👨‍👩‍👧‍👦', nameKey: 'services.familyBenefit', descKey: 'services.familyBenefit.desc',
+    briefEn: 'National Family Benefit Scheme (Rashtriya Parivarik Labh Yojana) grants a lump sum financial assistance to a BPL family upon the death of their primary breadwinner.',
+    briefHi: 'राष्ट्रीय पारिवारिक लाभ योजना अपने प्राथमिक कमाऊ सदस्य की मृत्यु होने पर गरीबी रेखा से नीचे (BPL) वाले परिवार को एकमुश्त वित्तीय सहायता प्रदान करती है।',
+    subServicesEn: ['Family Benefit Application', 'Status Tracking'],
+    subServicesHi: ['पारिवारिक लाभ आवेदन', 'स्थिति ट्रैकिंग'],
+    documentsEn: ['Aadhaar Card of Applicant', 'Death Certificate of Breadwinner', 'Income Certificate', 'Bank Passbook', 'FIR (in case of accidental death)'],
+    documentsHi: ['आवेदक का आधार कार्ड', 'कमाऊ सदस्य का मृत्यु प्रमाण पत्र', 'आय प्रमाण पत्र', 'बैंक पासबुक', 'FIR (आकस्मिक मृत्यु के मामले में)'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
+  },
+  cmChildService: {
+    id: 'cmChildService', icon: '👶', nameKey: 'services.cmChildService', descKey: 'services.cmChildService.desc',
+    briefEn: 'Chief Minister Child Service Scheme (Mukhyamantri Bal Sewa Yojana) aims to provide financial and educational aid to children orphaned due to COVID-19 or other causes.',
+    briefHi: 'मुख्यमंत्री बाल सेवा योजना का उद्देश्य COVID-19 या अन्य कारणों से अनाथ हुए बच्चों को वित्तीय और शैक्षिक सहायता प्रदान करना है।',
+    subServicesEn: ['Scheme Application', 'Status Check'],
+    subServicesHi: ['योजना आवेदन', 'स्थिति जांच'],
+    documentsEn: ['Child\'s Aadhaar Card', 'Death Certificate of Parents', 'Income Certificate of Guardian', 'Bank Passbook'],
+    documentsHi: ['बच्चे का आधार कार्ड', 'माता-पिता का मृत्यु प्रमाण पत्र', 'अभिभावक का आय प्रमाण पत्र', 'बैंक पासबुक'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
+  },
+  artificialLimbs: {
+    id: 'artificialLimbs', icon: '🦾', nameKey: 'services.artificialLimbs', descKey: 'services.artificialLimbs.desc',
+    briefEn: 'Artificial Limbs and Assistive Devices Scheme helps provide tricycles, hearing aids, wheelchairs, and artificial limbs to persons with disabilities free of cost.',
+    briefHi: 'कृत्रिम अंग और सहायक उपकरण योजना विकलांग व्यक्तियों को मुफ्त में ट्राइसाइकिल, श्रवण यंत्र, व्हीलचेयर और कृत्रिम अंग प्रदान करने में मदद करती है।',
+    subServicesEn: ['Assistive Device Application', 'Status Check'],
+    subServicesHi: ['सहायक उपकरण आवेदन', 'स्थिति जांच'],
+    documentsEn: ['Aadhaar Card', 'Disability Certificate (UDID)', 'Income Certificate', 'Photograph'],
+    documentsHi: ['आधार कार्ड', 'विकलांगता प्रमाण पत्र (UDID)', 'आय प्रमाण पत्र', 'फोटोग्राफ'],
+    benefitsEn: ["Free medical treatment up to ₹5 Lakhs per family per year","Cashless hospitalisation in empaneled public and private hospitals","Access to expert doctor consultations via telemedicine"],
+    benefitsHi: ["प्रति परिवार प्रति वर्ष ₹5 लाख तक का मुफ्त चिकित्सा उपचार","सूचीबद्ध सार्वजनिक और निजी अस्पतालों में कैशलेस अस्पताल में भर्ती","टेलीमेडिसिन के माध्यम से विशेषज्ञ डॉक्टर के परामर्श तक पहुंच"],
+    eligibilityEn: ["Must be listed in the SECC 2011 database or eligible state lists","Must hold a valid ration card or health card ID","Applicable to economically weaker sections"],
+    eligibilityHi: ["SECC 2011 डेटाबेस या पात्र राज्य सूचियों में सूचीबद्ध होना चाहिए","वैध राशन कार्ड या स्वास्थ्य कार्ड आईडी होना चाहिए","आर्थिक रूप से कमजोर वर्गों पर लागू"]
+  },
+  borewell: {
+    id: 'borewell', icon: '💧', nameKey: 'services.borewell', descKey: 'services.borewell.desc',
+    briefEn: 'Free Boring Scheme helps small and marginal farmers get financial assistance to set up borewells or tube wells for reliable irrigation facilities in their fields.',
+    briefHi: 'मुफ्त बोरिंग योजना छोटे और सीमांत किसानों को अपने खेतों में विश्वसनीय सिंचाई सुविधाओं के लिए बोरवेल या ट्यूबवेल स्थापित करने के लिए वित्तीय सहायता प्राप्त करने में मदद करती है।',
+    subServicesEn: ['New Boring Application', 'Subsidy Tracking'],
+    subServicesHi: ['नया बोरिंग आवेदन', 'सब्सिडी ट्रैकिंग'],
+    documentsEn: ['Aadhaar Card', 'Khatauni (Land Record)', 'Bank Passbook', 'Photograph'],
+    documentsHi: ['आधार कार्ड', 'खतौनी (भूमि रिकॉर्ड)', 'बैंक पासबुक', 'फोटोग्राफ'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
+  },
+  newElectricityConnection: {
+    id: 'newElectricityConnection', icon: '⚡', nameKey: 'services.newElectricityConnection', descKey: 'services.newElectricityConnection.desc',
+    briefEn: 'Apply easily for a new domestic, commercial, or agricultural electricity connection online. Track application status and download demand notes.',
+    briefHi: 'नए घरेलू, वाणिज्यिक या कृषि बिजली कनेक्शन के लिए आसानी से ऑनलाइन आवेदन करें। आवेदन की स्थिति को ट्रैक करें और डिमांड नोट डाउनलोड करें।',
+    subServicesEn: ['Domestic Connection (Jhatpat)', 'Commercial Connection', 'Agricultural Tubewell Connection', 'Load Enhancement'],
+    subServicesHi: ['घरेलू कनेक्शन (झटपट)', 'वाणिज्यिक कनेक्शन', 'कृषि ट्यूबवेल कनेक्शन', 'लोड बढ़ाना'],
+    documentsEn: ['Aadhaar Card', 'Registry/Khatauni (Property Proof)', 'Passport Size Photo'],
+    documentsHi: ['आधार कार्ड', 'रजिस्ट्री/खतौनी (संपत्ति प्रमाण)', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
+  },
+  cmJanArogya: {
+    id: 'cmJanArogya', icon: '🩺', nameKey: 'services.cmJanArogya', descKey: 'services.cmJanArogya.desc',
+    briefEn: 'Chief Minister Public Health Scheme (Mukhyamantri Jan Arogya Abhiyan) provides cashless healthcare coverage up to ₹5 Lakh to families not covered under the central Ayushman Bharat scheme.',
+    briefHi: 'मुख्यमंत्री जन आरोग्य अभियान उन परिवारों को ₹5 लाख तक का कैशलेस स्वास्थ्य कवरेज प्रदान करता है जो केंद्रीय आयुष्मान भारत योजना के अंतर्गत नहीं आते हैं।',
+    subServicesEn: ['Scheme Registration', 'Golden Card Generation', 'Beneficiary Check'],
+    subServicesHi: ['योजना पंजीकरण', 'गोल्डन कार्ड जनरेशन', 'लाभार्थी जांच'],
+    documentsEn: ['Aadhaar Card', 'Ration Card', 'Active Mobile Number'],
+    documentsHi: ['आधार कार्ड', 'राशन कार्ड', 'सक्रिय मोबाइल नंबर'],
+    benefitsEn: ["Free medical treatment up to ₹5 Lakhs per family per year","Cashless hospitalisation in empaneled public and private hospitals","Access to expert doctor consultations via telemedicine"],
+    benefitsHi: ["प्रति परिवार प्रति वर्ष ₹5 लाख तक का मुफ्त चिकित्सा उपचार","सूचीबद्ध सार्वजनिक और निजी अस्पतालों में कैशलेस अस्पताल में भर्ती","टेलीमेडिसिन के माध्यम से विशेषज्ञ डॉक्टर के परामर्श तक पहुंच"],
+    eligibilityEn: ["Must be listed in the SECC 2011 database or eligible state lists","Must hold a valid ration card or health card ID","Applicable to economically weaker sections"],
+    eligibilityHi: ["SECC 2011 डेटाबेस या पात्र राज्य सूचियों में सूचीबद्ध होना चाहिए","वैध राशन कार्ड या स्वास्थ्य कार्ड आईडी होना चाहिए","आर्थिक रूप से कमजोर वर्गों पर लागू"]
+  },
+  labourSchemes: {
+    id: 'labourSchemes', icon: '🛠️', nameKey: 'services.labourSchemes', descKey: 'services.labourSchemes.desc',
+    briefEn: 'The Labour Board (BOCW) runs over a dozen welfare schemes exclusively for registered construction workers and labourers, providing them with financial, educational, and medical assistance.',
+    briefHi: 'श्रम बोर्ड (BOCW) विशेष रूप से पंजीकृत निर्माण श्रमिकों और मजदूरों के लिए एक दर्जन से अधिक कल्याणकारी योजनाएं चलाता है, जो उन्हें वित्तीय, शैक्षिक और चिकित्सा सहायता प्रदान करता है।',
+    subServicesEn: ['Maternity, Child, and Girl Child Help (मातृत्व, शिशु एवं बालिका मदद)', 'Sant Ravidas Education Promotion (संत रविदास शिक्षा प्रोत्साहन)', 'Atal Residential School Free Education (अटल आवासीय विद्यालयों में निःशुल्क शिक्षा)', 'Skill Development & Certification (कौशल विकास व प्रमाणन)', 'Daughter Marriage Grant (पुत्री विवाह अनुदान)', 'Toilet Construction Grant (शौचालय अनुदान)', 'Disaster Relief Assistance (राहत सहायता)', 'Mahatma Gandhi Pension (महात्मा गाँधी पेंशन)', 'Serious Illness Assistance (गम्भीर बीमारी सहायता)', 'Death & Disability Assistance (मृत्यु व दिव्यांगता सहायता)', 'Housing Grant (आवास अनुदान)', 'Deendayal Upadhyaya Awareness (चेतना योजना)'],
+    subServicesHi: ['मातृत्व, शिशु एवं बालिका मदद योजना', 'संत रविदास शिक्षा प्रोत्साहन योजना', 'अटल आवासीय विद्यालयों में निःशुल्क शिक्षा', 'कौशल विकास, तकनीकी उन्नयन एवं प्रमाणन योजना', 'पुत्री विवाह हेतु अनुदान', 'शौचालय हेतु अनुदान', 'आपदा राहत सहायता योजना', 'महात्मा गाँधी पेंशन योजना', 'गम्भीर बीमारी सहायता योजना', 'निर्माण कामगार मृत्यु व दिव्यांगता सहायता योजना', 'आवास हेतु अनुदान', 'पं० दीनदयाल उपाध्याय चेतना योजना'],
+    documentsEn: ['Valid Labour Card (Shramik Card)', 'Aadhaar Card', 'Bank Passbook', 'Scheme-specific proof (e.g. Marriage Card, Medical Bill)'],
+    documentsHi: ['वैध श्रमिक कार्ड', 'आधार कार्ड', 'बैंक पासबुक', 'योजना-विशिष्ट प्रमाण (जैसे शादी का कार्ड, मेडिकल बिल)'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
+  },
+  loanRepayment: {
+    id: 'loanRepayment', icon: '💸', nameKey: 'services.loanRepayment', descKey: 'services.loanRepayment.desc',
+    briefEn: 'Conveniently repay your EMIs and loan installments for various microfinance, vehicle, and agricultural loans securely through our digital portal.',
+    briefHi: 'हमारे डिजिटल पोर्टल के माध्यम से विभिन्न माइक्रोफाइनेंस, वाहन और कृषि ऋणों के लिए अपने ईएमआई और ऋण किश्तों का आसानी से भुगतान करें।',
+    subServicesEn: ['Microfinance Loan EMI Payment', 'Vehicle/Tractor Loan Payment', 'Agricultural Loan Deposit'],
+    subServicesHi: ['माइक्रोफाइनेंस ऋण ईएमआई भुगतान', 'वाहन/ट्रैक्टर ऋण भुगतान', 'कृषि ऋण जमा'],
+    documentsEn: ['Loan Account Number', 'Mobile Number'],
+    documentsHi: ['ऋण खाता संख्या', 'मोबाइल नंबर'],
+    benefitsEn: ["Secure and instant money transfers and withdrawals anywhere","Access to low-interest business loans without collateral","Convenient digital banking at your doorstep"],
+    benefitsHi: ["कहीं भी सुरक्षित और तत्काल मनी ट्रांसफर और निकासी","बिना गारंटी के कम ब्याज वाले व्यापार ऋण तक पहुंच","आपके घर पर सुविधाजनक डिजिटल बैंकिंग"],
+    eligibilityEn: ["Must possess a valid Aadhaar card and linked mobile number","Must be 18+ years of age for loan applications","Active bank account required for DBT transfers"],
+    eligibilityHi: ["वैध आधार कार्ड और लिंक किया गया मोबाइल नंबर होना चाहिए","ऋण आवेदनों के लिए आयु 18+ वर्ष होनी चाहिए","DBT ट्रांसफर के लिए सक्रिय बैंक खाता आवश्यक है"]
+  },
+  pvcPrint: {
+    id: 'pvcPrint', icon: '🖨️', nameKey: 'services.pvcPrint', descKey: 'services.pvcPrint.desc',
+    briefEn: 'Get durable, high-quality plastic PVC card prints for essential identity documents like Aadhaar, Voter ID, PAN, and Ayushman Cards printed instantly.',
+    briefHi: 'आधार, वोटर आईडी, पैन और आयुष्मान कार्ड जैसे आवश्यक पहचान दस्तावेजों के लिए तुरंत टिकाऊ, उच्च गुणवत्ता वाले प्लास्टिक पीवीसी कार्ड प्रिंट प्राप्त करें।',
+    subServicesEn: ['Aadhaar PVC Card Print', 'Voter ID PVC Print', 'PAN Card PVC Print', 'Ayushman Golden Card PVC'],
+    subServicesHi: ['आधार पीवीसी कार्ड प्रिंट', 'वोटर आईडी पीवीसी प्रिंट', 'पैन कार्ड पीवीसी प्रिंट', 'आयुष्मान गोल्डन कार्ड पीवीसी'],
+    documentsEn: ['Original PDF file of the document'],
+    documentsHi: ['दस्तावेज़ की मूल पीडीएफ फाइल'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
+  },
+  lamination: {
+    id: 'lamination', icon: '🛡️', nameKey: 'services.lamination', descKey: 'services.lamination.desc',
+    briefEn: 'Protect your valuable certificates, documents, and photos with our premium lamination services to keep them safe from water, dust, and wear and tear.',
+    briefHi: 'अपने बहुमूल्य प्रमाण पत्रों, दस्तावेजों और तस्वीरों को पानी, धूल और टूट-फूट से सुरक्षित रखने के लिए हमारी प्रीमियम लेमिनेशन सेवाओं से सुरक्षित करें।',
+    subServicesEn: ['A4 Size Document Lamination', 'ID Card Size Lamination', 'Certificate Binding & Cover'],
+    subServicesHi: ['A4 आकार के दस्तावेज़ लेमिनेशन', 'आईडी कार्ड आकार लेमिनेशन', 'प्रमाण पत्र बाइंडिंग और कवर'],
+    documentsEn: ['Physical Document to be laminated'],
+    documentsHi: ['लेमिनेट किया जाने वाला भौतिक दस्तावेज़'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
+  },
+  stateRecruitment: {
+    id: 'stateRecruitment', icon: '📝', nameKey: 'services.stateRecruitment', descKey: 'services.stateRecruitment.desc',
+    briefEn: 'We provide expert assistance in filling out online application forms for all state-level recruitment exams conducted by UPSSSC, UPPSC, UPPBPB (Police), and UPBEB.',
+    briefHi: 'हम UPSSSC, UPPSC, UPPBPB (पुलिस) और UPBEB द्वारा आयोजित सभी राज्य-स्तरीय भर्ती परीक्षाओं के लिए ऑनलाइन आवेदन पत्र भरने में विशेषज्ञ सहायता प्रदान करते हैं।',
+    subServicesEn: ['UPSSSC Form Filling', 'UPPSC Application submission', 'UP Police Exam Application', 'Admit Card Download', 'Result Print'],
+    subServicesHi: ['UPSSSC फॉर्म भरना', 'UPPSC आवेदन जमा करना', 'यूपी पुलिस परीक्षा आवेदन', 'एडमिट कार्ड डाउनलोड', 'परिणाम प्रिंट'],
+    documentsEn: ['Aadhaar Card', 'Educational Certificates/Marksheets', 'Passport Size Photo & Signature', 'Caste/Domicile Certificates'],
+    documentsHi: ['आधार कार्ड', 'शैक्षिक प्रमाण पत्र/मार्कशीट', 'पासपोर्ट साइज फोटो और हस्ताक्षर', 'जाति/निवास प्रमाण पत्र'],
+    benefitsEn: ["Financial scholarships to support higher education without burden","Free coaching for competitive exams (UPSC/SSC/State)","Free residential hostel facilities for marginalized students"],
+    benefitsHi: ["बिना किसी बोझ के उच्च शिक्षा का समर्थन करने के लिए वित्तीय छात्रवृत्ति","प्रतियोगी परीक्षाओं (UPSC/SSC/State) के लिए मुफ्त कोचिंग","हाशिए पर रहने वाले छात्रों के लिए मुफ्त आवासीय छात्रावास सुविधाएं"],
+    eligibilityEn: ["Must have passed previous exams with minimum required marks","Family income must be below the scholarship threshold","Must belong to the specified category (SC/ST/OBC/General EWS)"],
+    eligibilityHi: ["पिछली परीक्षाओं को न्यूनतम आवश्यक अंकों के साथ उत्तीर्ण होना चाहिए","पारिवारिक आय छात्रवृत्ति सीमा से नीचे होनी चाहिए","निर्दिष्ट श्रेणी (SC/ST/OBC/General EWS) से संबंधित होना चाहिए"]
+  },
+  oldAgeShelter: {
+    id: 'oldAgeShelter', icon: '🏚️', nameKey: 'services.oldAgeShelter', descKey: 'services.oldAgeShelter.desc',
+    briefEn: 'The Old Age Shelter Home Scheme (Vridhavastha Ashram Grah) provides accommodation, food, and medical care to destitute and abandoned elderly persons.',
+    briefHi: 'वृद्धावस्था आश्रय गृह योजना निराश्रित और परित्यक्त बुजुर्ग व्यक्तियों को आवास, भोजन और चिकित्सा देखभाल प्रदान करती है।',
+    subServicesEn: ['Shelter Home Registration', 'Information Inquiry'],
+    subServicesHi: ['आश्रय गृह पंजीकरण', 'सूचना पूछताछ'],
+    documentsEn: ['Aadhaar Card', 'Age Proof (60+ years)'],
+    documentsHi: ['आधार कार्ड', 'आयु प्रमाण (60+ वर्ष)'],
+    benefitsEn: ["Subsidized food grains and essential commodities","Financial grants for marriage, housing, and emergencies","Social security and insurance coverage for unorganized workers"],
+    benefitsHi: ["रियायती खाद्यान्न और आवश्यक वस्तुएं","विवाह, आवास और आपात स्थिति के लिए वित्तीय अनुदान","असंगठित श्रमिकों के लिए सामाजिक सुरक्षा और बीमा कवरेज"],
+    eligibilityEn: ["Income must fall strictly below the specified limits","Must belong to BPL, SC/ST, or specified vulnerable groups","Must hold valid state residency proof"],
+    eligibilityHi: ["आय निर्दिष्ट सीमा से सख्त रूप से कम होनी चाहिए","BPL, SC/ST या निर्दिष्ट कमजोर समूहों से संबंधित होना चाहिए","वैध राज्य निवास प्रमाण होना चाहिए"]
+  },
+  abhyuday: {
+    id: 'abhyuday', icon: '👨‍🏫', nameKey: 'services.abhyuday', descKey: 'services.abhyuday.desc',
+    briefEn: 'Mukhyamantri Abhyuday Yojana offers free, high-quality coaching to meritorious students preparing for competitive exams like UPSC, UPPSC, NEET, and JEE.',
+    briefHi: 'मुख्यमंत्री अभ्युदय योजना UPSC, UPPSC, NEET और JEE जैसी प्रतियोगी परीक्षाओं की तैयारी कर रहे मेधावी छात्रों को मुफ्त, उच्च गुणवत्ता वाली कोचिंग प्रदान करती है।',
+    subServicesEn: ['Abhyuday Coaching Registration', 'Admit Card for Entrance Exam', 'Result & Selection Check'],
+    subServicesHi: ['अभ्युदय कोचिंग पंजीकरण', 'प्रवेश परीक्षा के लिए एडमिट कार्ड', 'परिणाम और चयन जांच'],
+    documentsEn: ['Aadhaar Card', 'Educational Marksheets', 'Passport Size Photo'],
+    documentsHi: ['आधार कार्ड', 'शैक्षिक मार्कशीट', 'पासपोर्ट साइज फोटो'],
+    benefitsEn: ["Financial scholarships to support higher education without burden","Free coaching for competitive exams (UPSC/SSC/State)","Free residential hostel facilities for marginalized students"],
+    benefitsHi: ["बिना किसी बोझ के उच्च शिक्षा का समर्थन करने के लिए वित्तीय छात्रवृत्ति","प्रतियोगी परीक्षाओं (UPSC/SSC/State) के लिए मुफ्त कोचिंग","हाशिए पर रहने वाले छात्रों के लिए मुफ्त आवासीय छात्रावास सुविधाएं"],
+    eligibilityEn: ["Must have passed previous exams with minimum required marks","Family income must be below the scholarship threshold","Must belong to the specified category (SC/ST/OBC/General EWS)"],
+    eligibilityHi: ["पिछली परीक्षाओं को न्यूनतम आवश्यक अंकों के साथ उत्तीर्ण होना चाहिए","पारिवारिक आय छात्रवृत्ति सीमा से नीचे होनी चाहिए","निर्दिष्ट श्रेणी (SC/ST/OBC/General EWS) से संबंधित होना चाहिए"]
+  },
+  preExamCoaching: {
+    id: 'preExamCoaching', icon: '📚', nameKey: 'services.preExamCoaching', descKey: 'services.preExamCoaching.desc',
+    briefEn: 'Pre-Exam Coaching Center scheme provides targeted preparation and resources for socially and economically weaker sections to help them qualify for central/state jobs.',
+    briefHi: 'परीक्षा पूर्व कोचिंग सेंटर योजना सामाजिक और आर्थिक रूप से कमजोर वर्गों को केंद्रीय/राज्य की नौकरियों के लिए अर्हता प्राप्त करने में मदद करने के लिए लक्षित तैयारी और संसाधन प्रदान करती है।',
+    subServicesEn: ['Coaching Center Admission Form', 'Status Tracking'],
+    subServicesHi: ['कोचिंग सेंटर प्रवेश फॉर्म', 'स्थिति ट्रैकिंग'],
+    documentsEn: ['Aadhaar Card', 'Income Certificate', 'Caste Certificate (if applicable)', 'Marksheets'],
+    documentsHi: ['आधार कार्ड', 'आय प्रमाण पत्र', 'जाति प्रमाण पत्र (यदि लागू हो)', 'मार्कशीट'],
+    benefitsEn: ["Financial scholarships to support higher education without burden","Free coaching for competitive exams (UPSC/SSC/State)","Free residential hostel facilities for marginalized students"],
+    benefitsHi: ["बिना किसी बोझ के उच्च शिक्षा का समर्थन करने के लिए वित्तीय छात्रवृत्ति","प्रतियोगी परीक्षाओं (UPSC/SSC/State) के लिए मुफ्त कोचिंग","हाशिए पर रहने वाले छात्रों के लिए मुफ्त आवासीय छात्रावास सुविधाएं"],
+    eligibilityEn: ["Must have passed previous exams with minimum required marks","Family income must be below the scholarship threshold","Must belong to the specified category (SC/ST/OBC/General EWS)"],
+    eligibilityHi: ["पिछली परीक्षाओं को न्यूनतम आवश्यक अंकों के साथ उत्तीर्ण होना चाहिए","पारिवारिक आय छात्रवृत्ति सीमा से नीचे होनी चाहिए","निर्दिष्ट श्रेणी (SC/ST/OBC/General EWS) से संबंधित होना चाहिए"]
+  },
+  scHostel: {
+    id: 'scHostel', icon: '🏢', nameKey: 'services.scHostel', descKey: 'services.scHostel.desc',
+    briefEn: 'Scheduled Caste (SC) Hostel Scheme provides free residential facilities to SC students studying in higher educational institutions away from their hometowns.',
+    briefHi: 'अनुसूचित जाति (SC) छात्रावास योजना अपने गृह नगर से दूर उच्च शिक्षण संस्थानों में पढ़ने वाले एससी छात्रों को मुफ्त आवासीय सुविधाएं प्रदान करती है।',
+    subServicesEn: ['Hostel Admission Application', 'Renewal Application'],
+    subServicesHi: ['छात्रावास प्रवेश आवेदन', 'नवीनीकरण आवेदन'],
+    documentsEn: ['Aadhaar Card', 'SC Caste Certificate', 'Income Certificate', 'College Admission Proof'],
+    documentsHi: ['आधार कार्ड', 'SC जाति प्रमाण पत्र', 'आय प्रमाण पत्र', 'कॉलेज प्रवेश प्रमाण'],
+    benefitsEn: ["Financial scholarships to support higher education without burden","Free coaching for competitive exams (UPSC/SSC/State)","Free residential hostel facilities for marginalized students"],
+    benefitsHi: ["बिना किसी बोझ के उच्च शिक्षा का समर्थन करने के लिए वित्तीय छात्रवृत्ति","प्रतियोगी परीक्षाओं (UPSC/SSC/State) के लिए मुफ्त कोचिंग","हाशिए पर रहने वाले छात्रों के लिए मुफ्त आवासीय छात्रावास सुविधाएं"],
+    eligibilityEn: ["Must have passed previous exams with minimum required marks","Family income must be below the scholarship threshold","Must belong to the specified category (SC/ST/OBC/General EWS)"],
+    eligibilityHi: ["पिछली परीक्षाओं को न्यूनतम आवश्यक अंकों के साथ उत्तीर्ण होना चाहिए","पारिवारिक आय छात्रवृत्ति सीमा से नीचे होनी चाहिए","निर्दिष्ट श्रेणी (SC/ST/OBC/General EWS) से संबंधित होना चाहिए"]
+  },
+  atrocityAssistance: {
+    id: 'atrocityAssistance', icon: '🛡️', nameKey: 'services.atrocityAssistance', descKey: 'services.atrocityAssistance.desc',
+    briefEn: 'This scheme provides strict legal protection and financial relief assistance to individuals belonging to Scheduled Castes and Scheduled Tribes who have been victims of atrocities.',
+    briefHi: 'यह योजना अत्याचार के शिकार हुए अनुसूचित जाति और अनुसूचित जनजाति के व्यक्तियों को सख्त कानूनी सुरक्षा और वित्तीय राहत सहायता प्रदान करती है।',
+    subServicesEn: ['Relief Claim Application', 'Status Tracking'],
+    subServicesHi: ['राहत दावा आवेदन', 'स्थिति ट्रैकिंग'],
+    documentsEn: ['Aadhaar Card', 'SC/ST Caste Certificate', 'FIR Copy', 'Medical/Charge Sheet (if required)'],
+    documentsHi: ['आधार कार्ड', 'SC/ST जाति प्रमाण पत्र', 'FIR कॉपी', 'मेडिकल/चार्ज शीट (यदि आवश्यक हो)'],
+    benefitsEn: ["Saves time and money through quick digital processing","Ensures high accuracy and compliance with government rules","Delivers essential services directly at your local centre"],
+    benefitsHi: ["त्वरित डिजिटल प्रोसेसिंग के माध्यम से समय और धन की बचत","सरकारी नियमों के साथ उच्च सटीकता और अनुपालन सुनिश्चित करता है","आपके स्थानीय केंद्र पर सीधे आवश्यक सेवाएं प्रदान करता है"],
+    eligibilityEn: ["Available for all eligible citizens possessing valid documents","Specific requirements depend on the exact service requested","Must provide accurate biometric or OTP verification if required"],
+    eligibilityHi: ["वैध दस्तावेज रखने वाले सभी पात्र नागरिकों के लिए उपलब्ध","विशिष्ट आवश्यकताएं अनुरोधित सेवा पर निर्भर करती हैं","आवश्यकता होने पर सटीक बायोमेट्रिक या ओटीपी सत्यापन प्रदान करना होगा"]
+  },
+  scScholarship: {
+    id: 'scScholarship', icon: '🎓', nameKey: 'services.scScholarship', descKey: 'services.scScholarship.desc',
+    briefEn: 'Special national and overseas scholarships are provided to meritorious Scheduled Caste candidates to pursue advanced higher education (Masters/Ph.D.) abroad or in premier Indian institutions.',
+    briefHi: 'मेधावी अनुसूचित जाति के उम्मीदवारों को विदेश में या प्रमुख भारतीय संस्थानों में उन्नत उच्च शिक्षा (स्नातकोत्तर/पीएचडी) प्राप्त करने के लिए विशेष राष्ट्रीय और विदेशी छात्रवृत्ति प्रदान की जाती है।',
+    subServicesEn: ['National Overseas Scholarship Application', 'Top Class Education Scheme Form'],
+    subServicesHi: ['राष्ट्रीय विदेशी छात्रवृत्ति आवेदन', 'शीर्ष श्रेणी शिक्षा योजना फॉर्म'],
+    documentsEn: ['Aadhaar Card', 'SC Caste Certificate', 'Income Certificate', 'University Admission Letter / GRE/TOEFL Scores'],
+    documentsHi: ['आधार कार्ड', 'SC जाति प्रमाण पत्र', 'आय प्रमाण पत्र', 'विश्वविद्यालय प्रवेश पत्र / GRE/TOEFL स्कोर'],
+    benefitsEn: ["Financial scholarships to support higher education without burden","Free coaching for competitive exams (UPSC/SSC/State)","Free residential hostel facilities for marginalized students"],
+    benefitsHi: ["बिना किसी बोझ के उच्च शिक्षा का समर्थन करने के लिए वित्तीय छात्रवृत्ति","प्रतियोगी परीक्षाओं (UPSC/SSC/State) के लिए मुफ्त कोचिंग","हाशिए पर रहने वाले छात्रों के लिए मुफ्त आवासीय छात्रावास सुविधाएं"],
+    eligibilityEn: ["Must have passed previous exams with minimum required marks","Family income must be below the scholarship threshold","Must belong to the specified category (SC/ST/OBC/General EWS)"],
+    eligibilityHi: ["पिछली परीक्षाओं को न्यूनतम आवश्यक अंकों के साथ उत्तीर्ण होना चाहिए","पारिवारिक आय छात्रवृत्ति सीमा से नीचे होनी चाहिए","निर्दिष्ट श्रेणी (SC/ST/OBC/General EWS) से संबंधित होना चाहिए"]
+  },
+  vehicleInsurance: {
+    id: 'vehicleInsurance', icon: '🚗', nameKey: 'services.vehicleInsurance', descKey: 'services.vehicleInsurance.desc',
+    briefEn: 'Get quick and reliable insurance policies for all types of vehicles including 2-wheelers, 4-wheelers, auto-rickshaws, trucks, buses, jeeps, and tractors.',
+    briefHi: '2-पहिया, 4-पहिया, ऑटो-रिक्शा, ट्रक, बस, जीप और ट्रैक्टर सहित सभी प्रकार के वाहनों के लिए त्वरित और विश्वसनीय बीमा पॉलिसी प्राप्त करें।',
+    subServicesEn: ['Two-Wheeler Insurance', 'Car / Jeep Insurance', 'Commercial Vehicle (Truck/Bus) Insurance', 'Tractor Insurance', 'Third-Party & Comprehensive Cover'],
+    subServicesHi: ['दोपहिया वाहन बीमा', 'कार / जीप बीमा', 'वाणिज्यिक वाहन (ट्रक / बस) बीमा', 'ट्रैक्टर बीमा', 'थर्ड-पार्टी और व्यापक कवर'],
+    documentsEn: ['Vehicle RC (Registration Certificate)', 'Previous Year Insurance Policy', 'Aadhaar Card / Owner ID'],
+    documentsHi: ['वाहन RC (पंजीकरण प्रमाण पत्र)', 'पिछले वर्ष की बीमा पॉलिसी', 'आधार कार्ड / मालिक का आईडी'],
+    benefitsEn: ["Legal compliance allowing you to drive or operate vehicles safely","Protection against heavy traffic fines and legal penalties","Financial coverage for accidents and vehicle damages"],
+    benefitsHi: ["वाहन चलाने की कानूनी अनुमति जिससे आप सुरक्षित रह सकें","भारी ट्रैफिक जुर्माने और कानूनी दंड से सुरक्षा","दुर्घटनाओं और वाहन के नुकसान के लिए वित्तीय कवरेज"],
+    eligibilityEn: ["Must hold appropriate age and qualifications for driving","Vehicle must be properly registered with RTO","Valid identity and address proof required"],
+    eligibilityHi: ["ड्राइविंग के लिए उचित आयु और योग्यता होनी चाहिए","वाहन RTO के साथ ठीक से पंजीकृत होना चाहिए","वैध पहचान और पते का प्रमाण आवश्यक है"]
+  },
+  pollutionCertificate: {
+    id: 'pollutionCertificate', icon: '💨', nameKey: 'services.pollutionCertificate', descKey: 'services.pollutionCertificate.desc',
+    briefEn: 'Obtain a valid Pollution Under Control (PUC) certificate for your vehicle to comply with emission norms and avoid traffic fines.',
+    briefHi: 'उत्सर्जन मानदंडों का पालन करने और ट्रैफिक जुर्माने से बचने के लिए अपने वाहन के लिए वैध प्रदूषण नियंत्रण (PUC) प्रमाण पत्र प्राप्त करें।',
+    subServicesEn: ['Petrol Vehicle PUC', 'Diesel Vehicle PUC', 'CNG Vehicle PUC', 'Commercial Vehicle PUC'],
+    subServicesHi: ['पेट्रोल वाहन PUC', 'डीजल वाहन PUC', 'CNG वाहन PUC', 'वाणिज्यिक वाहन PUC'],
+    documentsEn: ['Vehicle RC (Registration Certificate)'],
+    documentsHi: ['वाहन RC (पंजीकरण प्रमाण पत्र)'],
+    benefitsEn: ["Legal compliance allowing you to drive or operate vehicles safely","Protection against heavy traffic fines and legal penalties","Financial coverage for accidents and vehicle damages"],
+    benefitsHi: ["वाहन चलाने की कानूनी अनुमति जिससे आप सुरक्षित रह सकें","भारी ट्रैफिक जुर्माने और कानूनी दंड से सुरक्षा","दुर्घटनाओं और वाहन के नुकसान के लिए वित्तीय कवरेज"],
+    eligibilityEn: ["Must hold appropriate age and qualifications for driving","Vehicle must be properly registered with RTO","Valid identity and address proof required"],
+    eligibilityHi: ["ड्राइविंग के लिए उचित आयु और योग्यता होनी चाहिए","वाहन RTO के साथ ठीक से पंजीकृत होना चाहिए","वैध पहचान और पते का प्रमाण आवश्यक है"]
+  },
+  moneyTransfer: {
+    id: 'moneyTransfer', icon: '💸', nameKey: 'services.moneyTransfer', descKey: 'services.moneyTransfer.desc',
+    briefEn: 'Instantly transfer money to any bank account across India securely through our Domestic Money Transfer (DMT) service.',
+    briefHi: 'हमारी घरेलू धन प्रेषण (DMT) सेवा के माध्यम से पूरे भारत में किसी भी बैंक खाते में तुरंत और सुरक्षित रूप से पैसे ट्रांसफर करें।',
+    subServicesEn: ['NEFT / IMPS Transfer', 'Account to Account Transfer', 'Wallet Top-up'],
+    subServicesHi: ['NEFT / IMPS ट्रांसफर', 'खाते से खाते में ट्रांसफर', 'वॉलेट टॉप-अप'],
+    documentsEn: ['Sender Mobile Number', 'Beneficiary Bank Account Details', 'Cash Amount'],
+    documentsHi: ['प्रेषक का मोबाइल नंबर', 'लाभार्थी बैंक खाता विवरण', 'नकद राशि'],
+    benefitsEn: ["Secure and instant money transfers and withdrawals anywhere","Access to low-interest business loans without collateral","Convenient digital banking at your doorstep"],
+    benefitsHi: ["कहीं भी सुरक्षित और तत्काल मनी ट्रांसफर और निकासी","बिना गारंटी के कम ब्याज वाले व्यापार ऋण तक पहुंच","आपके घर पर सुविधाजनक डिजिटल बैंकिंग"],
+    eligibilityEn: ["Must possess a valid Aadhaar card and linked mobile number","Must be 18+ years of age for loan applications","Active bank account required for DBT transfers"],
+    eligibilityHi: ["वैध आधार कार्ड और लिंक किया गया मोबाइल नंबर होना चाहिए","ऋण आवेदनों के लिए आयु 18+ वर्ष होनी चाहिए","DBT ट्रांसफर के लिए सक्रिय बैंक खाता आवश्यक है"]
+  },
+  cashWithdrawal: {
+    id: 'cashWithdrawal', icon: '🏧', nameKey: 'services.cashWithdrawal', descKey: 'services.cashWithdrawal.desc',
+    briefEn: 'Withdraw cash directly from your Aadhaar-linked bank account without using a debit card through our secure Aadhaar Enabled Payment System (AePS).',
+    briefHi: 'हमारे सुरक्षित आधार सक्षम भुगतान प्रणाली (AePS) के माध्यम से डेबिट कार्ड का उपयोग किए बिना सीधे अपने आधार-लिंक्ड बैंक खाते से नकद निकालें।',
+    subServicesEn: ['Aadhaar Cash Withdrawal', 'Balance Enquiry', 'Mini Statement'],
+    subServicesHi: ['आधार नकद निकासी', 'बैलेंस पूछताछ', 'मिनी स्टेटमेंट'],
+    documentsEn: ['Aadhaar Card Number', 'Linked Bank Name', 'Biometric Authentication (Fingerprint)'],
+    documentsHi: ['आधार कार्ड नंबर', 'लिंक्ड बैंक का नाम', 'बायोमेट्रिक प्रमाणीकरण (फिंगरप्रिंट)'],
+    benefitsEn: ["Secure and instant money transfers and withdrawals anywhere","Access to low-interest business loans without collateral","Convenient digital banking at your doorstep"],
+    benefitsHi: ["कहीं भी सुरक्षित और तत्काल मनी ट्रांसफर और निकासी","बिना गारंटी के कम ब्याज वाले व्यापार ऋण तक पहुंच","आपके घर पर सुविधाजनक डिजिटल बैंकिंग"],
+    eligibilityEn: ["Must possess a valid Aadhaar card and linked mobile number","Must be 18+ years of age for loan applications","Active bank account required for DBT transfers"],
+    eligibilityHi: ["वैध आधार कार्ड और लिंक किया गया मोबाइल नंबर होना चाहिए","ऋण आवेदनों के लिए आयु 18+ वर्ष होनी चाहिए","DBT ट्रांसफर के लिए सक्रिय बैंक खाता आवश्यक है"]
   }
 };

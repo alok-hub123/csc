@@ -51,12 +51,15 @@ export default function ServiceDetailPage() {
   const docs = lang === 'hi' ? service.documentsHi : service.documentsEn;
   const brief = lang === 'hi' ? service.briefHi : service.briefEn;
   const subServices = lang === 'hi' ? service.subServicesHi : service.subServicesEn;
+  const benefits = lang === 'hi' ? service.benefitsHi : service.benefitsEn;
+  const eligibility = lang === 'hi' ? service.eligibilityHi : service.eligibilityEn;
+  const availableAtCenter = service.availableAtCenter !== false;
 
   return (
     <PageTransition>
       <SEO title={t(service.nameKey)} description={t(service.descKey)} />
 
-      <div className="min-h-screen bg-[#FFFDF5] relative overflow-x-hidden pt-[124px] pb-24 z-10">
+      <div className="min-h-screen bg-[#FFFDF5] relative pt-[124px] pb-24 z-10">
 
         <section className="px-4 max-w-6xl mx-auto relative z-10">
 
@@ -92,14 +95,54 @@ export default function ServiceDetailPage() {
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-6">
             {/* Left Column */}
             <div className="space-y-6">
-              
+
               {/* Brief Description */}
               <div className="bg-white border-2 border-black rounded-xl p-8 md:p-10 group" style={{ boxShadow: '4px 4px 0px 0px #000' }}>
                 <h2 className="text-lg font-black text-black mb-4 flex items-center gap-3">
                   <span className="w-2 h-6 bg-[#FF6B00] rounded-sm block border border-black" />
-                  {lang === 'hi' ? 'विवरण' : 'About this Service'}
+                  {lang === 'hi' ? 'योजना के विषय में संक्षिप्त' : 'About this Service'}
                 </h2>
                 <p className="text-[14px] text-black/60 leading-[1.8] font-bold">{brief}</p>
+              </div>
+
+              {/* Benefits */}
+              <div className="bg-white border-2 border-black rounded-xl p-8 md:p-10 group" style={{ boxShadow: '4px 4px 0px 0px #000' }}>
+                <h2 className="text-lg font-black text-black mb-6 flex items-center gap-3">
+                  <span className="w-2 h-6 bg-[#FF6B00] rounded-sm block border border-black" />
+                  {lang === 'hi' ? 'लाभ' : 'Benefits'}
+                </h2>
+                {benefits && benefits.length > 0 ? (
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    {benefits.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 bg-[#FFFDF5] border-2 border-black p-4 rounded-xl hover:-translate-y-0.5 hover:-translate-x-0.5 transition-all duration-200" style={{ boxShadow: '2px 2px 0px 0px #000' }}>
+                        <span className="text-[#FF6B00] shrink-0 mt-0.5 text-lg leading-none">✦</span>
+                        <span className="text-[13.5px] font-bold text-black/70 leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-[14px] text-black/40 font-bold italic">{lang === 'hi' ? 'विवरण उपलब्ध नहीं है' : 'Details not available'}</p>
+                )}
+              </div>
+
+              {/* Eligibility */}
+              <div className="bg-white border-2 border-black rounded-xl p-8 md:p-10 group" style={{ boxShadow: '4px 4px 0px 0px #000' }}>
+                <h2 className="text-lg font-black text-black mb-6 flex items-center gap-3">
+                  <span className="w-2 h-6 bg-[#FF6B00] rounded-sm block border border-black" />
+                  {lang === 'hi' ? 'पात्रता' : 'Eligibility'}
+                </h2>
+                {eligibility && eligibility.length > 0 ? (
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                    {eligibility.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-3 bg-[#FFFDF5] border-2 border-black p-4 rounded-xl hover:-translate-y-0.5 hover:-translate-x-0.5 transition-all duration-200" style={{ boxShadow: '2px 2px 0px 0px #000' }}>
+                        <span className="text-[#FF6B00] shrink-0 mt-0.5 text-lg leading-none">✔</span>
+                        <span className="text-[13.5px] font-bold text-black/70 leading-snug">{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-[14px] text-black/40 font-bold italic">{lang === 'hi' ? 'विवरण उपलब्ध नहीं है' : 'Details not available'}</p>
+                )}
               </div>
 
               {/* Sub Services */}
@@ -143,8 +186,8 @@ export default function ServiceDetailPage() {
 
             {/* Right Sidebar — Brutalist CTA Card */}
             <div className="space-y-6">
-              <div className="bg-white border-2 border-black rounded-xl p-7 sticky top-[140px]" style={{ boxShadow: '4px 4px 0px 0px #000' }}>
-                
+              <div className="bg-white border-2 border-black rounded-xl p-7 sticky top-[116px]" style={{ boxShadow: '4px 4px 0px 0px #000' }}>
+
                 <h3 className="text-[15px] font-black text-black mb-1.5">
 
                   {lang === 'hi' ? 'इस सेवा के लिए आवेदन करें' : 'Apply for this Service'}
@@ -164,11 +207,11 @@ export default function ServiceDetailPage() {
                   </button>
 
                   <a
-                     href="https://wa.me/917233060698"
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     className="w-full py-3.5 px-6 bg-[#D1FAE5] text-black font-black rounded-xl border-2 border-black hover:bg-[#25D366] hover:text-white hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer text-xs uppercase tracking-wider"
-                     style={{ boxShadow: '3px 3px 0px 0px #000' }}
+                    href="https://wa.me/917233060698"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-3.5 px-6 bg-[#D1FAE5] text-black font-black rounded-xl border-2 border-black hover:bg-[#25D366] hover:text-white hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer text-xs uppercase tracking-wider"
+                    style={{ boxShadow: '3px 3px 0px 0px #000' }}
                   >
                     <WhatsAppIcon size={12} className="stroke-[2.5]" />
                     WhatsApp
@@ -186,9 +229,20 @@ export default function ServiceDetailPage() {
 
                 {/* Info Badge */}
                 <div className="mt-6 bg-[#FFF3E0] border-2 border-black rounded-xl p-4" style={{ boxShadow: '2px 2px 0px 0px #000' }}>
-                  <div className="flex items-center gap-3 text-[10px] text-black font-black tracking-wide uppercase leading-tight">
-                    <GovtIcon size={14} className="text-[#FF6B00] shrink-0" />
-                    <span>{lang === 'hi' ? 'अधिकृत CSC केंद्र' : 'Authorized CSC Centre'}</span>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex items-center gap-3 text-[10px] text-black font-black tracking-wide uppercase leading-tight">
+                      <GovtIcon size={14} className="text-[#FF6B00] shrink-0" />
+                      <span>{lang === 'hi' ? 'अधिकृत CSC केंद्र' : 'Authorized CSC Centre'}</span>
+                    </div>
+                    <div className="h-px w-full bg-black/10" />
+                    <div className="flex items-center justify-between">
+                      <span className="text-[11px] font-black uppercase text-black/60">
+                        {lang === 'hi' ? 'सेवा केन्द्र पर सेवा उपलब्ध' : 'Available at Centre'}
+                      </span>
+                      <span className={`text-[12px] font-black px-2.5 py-1 rounded-lg border-2 border-black ${availableAtCenter ? 'bg-[#D1FAE5] text-black' : 'bg-[#FF6B00] text-white'}`} style={{ boxShadow: '2px 2px 0px 0px #000' }}>
+                        {availableAtCenter ? (lang === 'hi' ? 'हाँ' : 'YES') : (lang === 'hi' ? 'नहीं' : 'NO')}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>

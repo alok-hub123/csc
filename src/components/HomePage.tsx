@@ -23,10 +23,9 @@ import {
 
 // ─── Team Slider (Aimers Faculty-style) ────────────────────────
 const teamMembers = [
-  { name: 'Avesh Kumar', role: 'VLE & Centre Head', experience: '5+ yrs', bg: 'bg-[#FFF3E0]', accent: '#FF6B00' },
-  { name: 'Sita Devi', role: 'Aadhaar Operator', experience: '3+ yrs', bg: 'bg-[#DBEAFE]', accent: '#3B82F6' },
-  { name: 'Rahul Singh', role: 'Banking Correspondent', experience: '2+ yrs', bg: 'bg-[#D1FAE5]', accent: '#10B981' },
-  { name: 'Pooja Sharma', role: 'Customer Support', experience: '2+ yrs', bg: 'bg-[#E8E0FF]', accent: '#8B5CF6' },
+  { name: 'Avesh Kumar', roleKey: 'team.role.avesh', mob: '+91 7233060698', experience: '5+ yrs', bg: 'bg-[#FFF3E0]', accent: '#FF6B00' },
+  { name: 'Deepak Kumar', roleKey: 'team.role.deepak', mob: '+91 9793171283', experience: '3+ yrs', bg: 'bg-[#DBEAFE]', accent: '#3B82F6' },
+  { name: 'Shahzad Ahmad', roleKey: 'team.role.shahzad', mob: '+91 9956218367', experience: '2+ yrs', bg: 'bg-[#D1FAE5]', accent: '#10B981' },
 ];
 
 const CARD_WIDTH = 280;
@@ -40,7 +39,7 @@ function getVisibleCards(): number {
   return 2;
 }
 
-function TeamSlider({ t, navigate }: { t: (key: string) => string; navigate: ReturnType<typeof useNavigate> }) {
+function TeamSlider({ t }: { t: (key: string) => string }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [visibleCards, setVisibleCards] = useState(getVisibleCards());
 
@@ -80,9 +79,8 @@ function TeamSlider({ t, navigate }: { t: (key: string) => string; navigate: Ret
               <button
                 onClick={handlePrev}
                 disabled={currentIndex === 0}
-                className={`w-14 h-14 rounded-xl border-2 border-black flex items-center justify-center transition-all duration-200 cursor-pointer ${
-                  currentIndex === 0 ? 'bg-[#FFFDF5] opacity-40 cursor-not-allowed' : 'bg-white hover:-translate-x-0.5 hover:-translate-y-0.5'
-                }`}
+                className={`w-14 h-14 rounded-xl border-2 border-black flex items-center justify-center transition-all duration-200 cursor-pointer ${currentIndex === 0 ? 'bg-[#FFFDF5] opacity-40 cursor-not-allowed' : 'bg-white hover:-translate-x-0.5 hover:-translate-y-0.5'
+                  }`}
                 style={currentIndex === 0 ? {} : { boxShadow: '3px 3px 0px 0px #000' }}
                 aria-label="Previous team member"
               >
@@ -93,9 +91,8 @@ function TeamSlider({ t, navigate }: { t: (key: string) => string; navigate: Ret
               <button
                 onClick={handleNext}
                 disabled={currentIndex === maxIndex}
-                className={`w-14 h-14 rounded-xl border-2 border-black flex items-center justify-center transition-all duration-200 cursor-pointer ${
-                  currentIndex === maxIndex ? 'bg-[#FFFDF5] opacity-40 cursor-not-allowed' : 'bg-[#FFF3E0] hover:-translate-x-0.5 hover:-translate-y-0.5'
-                }`}
+                className={`w-14 h-14 rounded-xl border-2 border-black flex items-center justify-center transition-all duration-200 cursor-pointer ${currentIndex === maxIndex ? 'bg-[#FFFDF5] opacity-40 cursor-not-allowed' : 'bg-[#FFF3E0] hover:-translate-x-0.5 hover:-translate-y-0.5'
+                  }`}
                 style={currentIndex === maxIndex ? {} : { boxShadow: '3px 3px 0px 0px #000' }}
                 aria-label="Next team member"
               >
@@ -162,7 +159,7 @@ function TeamSlider({ t, navigate }: { t: (key: string) => string; navigate: Ret
                   <div className="p-6">
                     <h3 className="text-lg font-black text-black mb-1">{emp.name}</h3>
                     <p className="font-black text-sm uppercase tracking-wider mb-1" style={{ color: emp.accent }}>
-                      {emp.role}
+                      {t(emp.roleKey)}
                     </p>
                   </div>
 
@@ -170,28 +167,16 @@ function TeamSlider({ t, navigate }: { t: (key: string) => string; navigate: Ret
                   <div className="h-[2px] bg-black mx-6" />
 
                   {/* CTA */}
-                  <div className="p-5 flex gap-3">
-                    <button
-                      onClick={() => navigate('/contact')}
-                      className="flex-1 py-3 rounded-xl border-2 border-black bg-[#FFF3E0] text-black font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 hover:bg-black hover:text-white"
+                  <div className="p-5">
+                    <a
+                      href={`tel:${emp.mob.replace(/[^0-9+]/g, '')}`}
+                      className="w-full py-3 rounded-xl border-2 border-black bg-[#FFF3E0] text-black font-black text-xs tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 hover:bg-black hover:text-white"
                       style={{ boxShadow: '2px 2px 0px 0px #000' }}
                     >
                       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
                       </svg>
-                      Contact
-                    </button>
-                    <a
-                      href="https://wa.me/917233060698"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 py-3 rounded-xl border-2 border-black bg-white text-black font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer transition-all duration-200 hover:bg-[#25D366] hover:text-white"
-                      style={{ boxShadow: '2px 2px 0px 0px #000' }}
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
-                      </svg>
-                      Chat
+                      {emp.mob}
                     </a>
                   </div>
                 </div>
@@ -214,7 +199,6 @@ export default function HomePage() {
     '/images/carousel-1.jpeg',
     '/images/carousel-2.jpeg',
     '/images/carousel-3.jpeg',
-    '/images/carousel-4.jpeg',
   ];
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -319,7 +303,7 @@ export default function HomePage() {
       </section>
 
       {/* Stats */}
-      <div className="relative z-20 my-8 md:my-12">
+      <div className="relative z-20 pt-24">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
             {[
@@ -458,7 +442,7 @@ export default function HomePage() {
       </section>
 
       {/* Team Section — Aimers Faculty Style Slider */}
-      <TeamSlider t={t} navigate={navigate} />
+      <TeamSlider t={t} />
 
       {/* Call to Action — Dark CTA Block */}
       <section className="py-24 px-4 relative overflow-hidden bg-black">

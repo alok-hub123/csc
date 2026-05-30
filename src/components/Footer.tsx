@@ -12,8 +12,8 @@ export default function Footer() {
         {/* Brand column */}
         <div className="footer-brand">
           <div className="flex items-center gap-3 mb-5">
-            <div className="w-11 h-11 rounded-xl flex items-center justify-center font-black text-[14px] text-white bg-[#FF6B00] border-2 border-white" style={{ boxShadow: '3px 3px 0px 0px #fff' }}>
-              CSC
+            <div className="w-11 h-11 rounded-xl overflow-hidden border-2 border-white bg-white flex items-center justify-center shrink-0" style={{ boxShadow: '3px 3px 0px 0px #fff' }}>
+              <img src="/images/logo.png" alt="CSC Logo" className="w-full h-full object-cover p-1" />
             </div>
             <div>
               <h1 className="text-lg font-black leading-tight tracking-tight">
@@ -53,10 +53,10 @@ export default function Footer() {
           <ul className="list-none space-y-3.5">
             {[
               { label: t('services.all') },
-              { label: t('services.govt') },
-              { label: t('services.financial') },
-              { label: t('services.utility') },
-              { label: t('services.health') }
+              { label: t('services.central') },
+              { label: t('services.state') },
+              { label: t('services.private') },
+              { label: t('services.other') }
             ].map((cat, idx) => (
               <li key={idx}>
                 <Link to="/services" className="cursor-pointer text-white/50 text-[13.5px] font-black transition-all duration-200 hover:text-[#FF6B00] hover:pl-2 block">
